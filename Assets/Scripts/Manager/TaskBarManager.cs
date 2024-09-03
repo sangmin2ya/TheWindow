@@ -35,7 +35,7 @@ public class TaskBarManager : MonoBehaviour
     {
         foreach (IIcon icon in _icons)
         {
-            Debug.Log(icon);
+            
         }
     }
     public void ClearAllIcons()
