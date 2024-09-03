@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class WindowManager : MonoBehaviour
 {
@@ -21,18 +22,25 @@ public class WindowManager : MonoBehaviour
     public int WindowCount { get { return _windows.Count; } }
     public void OpenWindow(IWindow window)
     {
-        window.Open();
-        _windows.Insert(0, window); //add to the front of the list
-        UpdateLayers();
+        foreach (IWindow w in _windows)
+        {
+            if (w.windowType == window.windowType)
+            {
+                FocusWindow(w);
+                //하단 아이콘 포커스 효과
+                Debug.Log("Window already opened");
+                return;
+            }
+        }
+        var newWindow = Instantiate(window as MonoBehaviour, GameObject.Find("Canvas").transform);
+        _windows.Insert(0, newWindow.GetComponent<IWindow>()); //add to the front of the list
     }
-
     public void CloseWindow(IWindow window)
     {
         if (_windows.Contains(window))
         {
-            window.Close();
             _windows.Remove(window);
-            UpdateLayers();
+            window.Close();
         }
     }
     /// <summary>
@@ -44,7 +52,7 @@ public class WindowManager : MonoBehaviour
         {
             _windows.Remove(window);
             _windows.Insert(0, window);
-            UpdateLayers();
+            window.Focus();
         }
     }
     public void CloseAllWindows()
@@ -55,14 +63,6 @@ public class WindowManager : MonoBehaviour
         }
         _windows.Clear();
     }
-    private void UpdateLayers()
-    {
-        for (int i = 0; i < _windows.Count; i++)
-        {
-            _windows[i].SetLayer(i);
-        }
-    }
-
     public IWindow GetWindow(int index)
     {
         if (index >= 0 && index < _windows.Count)

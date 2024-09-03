@@ -2,8 +2,20 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class Window : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
+public class Window : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler, IWindow
 {
+    // IWindow 인터페이스의 속성 구현
+    public WindowType windowType
+    {
+        get { return _windowType; }
+        set { _windowType = value; }
+    }
+    public WindowState windowState
+    {
+        get { return _windowState; }
+        set { _windowState = value; }
+    }
+    public IIcon icon { get; set; } // 창과 연결된 아이콘
     private Vector2 originalSize;
     private Vector2 originalPosition;
     private Vector2 preMaximizedSize;
@@ -11,25 +23,29 @@ public class Window : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDr
     private bool isMinimized = false;
     private bool isMaximized = false;
 
-    public Button taskbarIcon; // 작업 표시줄 아이콘
-    public Button desktopIcon; // 바탕화면 아이콘
-    public Button maximizeIcon; // 최대화 아이콘
+    // Inspector에 노출될 백업 필드
+    [SerializeField] private WindowType _windowType;  // 창 타입
+    [SerializeField] private WindowState _windowState;  // 창 상태
+    public Button _icon; // 닫기 버튼
+    public Button _maximizeIcon; // 최대화 아이콘
 
     private Vector2 lastMousePosition;
+    private GameObject _taskbarIcon;
     private bool isDragging = false;
     private float draggableHeight = 450f; // 드래그 가능한 상단 영역의 높이
 
-    private void Start()
+    void Start()
     {
-        // 바탕화면 아이콘의 클릭 이벤트 설정
-        desktopIcon.onClick.AddListener(OnDesktopIconClick);
-        // 작업 표시줄 아이콘의 클릭 이벤트 설정
-        taskbarIcon.onClick.AddListener(OnTaskbarIconClick);
+        windowType = _windowType;
+        icon = _icon.GetComponent<IIcon>();
+        windowState = WindowState.Open;
+        _taskbarIcon = Instantiate(_icon as MonoBehaviour, GameObject.Find("TaskCanvas").transform).gameObject;
+        _taskbarIcon.GetComponent<DesktopIcon>().window = gameObject;
     }
-
     // 창 이동 시작 시 호출
     public void OnPointerDown(PointerEventData eventData)
     {
+        Focus();
         RectTransform rectTransform = GetComponent<RectTransform>();
         Vector2 localMousePosition = rectTransform.InverseTransformPoint(eventData.position);
 
@@ -44,7 +60,6 @@ public class Window : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDr
             }
         }
     }
-
     // 창 이동 중 호출
     public void OnDrag(PointerEventData eventData)
     {
@@ -77,7 +92,6 @@ public class Window : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDr
 
             // 창을 비활성화하고 작업 표시줄 아이콘만 남김
             gameObject.SetActive(false);
-            taskbarIcon.gameObject.SetActive(true);
             isMinimized = true;
         }
     }
@@ -106,7 +120,15 @@ public class Window : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDr
             isMinimized = false;
         }
     }
-
+    public void Focus()
+    {
+        // 창을 최상위로 올려 포커스
+        if (isMinimized)
+        {
+            Restore();
+        }
+        transform.SetAsLastSibling();
+    }
     // 창 최대화 기능
     public void ToggleMaximize()
     {
@@ -134,37 +156,20 @@ public class Window : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDr
     // 창 닫기 및 열기 기능
     public void Close()
     {
-        // 창과 작업 표시줄 아이콘을 비활성화, 바탕화면 아이콘은 유지
-        gameObject.SetActive(false);
-        taskbarIcon.gameObject.SetActive(false);
-        isMinimized = false;
-        isMaximized = false;
+        _taskbarIcon.GetComponent<IIcon>().Close();
+        Destroy(gameObject);
     }
-
+    public void OnCloseButtonClick()
+    {
+        WindowManager.Instance.CloseWindow(this);
+    }
     public void Open()
     {
         gameObject.SetActive(true);
-        taskbarIcon.gameObject.SetActive(true);
+        Focus();
     }
-
-    // 바탕화면 아이콘 클릭 시 호출
-    private void OnDesktopIconClick()
-    {
-        if (isMinimized)
-        {
-            // 창이 최소화된 상태라면 복원
-            Restore();
-        }
-        else if (!gameObject.activeSelf)
-        {
-            // 창이 닫혀있는 상태라면 새 창을 열기
-            ResetWindow();
-            Open();
-        }
-    }
-
     // 작업 표시줄 아이콘 클릭 시 호출
-    private void OnTaskbarIconClick()
+    public void OnTaskbarIconClick()
     {
         if (!isMinimized && gameObject.activeSelf)
         {
@@ -178,7 +183,7 @@ public class Window : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDr
     }
 
     // 창을 초기화된 상태로 리셋
-    private void ResetWindow()
+    public void ResetWindow()
     {
         // 창의 크기와 위치를 초기화된 상태로 리셋
         GetComponent<RectTransform>().sizeDelta = new Vector2(945, 774); // 기본 크기
