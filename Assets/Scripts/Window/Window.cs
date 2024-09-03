@@ -125,7 +125,7 @@ public class Window : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDr
         else
         {
             // 창이 최대화된 상태라면 기본 크기와 위치로 복원
-            GetComponent<RectTransform>().sizeDelta = new Vector2(600, 400); // 기본 크기
+            GetComponent<RectTransform>().sizeDelta = new Vector2(945, 774); // 기본 크기
             GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0); // 기본 위치 (화면 중앙)
             isMaximized = false;
         }
@@ -181,7 +181,7 @@ public class Window : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDr
     private void ResetWindow()
     {
         // 창의 크기와 위치를 초기화된 상태로 리셋
-        GetComponent<RectTransform>().sizeDelta = new Vector2(600, 400); // 기본 크기
+        GetComponent<RectTransform>().sizeDelta = new Vector2(945, 774); // 기본 크기
         GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0); // 기본 위치 (중앙으로 설정 가능)
         isMinimized = false;
         isMaximized = false;
