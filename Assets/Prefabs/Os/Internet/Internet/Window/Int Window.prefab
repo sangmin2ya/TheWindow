@@ -370,15 +370,11 @@ MonoBehaviour:
   - "\uC874 \uC5D0\uB9AC\uB4DC"
   - "\uAC15\uC218\uD76C"
   - "\uBE14\uB8E8 \uCE74\uD398"
-  - "\uC2E0\uC758 \uACC4\uC2DC"
-  - "\uBD88\uAF43 \uB9C8\uBC95"
   keywordWindows:
   - {fileID: 8969794416490021241, guid: 5bfb71e3cf8ca2b4695cbc1985c97b82, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8969794416490021241, guid: af098c4ab3807c846a47f445626a2ecd, type: 3}
+  - {fileID: 8969794416490021241, guid: 2f999fde23adae141b685fd3f923b801, type: 3}
+  - {fileID: 8969794416490021241, guid: cb48955b04bb9624a829d4f3c0e10219, type: 3}
   - {fileID: 0}
 --- !u!1 &2022642228300627738
 GameObject:
