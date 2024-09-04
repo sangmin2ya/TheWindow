@@ -255,7 +255,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 557997789042238413}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5933531813807132391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,4 +283,4 @@ MonoBehaviour:
   nestedFilePrefabs:
   - {fileID: 7252031198833296012, guid: b57501e8ff3cedb4ba588f5c0137e332, type: 3}
   - {fileID: 7252031198833296012, guid: 8cf824685fad1184991fabadc424b219, type: 3}
-  - {fileID: 7252031198833296012, guid: 8acc66145ebd2894596d53d3c622a14e, type: 3}
+  - {fileID: 7252031198833296012, guid: 32c37a3f7e42b4b459bf43e1068fa157, type: 3}
