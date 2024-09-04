@@ -888,7 +888,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _windowType: 2
   _windowState: 0
-  _icon: {fileID: 7354364649582546957, guid: a910350aecd2cb844a3b7c32145af398, type: 3}
+  _icon: {fileID: 7354364649582546957, guid: 947c1dd014585d94d93ac1880ac782fa, type: 3}
   _maximizeIcon: {fileID: 5185075279563270518}
 --- !u!1 &4678761793942181486
 GameObject:
@@ -1671,8 +1671,8 @@ MonoBehaviour:
   - "\uD30C\uC774\uC5B4"
   passwordPromptPrefab: {fileID: 5354495910418827007, guid: 7a5b4d7e284c98844b39ac9663c7ce86, type: 3}
   initialFilePrefabs:
-  - {fileID: 4673660687045713337, guid: 95f8a4a723a8ad74395e5cf8131deb60, type: 3}
-  - {fileID: 7252031198833296012, guid: 37f11917f04b0d144a036b9878bdc41f, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
   pathText: {fileID: 6598963088181670848}
   fileGrid: {fileID: 2258478172402656229}
   fileButtonPrefab: {fileID: 7252031198833296012, guid: e21a78ce4b96ca24fbcb6988aeb7ec3c, type: 3}
