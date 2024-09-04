@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class Window : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler, IWindow
+public class SettingWindow : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler, IWindow
 {
     // IWindow 인터페이스의 속성 구현
     public WindowType windowType
@@ -41,6 +41,11 @@ public class Window : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDr
         windowState = WindowState.Open;
         _taskbarIcon = Instantiate(_icon as MonoBehaviour, GameObject.Find("TaskCanvas").transform).gameObject;
         _taskbarIcon.GetComponent<TaskBarIcon>().window = gameObject;
+
+        transform.Find("Visibility/Toggle").GetComponent<Toggle>().onValueChanged.AddListener((value) =>
+        {
+            SettingManager.Instance.SetVisibility(value);
+        });
     }
     // 창 이동 시작 시 호출
     public void OnPointerDown(PointerEventData eventData)

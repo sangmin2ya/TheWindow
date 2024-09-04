@@ -626,7 +626,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc6315e4ced25dd4cbd1ba935037e4f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _windowType: 2
+  _windowType: 1
+  _windowState: 0
   _icon: {fileID: 7354364649582546957, guid: 8971fc0383998da43988d530bd43b854, type: 3}
   _maximizeIcon: {fileID: 5185075279563270518}
 --- !u!1 &4678761793942181486

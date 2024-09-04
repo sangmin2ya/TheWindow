@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 5963585157290602284}
   - component: {fileID: 4277761722036536564}
   - component: {fileID: 7354364649582546957}
-  - component: {fileID: 2004867984402113379}
+  - component: {fileID: 4211869572918882000}
   m_Layer: 5
   m_Name: TaskbarIcon Btn
   m_TagString: Untagged
@@ -245,8 +245,8 @@ RectTransform:
   - {fileID: 8828252633668229878}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -769.3684, y: -543.2069}
   m_SizeDelta: {x: 78.5424, y: 74.9662}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -332,8 +332,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2004867984402113379}
-        m_TargetAssemblyTypeName: DesktopIcon, Assembly-CSharp
+      - m_Target: {fileID: 4211869572918882000}
+        m_TargetAssemblyTypeName: TaskBarIcon, Assembly-CSharp
         m_MethodName: OnIconClick
         m_Mode: 1
         m_Arguments:
@@ -344,7 +344,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2004867984402113379
+--- !u!114 &4211869572918882000
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -353,7 +353,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8838347080478881155}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b035a7bcc949e14e9c4d65386d8b087, type: 3}
+  m_Script: {fileID: 11500000, guid: a84113c7fd2a39a4493952c821bae2d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   window: {fileID: 0}

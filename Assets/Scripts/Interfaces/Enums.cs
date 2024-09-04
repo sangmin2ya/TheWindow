@@ -6,3 +6,7 @@ public enum WindowState
 {
     Open, Close, Minimize, Maximize
 }
+public enum IconVisibleType
+{
+    Normal, Hidden
+}
