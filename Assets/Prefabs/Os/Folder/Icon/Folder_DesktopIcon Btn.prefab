@@ -281,4 +281,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   window: {fileID: 4222780797678314821, guid: c931e3de2794a1545b8f47d52f4776fc, type: 3}
-  iconType: 0
+  iconType: 1

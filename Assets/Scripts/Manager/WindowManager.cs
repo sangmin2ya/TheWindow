@@ -13,7 +13,6 @@ public class WindowManager : MonoBehaviour
             {
                 GameObject windowManagerObject = new GameObject("WindowManager");
                 _instance = windowManagerObject.AddComponent<WindowManager>();
-                DontDestroyOnLoad(windowManagerObject);
             }
             return _instance;
         }
