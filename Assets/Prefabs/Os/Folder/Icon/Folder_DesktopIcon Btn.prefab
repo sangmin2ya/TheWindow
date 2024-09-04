@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: FILE
+  m_text: FOLDER
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 178da3fb1aa1edd46ab3f828c085447b, type: 2}
   m_sharedMaterial: {fileID: 1558166430749476401, guid: 178da3fb1aa1edd46ab3f828c085447b, type: 2}
@@ -146,9 +146,9 @@ GameObject:
   - component: {fileID: 3255493828185651048}
   - component: {fileID: 557997789042238413}
   - component: {fileID: 2453827696878902356}
-  - component: {fileID: 5933531813807132391}
+  - component: {fileID: 3750202602007352923}
   m_Layer: 5
-  m_Name: File
+  m_Name: Folder_DesktopIcon Btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -255,8 +255,20 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 557997789042238413}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
---- !u!114 &5933531813807132391
+      m_Calls:
+      - m_Target: {fileID: 3750202602007352923}
+        m_TargetAssemblyTypeName: DesktopIcon, Assembly-CSharp
+        m_MethodName: OnIconClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3750202602007352923
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -265,9 +277,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 7252031198833296012}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6a812c51de0c544eb70ea40d945b704, type: 3}
+  m_Script: {fileID: 11500000, guid: 2b035a7bcc949e14e9c4d65386d8b087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nestedFilePrefabs:
-  - {fileID: 7252031198833296012, guid: b57501e8ff3cedb4ba588f5c0137e332, type: 3}
-  - {fileID: 7252031198833296012, guid: 8cf824685fad1184991fabadc424b219, type: 3}
+  window: {fileID: 4222780797678314821, guid: c931e3de2794a1545b8f47d52f4776fc, type: 3}
+  iconType: 0

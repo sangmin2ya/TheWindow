@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 2453827696878902356}
   - component: {fileID: 5933531813807132391}
   m_Layer: 5
-  m_Name: File 8
+  m_Name: Folder 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -268,4 +268,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6a812c51de0c544eb70ea40d945b704, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nestedFilePrefabs: []
+  nestedFilePrefabs:
+  - {fileID: 7252031198833296012, guid: 62cce615ac4a07546816893240e19c4b, type: 3}
+  - {fileID: 7252031198833296012, guid: 1a12d406f595fc941b4bb8cf0fc7c57d, type: 3}
