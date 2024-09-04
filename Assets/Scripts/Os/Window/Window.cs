@@ -26,7 +26,7 @@ public class Window : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDr
     // Inspector에 노출될 백업 필드
     [SerializeField] private WindowType _windowType;  // 창 타입
     [SerializeField] private WindowState _windowState;  // 창 상태
-    public Button _icon; // 닫기 버튼
+    public Button _icon; // 최소화 아이콘
     public Button _maximizeIcon; // 최대화 아이콘
 
     private Vector2 lastMousePosition;
@@ -37,10 +37,14 @@ public class Window : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDr
     void Start()
     {
         windowType = _windowType;
-        icon = _icon.GetComponent<IIcon>();
+
         windowState = WindowState.Open;
-        _taskbarIcon = Instantiate(_icon as MonoBehaviour, GameObject.Find("TaskCanvas").transform).gameObject;
-        _taskbarIcon.GetComponent<TaskBarIcon>().window = gameObject;
+        if (windowType != WindowType.Chat)
+        {
+            icon = _icon.GetComponent<IIcon>();
+            _taskbarIcon = Instantiate(_icon as MonoBehaviour, GameObject.Find("TaskCanvas").transform).gameObject;
+            _taskbarIcon.GetComponent<TaskBarIcon>().window = gameObject;
+        }
     }
     // 창 이동 시작 시 호출
     public void OnPointerDown(PointerEventData eventData)
@@ -161,7 +165,15 @@ public class Window : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDr
     // 창 닫기 및 열기 기능
     public void Close()
     {
-        _taskbarIcon.GetComponent<IIcon>().Close();
+        _taskbarIcon?.GetComponent<IIcon>()?.Close();
+        if (windowType == WindowType.Messanger)
+        {
+            GameObject go = GameObject.FindWithTag("Chat");
+            if (go != null)
+            {
+                WindowManager.Instance.CloseWindow(go.GetComponent<IWindow>());
+            }
+        }
         Destroy(gameObject);
     }
     public void OnCloseButtonClick()
