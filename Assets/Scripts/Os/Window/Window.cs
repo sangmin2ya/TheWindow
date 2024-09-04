@@ -34,18 +34,19 @@ public class Window : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDr
     private Vector2 lastMousePosition;
     private GameObject _taskbarIcon;
     private bool isDragging = false;
-    private float draggableHeight = 450f; // 드래그 가능한 상단 영역의 높이
+    private float draggableHeight = 500f; // 드래그 가능한 상단 영역의 높이
 
     void Start()
     {
         windowType = _windowType;
 
         windowState = WindowState.Open;
-        if (windowType != WindowType.Chat)
+
+        icon = _icon.GetComponent<IIcon>();
+        _taskbarIcon = Instantiate(_icon as MonoBehaviour, GameObject.Find("TaskCanvas").transform).gameObject;
+        _taskbarIcon.GetComponent<TaskBarIcon>().window = gameObject;
+        if (windowType != WindowType.Chat && windowType != WindowType.Messanger)
         {
-            icon = _icon.GetComponent<IIcon>();
-            _taskbarIcon = Instantiate(_icon as MonoBehaviour, GameObject.Find("TaskCanvas").transform).gameObject;
-            _taskbarIcon.GetComponent<TaskBarIcon>().window = gameObject;
             Vector2 offsetMin;
             Vector2 offsetMax;
             WindowManager.Instance.GetStartOffset(out offsetMin, out offsetMax);
