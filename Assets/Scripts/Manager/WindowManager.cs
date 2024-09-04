@@ -31,7 +31,18 @@ public class WindowManager : MonoBehaviour
                 Debug.Log("Window already opened");
                 return;
             }
+            if (window.windowType == WindowType.Folder || window.windowType == WindowType.Setting)
+            {
+                if (w.windowType == window.windowType)
+                {
+                    FocusWindow(w);
+                    //하단 아이콘 포커스 효과
+                    Debug.Log("Window already opened");
+                    return;
+                }
+            }
         }
+
         var newWindow = Instantiate(window as MonoBehaviour, GameObject.Find("Canvas").transform);
         _windows.Insert(0, newWindow.GetComponent<IWindow>()); //add to the front of the list
     }
