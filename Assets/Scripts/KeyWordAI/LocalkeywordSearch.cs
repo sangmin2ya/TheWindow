@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
+using UnityEngine.Events;
 
 public class LocalKeywordSearch : MonoBehaviour
 {
@@ -8,7 +9,10 @@ public class LocalKeywordSearch : MonoBehaviour
     public TMP_Text resultText; // TextMeshPro Text to display the result
 
     // 사전 정의된 키워드 리스트
-    private List<string> keywords = new List<string> { "birthday", "anniversary", "celebration", "event", "festival" };
+    private List<string> keywords = new List<string> { "날씨", "메리 포저", "존 에리드", "강수희", "블루 카페", "신의 계시", "불꽃 마법" };
+
+    // 유사한 키워드를 찾았을 때 이벤트로 전달
+    public UnityEvent<string> onKeywordFound = new UnityEvent<string>();
 
     // 최소 유사도 임계값 (0 ~ 1 사이의 값)
     private float similarityThreshold = 0.5f;
@@ -22,12 +26,18 @@ public class LocalKeywordSearch : MonoBehaviour
         if (bestMatch != null)
         {
             resultText.text = "Most similar keyword: " + bestMatch;
+            Debug.Log("Best match found: " + bestMatch);  // 디버그 로그 추가
+            onKeywordFound.Invoke(bestMatch); // 키워드를 이벤트로 전달
+            Debug.Log("전달완료 " + bestMatch);  // 디버그 로그 추가
+
         }
         else
         {
             resultText.text = "No similar keywords found.";
+            Debug.Log("No similar keyword found");  // 디버그 로그 추가
         }
     }
+
 
     // 유사도가 가장 높은 키워드를 찾는 함수
     private string FindMostSimilarKeyword(string input)
