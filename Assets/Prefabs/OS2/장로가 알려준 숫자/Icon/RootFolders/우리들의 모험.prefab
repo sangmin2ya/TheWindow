@@ -147,10 +147,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nestedFilePrefabs:
-  - {fileID: 7252031198833296012, guid: 2ca51f4e53a33284382ca1071e4f6be8, type: 3}
-  - {fileID: 7252031198833296012, guid: c6a212bb2d79dfa48a690b0e0519eaf6, type: 3}
-  - {fileID: 7252031198833296012, guid: 566293be81d7aa7408ed4983e1eaa9a9, type: 3}
-  - {fileID: 7252031198833296012, guid: 65dadee89506b974ca3cab554a2d3e21, type: 3}
+  - {fileID: 7252031198833296012, guid: f3aa4541af84c3f4c99464eeb8d6369d, type: 3}
+  - {fileID: 7252031198833296012, guid: b88c1154276359b4aaa32224782ae894, type: 3}
+  - {fileID: 7252031198833296012, guid: b88c1154276359b4aaa32224782ae894, type: 3}
+  - {fileID: 7252031198833296012, guid: b88c1154276359b4aaa32224782ae894, type: 3}
 --- !u!1 &9203078719909993107
 GameObject:
   m_ObjectHideFlags: 0
