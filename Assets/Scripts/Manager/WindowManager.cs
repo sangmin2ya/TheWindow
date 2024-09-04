@@ -18,6 +18,8 @@ public class WindowManager : MonoBehaviour
         }
     }
     private List<IWindow> _windows = new List<IWindow>();
+    public Vector2 startOffsetMin = new Vector2(500, 250);
+    public Vector2 startOffsetMax = new Vector2(-500, -250);
     public int WindowCount { get { return _windows.Count; } }
     public void OpenWindow(IWindow window)
     {
@@ -44,7 +46,7 @@ public class WindowManager : MonoBehaviour
         if (window.windowType == WindowType.Chat)
         {
             GameObject go = GameObject.FindWithTag("Chat");
-            if(go != null)
+            if (go != null)
             {
                 CloseWindow(go.GetComponent<IWindow>());
                 Debug.Log("Chat Window already opened");
@@ -91,5 +93,47 @@ public class WindowManager : MonoBehaviour
             return _windows[index];
         }
         return null;
+    }
+    public void GetStartOffset(out Vector2 offsetMin, out Vector2 offsetMax)
+    {
+        Transform desktop = GameObject.Find("Desktop").transform;
+        if (GetLastChildPosition(desktop) == null)
+        {
+            offsetMin = startOffsetMin;
+            offsetMax = startOffsetMax;
+            return;
+        }
+        else
+        {
+            Vector2 offmin = GetLastChildPosition(desktop).GetComponent<RectTransform>().offsetMin + new Vector2(50, -50);
+            Vector2 offmax = GetLastChildPosition(desktop).GetComponent<RectTransform>().offsetMax + new Vector2(50, -50);
+            if(offmin.x < 0 || offmin.y < 0 || offmax.x > 0 || offmax.y > 0)
+            {
+                offsetMin = startOffsetMin;
+                offsetMax = startOffsetMax;
+                return;
+            }
+            offsetMin = GetLastChildPosition(desktop).GetComponent<RectTransform>().offsetMin + new Vector2(50, -50);
+            offsetMax = GetLastChildPosition(desktop).GetComponent<RectTransform>().offsetMax + new Vector2(50, -50);
+            Debug.Log("마지막 창의 offsetMin: " + offsetMin + ", offsetMax: " + offsetMax);
+        }
+    }
+    private GameObject GetLastChildPosition(Transform parent)
+    {
+        // 자식이 없는 경우 부모 오브젝트의 포지션 반환
+        if (parent.childCount == 0)
+        {
+            Debug.LogWarning("자식이 없습니다.");
+            return null;
+        }
+
+        // Hierarchy에서 마지막 자식의 포지션 가져오기
+        Transform lastChild = parent.GetChild(parent.childCount - 2);
+        if (lastChild.GetComponent<Window>() == null && lastChild.GetComponent<SettingWindow>() == null)
+        {
+            Debug.LogWarning("마지막 자식이 Window나 SettingWindow가 아닙니다.");
+            return null;
+        }
+        return lastChild.gameObject;
     }
 }

@@ -44,6 +44,11 @@ public class Window : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDr
             icon = _icon.GetComponent<IIcon>();
             _taskbarIcon = Instantiate(_icon as MonoBehaviour, GameObject.Find("TaskCanvas").transform).gameObject;
             _taskbarIcon.GetComponent<TaskBarIcon>().window = gameObject;
+            Vector2 offsetMin;
+            Vector2 offsetMax;
+            WindowManager.Instance.GetStartOffset(out offsetMin, out offsetMax);
+            GetComponent<RectTransform>().offsetMin = offsetMin;
+            GetComponent<RectTransform>().offsetMax = offsetMax;
         }
     }
     // 창 이동 시작 시 호출
