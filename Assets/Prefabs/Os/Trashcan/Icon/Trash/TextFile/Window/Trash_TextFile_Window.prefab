@@ -1039,15 +1039,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'SEE YOU AGAIN - Wiz Khalifa
-
-    It''s been a long day without you, my
-    friend And I''ll tell you all about it when I see you again We''ve come a long
-    way from where we began Oh, I''ll tell you all about it when I see you again
-    When I see you again'
+  m_text: "\uB0B4 \uBE44\uBC00\uC744 \uC801\uC5B4\uB193\uB294 \uADF9\uBE44 \uBB38\uC11C!
+    \uC774 \uBB38\uC11C\uB294 5\uBD84 \uB4A4\uC5D0 \uD30C\uAE30\uB41C\uB2E4.\r\n\r\n\uBC14\uD0D5\uD654\uBA74\uC5D0
+    \uD30C\uC77C \uD558\uB098\uB97C \uC228\uAE40\uD30C\uC77C\uB85C \uCC98\uB9AC\uD574\uB480\uB2E4!
+    \r   \uADF9\uBE44 \uC0AC\uD56D\uC774\uB2C8 \uC8FC\uC758\uD560 \uAC83!\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 178da3fb1aa1edd46ab3f828c085447b, type: 2}
+  m_sharedMaterial: {fileID: 1558166430749476401, guid: 178da3fb1aa1edd46ab3f828c085447b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
