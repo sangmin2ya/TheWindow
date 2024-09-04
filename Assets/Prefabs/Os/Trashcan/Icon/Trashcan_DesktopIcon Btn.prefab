@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: TRASHCAN
+  m_text: "\uD734\uC9C0\uD1B5"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 178da3fb1aa1edd46ab3f828c085447b, type: 2}
   m_sharedMaterial: {fileID: 1558166430749476401, guid: 178da3fb1aa1edd46ab3f828c085447b, type: 2}
@@ -202,7 +202,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e44f2fc7d6aa3ea44bb45d33bd9563b6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cb3b255bd601b1441a942f44ffc43197, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
