@@ -98,7 +98,7 @@ public class ClickableText : MonoBehaviour, IPointerClickHandler, IPointerEnterH
         // 텍스트를 수정하여 단어를 강조
         string word = wordInfo.GetWord();
         modifiedText = originalText.Substring(0, wordInfo.firstCharacterIndex)
-                      + $"<color=#{ColorUtility.ToHtmlStringRGBA(hoverColor)}>{word}</color>"
+                      + $"<b><color=#{ColorUtility.ToHtmlStringRGBA(hoverColor)}>{word}</color></b>"
                       + originalText.Substring(wordInfo.firstCharacterIndex + word.Length);
         textMeshPro.text = modifiedText;
     }
