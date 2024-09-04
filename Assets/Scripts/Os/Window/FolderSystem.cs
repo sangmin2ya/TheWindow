@@ -64,28 +64,32 @@ public class FolderSystem : MonoBehaviour
         UpdateBackButtonState();
     }
 
+
     private void CreateFileButton(GameObject filePrefab)
     {
-        // 파일 버튼을 Instantiate할 때, filePrefab 자체를 사용
-        GameObject button = Instantiate(filePrefab, fileGrid); // 기존의 fileButtonPrefab 대신 filePrefab 자체를 인스턴스화
+        if(filePrefab.GetComponent<FolderIcon>() == null)
+        {
+            var go = Instantiate(filePrefab, fileGrid); // 기존의 fileButtonPrefab 대신 filePrefab 자체를 인스턴스화
+            return;
+        }
+        GameObject button = Instantiate(fileButtonPrefab, fileGrid);
 
-        // 파일 버튼의 텍스트에 프리팹 이름 설정 (이 부분은 필요에 따라 유지 가능)
+        // 파일 버튼의 텍스트에 프리팹 이름 설정
         button.GetComponentInChildren<TMP_Text>().text = filePrefab.name;
 
-        // 파일이 폴더인 경우: FileIcon이 있을 때만 하위 파일 목록으로 이동
-        FileIcon fileIcon = button.GetComponent<FileIcon>();
+        // FileIcon 컴포넌트의 하위 파일 목록을 가져와 클릭 시 하위 파일 목록을 업데이트
+        FolderIcon fileIcon = filePrefab.GetComponent<FolderIcon>();
         if (fileIcon != null && fileIcon.nestedFilePrefabs.Count > 0)
         {
             button.GetComponent<Button>().onClick.AddListener(() => OnFolderButtonClick(fileIcon));
         }
         else
         {
-            // 폴더가 아닌 파일일 경우: 파일 자체를 클릭했을 때 처리
+            // 하위 파일이 없는 경우 경로를 업데이트하고 빈 그리드 표시
             button.GetComponent<Button>().onClick.AddListener(() => OnFileClick(filePrefab));
         }
     }
-
-    public void OnFolderButtonClick(FileIcon fileIcon)
+    public void OnFolderButtonClick(FolderIcon fileIcon)
     {
         // 현재 경로와 파일 목록을 Back 스택에 저장
         backStack.Push(new FolderState(new List<string>(currentPath), new List<GameObject>(currentFilePrefabs)));

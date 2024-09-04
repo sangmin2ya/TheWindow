@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class FileManager : MonoBehaviour
+public class FolderManager : MonoBehaviour
 {
     public Transform fileGrid; // 파일 프리팹들이 배치될 그리드
     public GameObject filePrefab; // 기본 파일 프리팹 (필요 시)

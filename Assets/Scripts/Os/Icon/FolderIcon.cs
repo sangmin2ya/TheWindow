@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 
-public class FileIcon : MonoBehaviour
+public class FolderIcon : MonoBehaviour
 {
     public List<GameObject> nestedFilePrefabs; // 해당 파일이 포함하는 하위 파일 프리팹 리스트 (폴더처럼 작동)
     private Button button; // 파일 버튼

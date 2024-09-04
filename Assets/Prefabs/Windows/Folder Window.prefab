@@ -572,10 +572,10 @@ RectTransform:
   - {fileID: 1085274341837928066}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 945, y: 774}
+  m_SizeDelta: {x: -1000, y: -500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4924381147650973009
 CanvasRenderer:
@@ -627,9 +627,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc6315e4ced25dd4cbd1ba935037e4f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  taskbarIcon: {fileID: 0}
-  desktopIcon: {fileID: 0}
-  maximizeIcon: {fileID: 5394766498460837282}
+  _windowType: 0
+  _windowState: 0
+  _icon: {fileID: 0}
+  _maximizeIcon: {fileID: 0}
 --- !u!1 &7499115762534307510
 GameObject:
   m_ObjectHideFlags: 0

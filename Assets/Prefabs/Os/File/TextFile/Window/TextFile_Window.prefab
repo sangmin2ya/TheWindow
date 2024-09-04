@@ -565,17 +565,17 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4389553898507070300}
   - {fileID: 2794974121525877327}
   - {fileID: 2844431068300891824}
   - {fileID: 3573815584485789526}
   - {fileID: 6648427287627695222}
-  - {fileID: 4389553898507070300}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 945, y: 774}
+  m_SizeDelta: {x: -1000, y: -500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5302204441125792866
 CanvasRenderer:
@@ -984,6 +984,7 @@ GameObject:
   - component: {fileID: 4389553898507070300}
   - component: {fileID: 6944606068408823298}
   - component: {fileID: 4478603730455467470}
+  - component: {fileID: 6461253354988611795}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -1038,16 +1039,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 't''s been a long day without you, my friend
+  m_text: 'SEE YOU AGAIN - Wiz Khalifa
 
-    And I''ll tell you all
-    about it when I see you again
-
-    We''ve come a long way from where we began
-
-    Oh,
-    I''ll tell you all about it when I see you again
-
+    It''s been a long day without you, my
+    friend And I''ll tell you all about it when I see you again We''ve come a long
+    way from where we began Oh, I''ll tell you all about it when I see you again
     When I see you again'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1117,3 +1113,15 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6461253354988611795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7215289272147565361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8a347d88a058144a8743851a6b7367b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
