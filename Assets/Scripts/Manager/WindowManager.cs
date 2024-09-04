@@ -24,7 +24,7 @@ public class WindowManager : MonoBehaviour
     {
         foreach (IWindow w in _windows)
         {
-            if (w.windowType == window.windowType)
+            if (w == window)
             {
                 FocusWindow(w);
                 //하단 아이콘 포커스 효과
