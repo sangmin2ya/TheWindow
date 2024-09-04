@@ -42,17 +42,20 @@ public class SettingWindow : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         _taskbarIcon = Instantiate(_icon as MonoBehaviour, GameObject.Find("TaskCanvas").transform).gameObject;
         _taskbarIcon.GetComponent<TaskBarIcon>().window = gameObject;
 
+        transform.Find("Visibility/Toggle").GetComponent<Toggle>().isOn = SettingManager.Instance.Visibility;
         transform.Find("Visibility/Toggle").GetComponent<Toggle>().onValueChanged.AddListener((value) =>
         {
             SettingManager.Instance.SetVisibility(value);
         });
+
     }
     // 창 이동 시작 시 호출
     public void OnPointerDown(PointerEventData eventData)
     {
         Focus();
         RectTransform rectTransform = GetComponent<RectTransform>();
-        Vector2 localMousePosition = rectTransform.InverseTransformPoint(eventData.position);
+        Vector2 localMousePosition;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(rectTransform, eventData.position, Camera.main, out localMousePosition);
 
         // 마우스 클릭 위치가 상단 특정 픽셀 이내인지 확인
         if (localMousePosition.y <= rectTransform.rect.height && localMousePosition.y >= rectTransform.rect.height - draggableHeight)
