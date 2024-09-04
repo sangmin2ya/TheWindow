@@ -42,6 +42,12 @@ public class SettingWindow : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         _taskbarIcon = Instantiate(_icon as MonoBehaviour, GameObject.Find("TaskCanvas").transform).gameObject;
         _taskbarIcon.GetComponent<TaskBarIcon>().window = gameObject;
 
+        Vector2 offsetMin;
+        Vector2 offsetMax;
+        WindowManager.Instance.GetStartOffset(out offsetMin, out offsetMax);
+        GetComponent<RectTransform>().offsetMin = offsetMin;
+        GetComponent<RectTransform>().offsetMax = offsetMax;
+
         transform.Find("Visibility/Toggle").GetComponent<Toggle>().isOn = SettingManager.Instance.Visibility;
         transform.Find("Visibility/Toggle").GetComponent<Toggle>().onValueChanged.AddListener((value) =>
         {
@@ -148,14 +154,18 @@ public class SettingWindow : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
 
             // 캔버스의 크기를 가져와 창을 최대화
             RectTransform canvasRect = GetComponentInParent<Canvas>().GetComponent<RectTransform>();
-            GetComponent<RectTransform>().sizeDelta = canvasRect.sizeDelta;
+            GetComponent<RectTransform>().offsetMin = new Vector2(0, 0);
+            GetComponent<RectTransform>().offsetMax = new Vector2(0, 0);
             GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
             isMaximized = true;
         }
         else
         {
             // 창이 최대화된 상태라면 기본 크기와 위치로 복원
-            GetComponent<RectTransform>().sizeDelta = new Vector2(945, 774); // 기본 크기
+            // 기본 크기
+
+            GetComponent<RectTransform>().offsetMin = new Vector2(500, 250);
+            GetComponent<RectTransform>().offsetMax = new Vector2(-500, -250);
             GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0); // 기본 위치 (화면 중앙)
             isMaximized = false;
         }

@@ -12,7 +12,6 @@ public class MemoManager : MonoBehaviour
             {
                 GameObject memoManagerObject = new GameObject("MemoManager");
                 _instance = memoManagerObject.AddComponent<MemoManager>();
-                DontDestroyOnLoad(memoManagerObject);
             }
             return _instance;
         }

@@ -13,7 +13,6 @@ public class SettingManager : MonoBehaviour
             {
                 GameObject settingManagerObject = new GameObject("SettingManager");
                 _instance = settingManagerObject.AddComponent<SettingManager>();
-                DontDestroyOnLoad(settingManagerObject);
             }
             return _instance;
         }
