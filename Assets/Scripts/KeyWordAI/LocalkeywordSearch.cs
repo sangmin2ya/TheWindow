@@ -9,7 +9,7 @@ public class LocalKeywordSearch : MonoBehaviour
     public TMP_Text resultText; // TextMeshPro Text to display the result
 
     // 사전 정의된 키워드 리스트
-    private List<string> keywords = new List<string> { "날씨", "메리 포저", "존 에리드", "강수희", "블루 카페", "신의 계시", "불꽃 마법" };
+    private List<string> keywords = new List<string> { "날씨", "메리포저", "존에리드", "강수희", "블루베리", "블루머핀", "블루파이" };
 
     // 유사한 키워드를 찾았을 때 이벤트로 전달
     public UnityEvent<string> onKeywordFound = new UnityEvent<string>();
