@@ -134,6 +134,11 @@ public class WindowManager : MonoBehaviour
             Debug.LogWarning("마지막 자식이 Window나 SettingWindow가 아닙니다.");
             return null;
         }
+        if(lastChild.GetComponent<Window>()?.windowType == WindowType.Chat || lastChild.GetComponent<Window>()?.windowType == WindowType.Messanger)
+        {
+            Debug.LogWarning("마지막 자식이 Chat입니다.");
+            return null;
+        }
         return lastChild.gameObject;
     }
 }
