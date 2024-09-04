@@ -5,6 +5,11 @@ using UnityEngine.UI;
 
 public class FolderSystem : MonoBehaviour
 {
+    // 잠긴 파일 이름과 그에 대응하는 비밀번호 리스트 선언
+    public List<string> lockedFileNames; // 잠긴 폴더의 이름 리스트
+    public List<string> filePasswords;   // 잠긴 폴더의 비밀번호 리스트
+
+    public GameObject passwordPromptPrefab; // 비밀번호 입력 창 프리팹
     public List<GameObject> initialFilePrefabs = new List<GameObject>();  // 외부에서 할당된 초기 파일 프리팹 리스트
     public TextMeshProUGUI pathText;  // 경로를 표시할 TextMeshPro 텍스트
     public Transform fileGrid;  // 파일 버튼들이 배치될 그리드의 Transform
@@ -108,6 +113,27 @@ public class FolderSystem : MonoBehaviour
     }
     public void OnFolderButtonClick(FolderIcon fileIcon)
     {
+        string folderName = fileIcon.gameObject.name;
+
+        // 잠긴 폴더인지 확인
+        if (lockedFileNames.Contains(folderName))
+        {
+            int folderIndex = lockedFileNames.IndexOf(folderName);
+            string folderPassword = filePasswords[folderIndex];
+
+            // 비밀번호 입력 창 띄우기
+            ShowPasswordPrompt(folderPassword, () => OpenFolder(fileIcon));
+        }
+        else
+        {
+            // 잠기지 않은 폴더는 바로 열기
+            OpenFolder(fileIcon);
+        }
+    }
+
+    // 잠금 해제된 폴더를 여는 함수
+    private void OpenFolder(FolderIcon fileIcon)
+    {
         // 현재 경로와 파일 목록을 Back 스택에 저장
         backStack.Push(new FolderState(new List<string>(currentPath), new List<GameObject>(currentFilePrefabs)));
 
@@ -121,14 +147,54 @@ public class FolderSystem : MonoBehaviour
         UpdateFileList(fileIcon.nestedFilePrefabs);
 
         // 경로 텍스트도 업데이트
-        pathText.text = string.Join(" > ", currentPath.ToArray());
+        UpdatePathText();
     }
-
-
-    // 하위 파일이 없는 파일을 클릭했을 때 호출되는 함수 (그리드 비우기)
     public void OnFileClick(GameObject filePrefab)
     {
-        // 현재 경로와 파일 목록을 Back 스택에 저장 (빈 파일 목록도 스택에 추가)
+        string fileName = filePrefab.name;
+
+        // 파일 이름이 잠긴 파일 리스트에 있는지 확인
+        if (lockedFileNames.Contains(fileName))
+        {
+            int fileIndex = lockedFileNames.IndexOf(fileName);  // 파일의 인덱스를 가져옴
+            string filePassword = filePasswords[fileIndex];     // 해당 파일의 비밀번호를 가져옴
+
+            // 비밀번호 입력 창을 띄움
+            ShowPasswordPrompt(filePassword, () => OpenFile(filePrefab));
+        }
+        else
+        {
+            // 잠기지 않은 파일은 바로 염
+            OpenFile(filePrefab);
+        }
+    }
+    // 비밀번호 창을 띄우는 함수
+    private void ShowPasswordPrompt(string correctPassword, System.Action onPasswordCorrect)
+    {
+        // Canvas를 찾아서 그 안에 비밀번호 입력 창을 추가
+        Canvas canvas = FindObjectOfType<Canvas>();
+
+        if (canvas != null)
+        {
+            // 비밀번호 입력 창을 Canvas의 자식으로 설정
+            GameObject promptInstance = Instantiate(passwordPromptPrefab, canvas.transform);
+            PasswordPrompt prompt = promptInstance.GetComponent<PasswordPrompt>();
+
+            if (prompt != null)
+            {
+                prompt.Initialize(correctPassword, onPasswordCorrect,
+                                  () => Debug.Log("비밀번호가 틀렸습니다!"));
+            }
+        }
+        else
+        {
+            Debug.LogError("Canvas가 계층 구조에 없습니다!");
+        }
+    }
+    // 잠금 해제된 파일을 여는 함수
+    private void OpenFile(GameObject filePrefab)
+    {
+        // 현재 경로와 파일 목록을 Back 스택에 저장
         backStack.Push(new FolderState(new List<string>(currentPath), new List<GameObject>(currentFilePrefabs)));
 
         // 파일 이름 텍스트 갱신

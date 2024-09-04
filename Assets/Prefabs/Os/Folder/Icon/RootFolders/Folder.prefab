@@ -284,3 +284,5 @@ MonoBehaviour:
   - {fileID: 7252031198833296012, guid: b57501e8ff3cedb4ba588f5c0137e332, type: 3}
   - {fileID: 7252031198833296012, guid: 8cf824685fad1184991fabadc424b219, type: 3}
   - {fileID: 7252031198833296012, guid: 32c37a3f7e42b4b459bf43e1068fa157, type: 3}
+  folderPassword: "\uC548\uB155"
+  passwordPromptPrefab: {fileID: 5354495910418827007, guid: 7a5b4d7e284c98844b39ac9663c7ce86, type: 3}
