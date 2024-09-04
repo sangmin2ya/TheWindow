@@ -26,7 +26,7 @@ public class FolderSystem : MonoBehaviour
         backButton.onClick.AddListener(OnBackButtonClick);
 
         // 초기 경로 설정 (가장 처음 상태의 경로를 설정)
-        currentPath = new List<string> { "My Computer" };  // 첫 경로 "My Computer"로 설정
+        currentPath = new List<string> { transform.parent.GetComponent<Window>().windowType == WindowType.Folder ? "My Computer" : "Trash Can" };  // 첫 경로 "My Computer"로 설정
 
         // 초기 상태를 외부에서 주어진 파일 프리팹 리스트로 설정
         initialState = new FolderState(new List<string>(currentPath), new List<GameObject>(initialFilePrefabs));
@@ -67,7 +67,7 @@ public class FolderSystem : MonoBehaviour
 
     private void CreateFileButton(GameObject filePrefab)
     {
-        if(filePrefab.GetComponent<FolderIcon>() == null)
+        if (filePrefab.GetComponent<FolderIcon>() == null)
         {
             var go = Instantiate(filePrefab, fileGrid); // 기존의 fileButtonPrefab 대신 filePrefab 자체를 인스턴스화
             return;

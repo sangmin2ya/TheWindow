@@ -31,7 +31,7 @@ public class WindowManager : MonoBehaviour
                 Debug.Log("Window already opened");
                 return;
             }
-            if (window.windowType == WindowType.Folder || window.windowType == WindowType.Setting)
+            if (window.windowType == WindowType.Folder || window.windowType == WindowType.Setting || window.windowType == WindowType.Trashcan || window.windowType == WindowType.Messanger)
             {
                 if (w.windowType == window.windowType)
                 {
@@ -42,7 +42,18 @@ public class WindowManager : MonoBehaviour
                 }
             }
         }
-
+        if (window.windowType == WindowType.Chat)
+        {
+            GameObject go = GameObject.FindWithTag("Chat");
+            if(go != null)
+            {
+                CloseWindow(go.GetComponent<IWindow>());
+                Debug.Log("Chat Window already opened");
+            }
+            var chat = Instantiate(window as MonoBehaviour, GameObject.Find("Canvas/Desktop/Msger_Window(Clone)").transform);
+            _windows.Insert(0, chat.GetComponent<IWindow>()); //add to the front of the list
+            return;
+        }
         var newWindow = Instantiate(window as MonoBehaviour, GameObject.Find("Canvas/Desktop").transform);
         _windows.Insert(0, newWindow.GetComponent<IWindow>()); //add to the front of the list
     }
