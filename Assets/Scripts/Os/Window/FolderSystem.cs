@@ -58,16 +58,33 @@ public class FolderSystem : MonoBehaviour
         }
 
         // 경로 텍스트 갱신
-        pathText.text = string.Join(" > ", currentPath.ToArray());
+        UpdatePathText();
 
         // 뒤로가기 버튼 상태 갱신
         UpdateBackButtonState();
     }
 
+    // 경로 텍스트 갱신하는 함수
+    private void UpdatePathText()
+    {
+        const int maxDisplayPathLength = 4; // 표시할 최대 경로 길이
+        if (currentPath.Count > maxDisplayPathLength)
+        {
+            // 경로가 길 경우 첫 번째, 두 번째, 마지막 경로를 표시하고 중간은 "..."으로 생략
+            string shortenedPath = $"{currentPath[0]} > {currentPath[1]} > ... > {currentPath[currentPath.Count - 1]}";
+            pathText.text = shortenedPath;
+        }
+        else
+        {
+            // 경로가 짧을 경우 그냥 전체 경로 표시
+            pathText.text = string.Join(" > ", currentPath.ToArray());
+        }
+    }
+
 
     private void CreateFileButton(GameObject filePrefab)
     {
-        if(filePrefab.GetComponent<FolderIcon>() == null)
+        if (filePrefab.GetComponent<FolderIcon>() == null)
         {
             var go = Instantiate(filePrefab, fileGrid); // 기존의 fileButtonPrefab 대신 filePrefab 자체를 인스턴스화
             return;
