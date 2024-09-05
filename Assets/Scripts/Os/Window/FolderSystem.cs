@@ -31,7 +31,7 @@ public class FolderSystem : MonoBehaviour
         backButton.onClick.AddListener(OnBackButtonClick);
 
         // 초기 경로 설정 (가장 처음 상태의 경로를 설정)
-        currentPath = new List<string> { transform.parent.GetComponent<Window>().windowType == WindowType.Folder ? "My Computer" : "Trash Can" };  // 첫 경로 "My Computer"로 설정
+        currentPath = new List<string> { transform.parent.GetComponent<Window>().windowType == WindowType.Folder ? "게임" : "휴지통" };  // 첫 경로 "My Computer"로 설정
 
         // 초기 상태를 외부에서 주어진 파일 프리팹 리스트로 설정
         initialState = new FolderState(new List<string>(currentPath), new List<GameObject>(initialFilePrefabs));
@@ -72,7 +72,7 @@ public class FolderSystem : MonoBehaviour
     // 경로 텍스트 갱신하는 함수
     private void UpdatePathText()
     {
-        const int maxDisplayPathLength = 4; // 표시할 최대 경로 길이
+        const int maxDisplayPathLength = 3; // 표시할 최대 경로 길이
         if (currentPath.Count > maxDisplayPathLength)
         {
             // 경로가 길 경우 첫 번째, 두 번째, 마지막 경로를 표시하고 중간은 "..."으로 생략
@@ -230,7 +230,7 @@ public class FolderSystem : MonoBehaviour
             }
             else
             {
-                fileNameText.text = "My Computer";  // 루트 폴더로 돌아간 경우 기본 값 설정
+                fileNameText.text = "게임";  // 루트 폴더로 돌아간 경우 기본 값 설정
             }
         }
 

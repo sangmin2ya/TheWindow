@@ -5,7 +5,7 @@ using System.Collections;
 
 public class PasswordPrompt : MonoBehaviour
 {
-    public TMP_InputField passwordInput; // 비밀번호 입력 필드
+    public TextMeshProUGUI passwordInput; // 비밀번호 입력 필드
     public Button confirmButton;  // 확인 버튼
     public Button cancelButton;   // 취소 버튼
     public TextMeshProUGUI feedbackText;  // 피드백 메시지 출력
