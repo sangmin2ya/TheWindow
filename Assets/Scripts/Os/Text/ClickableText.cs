@@ -61,6 +61,10 @@ public class ClickableText : MonoBehaviour, IPointerClickHandler, IPointerEnterH
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        if(eventData.button == PointerEventData.InputButton.Right)
+        {
+            return;
+        }
         // 클릭한 위치에서 텍스트의 단어 인덱스를 얻습니다.
         int wordIndex = TMP_TextUtilities.FindIntersectingWord(textMeshPro, eventData.position, Camera.main);
 

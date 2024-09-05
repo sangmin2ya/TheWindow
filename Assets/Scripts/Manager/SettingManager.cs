@@ -25,6 +25,8 @@ public class SettingManager : MonoBehaviour
     public float Brightness { get { return brightness; } set { brightness = value; } }
     private float volume = 1.0f;
     public float Volume { get { return volume; } set { volume = value; } }
+    private bool unrockLogin = false;
+    public bool UnrockLogin { get { return unrockLogin; } set { unrockLogin = value; } }
     public void SetVisibility(bool value)
     {
         visibility = value;
