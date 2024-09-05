@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MemoManager : MonoBehaviour
@@ -16,6 +17,10 @@ public class MemoManager : MonoBehaviour
             }
             return _instance;
         }
+    }
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Confined;
     }
     private string copyText = "";
     private string memoText = "";
