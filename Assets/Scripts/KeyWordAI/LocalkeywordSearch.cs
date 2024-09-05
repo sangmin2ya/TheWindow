@@ -35,6 +35,8 @@ public class LocalKeywordSearch : MonoBehaviour
         {
             resultText.text = "No similar keywords found.";
             Debug.Log("No similar keyword found");  // 디버그 로그 추가
+            onKeywordFound.Invoke(userInput); // 키워드를 이벤트로 전달
+
         }
     }
 
