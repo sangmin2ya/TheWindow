@@ -169,7 +169,7 @@ public class FolderSystem : MonoBehaviour
         }
     }
     // 비밀번호 창을 띄우는 함수
-    private void ShowPasswordPrompt(string correctPassword, System.Action onPasswordCorrect)
+    public void ShowPasswordPrompt(string correctPassword, System.Action onPasswordCorrect)
     {
         // Canvas를 찾아서 그 안에 비밀번호 입력 창을 추가
         Canvas canvas = FindObjectOfType<Canvas>();

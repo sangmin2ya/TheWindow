@@ -627,6 +627,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc6315e4ced25dd4cbd1ba935037e4f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animationDuration: 0.3
   _windowType: 1
   _windowState: 0
   _icon: {fileID: 7354364649582546957, guid: 6882cbe0030c59b479de8ebd7771a6c9, type: 3}
@@ -1040,7 +1041,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "\uC5F0\uBABB\uC774 \uBCF4\uC774\uBA74 \uC624\uB978\uCABD\uC73C\uB85C.\r\n\uC0AC\uACFC\uB098\uBB34\uAC00
-    \uBCF4\uC774\uBA74 \uC67C\uCABD\uC73C\uB85C \uB450\uBC88.\r\n"
+    \uBCF4\uC774\uBA74 \uC67C\uCABD \uC624\uB978\uCABD.\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 178da3fb1aa1edd46ab3f828c085447b, type: 2}
   m_sharedMaterial: {fileID: 1558166430749476401, guid: 178da3fb1aa1edd46ab3f828c085447b, type: 2}
