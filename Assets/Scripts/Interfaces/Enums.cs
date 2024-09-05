@@ -1,6 +1,6 @@
 public enum WindowType
 {
-    Internet, File, Folder, Feature, Setting, Error, Alert, Vaccine, Trashcan, Messanger, Chat
+    Internet, File, Folder, Feature, Setting, Error, Alert, Vaccine, Trashcan, Messanger, Chat, NormalFolder
 }
 public enum WindowState
 {

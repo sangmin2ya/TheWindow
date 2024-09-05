@@ -60,6 +60,12 @@ public class SettingWindow : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
             SettingManager.Instance.SetBrightness(value);
         });
 
+        transform.Find("Volume/Slider").GetComponent<Slider>().value = SettingManager.Instance.Volume;
+        transform.Find("Volume/Slider").GetComponent<Slider>().onValueChanged.AddListener((value) =>
+        {
+            SettingManager.Instance.SetVolume(value);
+        });
+
     }
     // 창 이동 시작 시 호출
     public void OnPointerDown(PointerEventData eventData)
