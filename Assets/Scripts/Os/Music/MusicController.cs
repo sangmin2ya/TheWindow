@@ -11,6 +11,8 @@ public class MusicController : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Confined;
     }
     void OnEnable()
     {
@@ -35,4 +37,5 @@ public class MusicController : MonoBehaviour
             transform.Find("Singer/Play").GetComponent<UnityEngine.UI.Image>().sprite = offSprite;
         }
     }
+    
 }
