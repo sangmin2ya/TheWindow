@@ -16,6 +16,8 @@ public class Window : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDr
         get { return _windowState; }
         set { _windowState = value; }
     }
+    private Shadow windowShadow;  // 그림자 컴포넌트
+
     public IIcon icon { get; set; } // 창과 연결된 아이콘
     private Vector2 originalSize;
     private Vector2 originalPosition;
@@ -52,7 +54,26 @@ public class Window : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDr
             WindowManager.Instance.GetStartOffset(out offsetMin, out offsetMax);
             GetComponent<RectTransform>().offsetMin = offsetMin;
             GetComponent<RectTransform>().offsetMax = offsetMax;
+            // 그림자 추가
+            AddShadowEffect();
         }
+    }
+
+    // 그림자 효과 추가 함수
+    private void AddShadowEffect()
+    {
+        // Shadow 컴포넌트가 없다면 추가
+        windowShadow = gameObject.GetComponent<Shadow>();
+
+        if (windowShadow == null)
+        {
+            // 창의 UI 요소에 Shadow 컴포넌트 추가
+            windowShadow = gameObject.AddComponent<Shadow>();
+        }
+
+        // 그림자의 위치를 오른쪽 아래로 살짝 설정
+        windowShadow.effectDistance = new Vector2(5, -5);  // X = 5, Y = -5로 설정 (오른쪽 아래로 살짝 그림자)
+        windowShadow.effectColor = new Color(0, 0, 0, 0.5f);  // 검은색 그림자, 투명도 50%
     }
     // 창 이동 시작 시 호출
     public void OnPointerDown(PointerEventData eventData)
