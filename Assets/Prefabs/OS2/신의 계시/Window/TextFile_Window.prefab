@@ -627,6 +627,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc6315e4ced25dd4cbd1ba935037e4f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animationDuration: 0.3
   _windowType: 1
   _windowState: 0
   _icon: {fileID: 7354364649582546957, guid: ec40a237085598e49bbc48feac7ec0a6, type: 3}
@@ -1041,8 +1042,10 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uC2E0\uC758 \uACC4\uC2DC\r\n\uB108\uC5D0\uAC8C \uC8FC\uC5B4\uC9C4 \uC2DC\uB828\uC744
     \uBAA8\uB450 \uADF9\uBCF5\uD558\uACE0, \uC9C4\uC815\uD55C \uC6A9\uC0AC\uC758
-    \uC790\uACA9\uC744 \uC99D\uBA85\uD558\uB77C.\r\n\r\n\uC55E\uC73C\uB85C \uB098\uC544\uAC08
-    \uC788\uB294 \uC8FC\uBB38\uC740 \uC624\uB8E8\uBC14\uC774\uC544\uB8E8\uC544\uBE44.\r\n\r\n\uC77C\uB2E8
+    \uC790\uACA9\uC744 \uC99D\uBA85\uD558\uB77C.\r\n\r\n\uB0B4\uAC00 \uC774\uACF3\uC758
+    \uC774 \uC138\uACC4\uC758 \uBB38\uC744 \uD604\uC2E4\uC138\uACC4\uC5D0\uC11C\uB294
+    \n\uBCF4\uC774\uC9C0 \uC54A\uB3C4\uB85D \uB9C8\uBC95\uC73C\uB85C \uC228\uACA8\uB450\uC5C8\uB2E4.
+    \n\n\uC774\uC138\uACC4\uC758 \uBB38\uC744 \uC5EC\uB294 \uC8FC\uBB38\uC740 \uC624\uB8E8\uBC14\uC774\uC544\uB8E8\uC544\uBE44.\r\n\uC77C\uB2E8
     \uD3C9\uD654\uB85C\uC6B4 \uB9C8\uC744\uC758 \uC7A5\uB85C\uB97C \uCC3E\uC544\uAC00\uBD10\uB77C.\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 178da3fb1aa1edd46ab3f828c085447b, type: 2}
