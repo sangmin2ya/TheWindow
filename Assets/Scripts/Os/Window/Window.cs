@@ -16,6 +16,8 @@ public class Window : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDr
         get { return _windowState; }
         set { _windowState = value; }
     }
+    private Shadow windowShadow;  // 그림자 컴포넌트
+
     public IIcon icon { get; set; } // 창과 연결된 아이콘
     private Vector2 originalSize;
     private Vector2 originalPosition;
@@ -52,7 +54,26 @@ public class Window : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDr
             WindowManager.Instance.GetStartOffset(out offsetMin, out offsetMax);
             GetComponent<RectTransform>().offsetMin = offsetMin;
             GetComponent<RectTransform>().offsetMax = offsetMax;
+            // 그림자 추가
+            AddShadowEffect();
         }
+    }
+
+    // 그림자 효과 추가 함수
+    private void AddShadowEffect()
+    {
+        // Shadow 컴포넌트가 없다면 추가
+        windowShadow = gameObject.GetComponent<Shadow>();
+
+        if (windowShadow == null)
+        {
+            // 창의 UI 요소에 Shadow 컴포넌트 추가
+            windowShadow = gameObject.AddComponent<Shadow>();
+        }
+
+        // 그림자의 위치를 오른쪽 아래로 살짝 설정
+        windowShadow.effectDistance = new Vector2(5, -5);  // X = 5, Y = -5로 설정 (오른쪽 아래로 살짝 그림자)
+        windowShadow.effectColor = new Color(0, 0, 0, 0.5f);  // 검은색 그림자, 투명도 50%
     }
     // 창 이동 시작 시 호출
     public void OnPointerDown(PointerEventData eventData)
@@ -103,98 +124,86 @@ public class Window : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDr
                 preMaximizedPosition = GetComponent<RectTransform>().anchoredPosition;
             }
 
-            // 애니메이션으로 창을 아래로 슬라이드하고 스케일 줄임
-            StartCoroutine(SlideWindowOffscreenAndShrink(() =>
+            // 애니메이션으로 창을 화면 밖으로 보내고 크기를 줄임
+            StartCoroutine(MinimizeWindow(() =>
             {
-                // 창을 비활성화하고 작업 표시줄 아이콘만 남김
-                gameObject.SetActive(false);
                 isMinimized = true;
             }));
         }
     }
 
-
-    // 창 복원 기능
     // 창 복원 기능
     public void Restore()
     {
         if (isMinimized)
         {
-            // 창을 활성화하고 애니메이션으로 다시 위로 슬라이드 및 스케일 확대
-            gameObject.SetActive(true);
-            StartCoroutine(SlideWindowOnscreenAndGrow(() =>
+            // 창을 원래 위치와 크기로 복원
+            StartCoroutine(RestoreWindow(() =>
             {
-                if (isMaximized)
-                {
-                    // 최대화된 상태로 복원
-                    RectTransform canvasRect = GetComponentInParent<Canvas>().GetComponent<RectTransform>();
-                    GetComponent<RectTransform>().offsetMin = Vector2.zero;  // 화면의 좌상단(0,0)
-                    GetComponent<RectTransform>().offsetMax = Vector2.zero;  // 화면의 우하단(0,0)
-                    GetComponent<RectTransform>().anchoredPosition = Vector2.zero;  // 중앙 위치로 설정
-                }
-                else
-                {
-                    // 기본 크기와 위치로 복원
-                    GetComponent<RectTransform>().sizeDelta = preMaximizedSize;
-                    GetComponent<RectTransform>().anchoredPosition = preMaximizedPosition;
-                }
-
-                isMinimized = false;
+                isMinimized = false;  // 복원이 완료되면 최소화 상태 해제
             }));
         }
     }
 
-    // 창을 아래로 슬라이드하고 작아지게 하는 애니메이션
-    private IEnumerator SlideWindowOffscreenAndShrink(System.Action onComplete)
+    // 창을 화면 밖으로 보내고 크기를 줄이는 애니메이션
+    private IEnumerator MinimizeWindow(System.Action onComplete)
     {
         RectTransform rectTransform = GetComponent<RectTransform>();
-        Vector2 startPosition = rectTransform.anchoredPosition;
-        Vector2 targetPosition = new Vector2(startPosition.x, -rectTransform.rect.height);  // 화면 아래로 슬라이드
         Vector3 startScale = rectTransform.localScale;
-        Vector3 targetScale = new Vector3(0.5f, 0.5f, 1f);  // 최소화될 때의 스케일
+        Vector3 endScale = Vector3.zero;  // 크기를 0으로 줄임
+
+        Vector2 startPosition = rectTransform.anchoredPosition;
+        Vector2 endPosition = new Vector2(-Screen.width, -Screen.height);  // 화면 밖으로 이동
+
         float time = 0f;
 
         while (time < animationDuration)
         {
-            rectTransform.anchoredPosition = Vector2.Lerp(startPosition, targetPosition, time / animationDuration);
-            rectTransform.localScale = Vector3.Lerp(startScale, targetScale, time / animationDuration); // 스케일 줄임
+            rectTransform.localScale = Vector3.Lerp(startScale, endScale, time / animationDuration);
+            rectTransform.anchoredPosition = Vector2.Lerp(startPosition, endPosition, time / animationDuration);
+
             time += Time.deltaTime;
             yield return null;
         }
 
-        rectTransform.anchoredPosition = targetPosition;
-        rectTransform.localScale = targetScale;  // 스케일을 최종적으로 설정
+        rectTransform.localScale = endScale;
+        rectTransform.anchoredPosition = endPosition;
 
-        // 애니메이션 완료 후 실행할 콜백 함수 호출
         onComplete?.Invoke();
     }
 
-    // 창을 위로 슬라이드하고 커지게 하는 애니메이션
-    private IEnumerator SlideWindowOnscreenAndGrow(System.Action onComplete)
+    // 창을 원래 위치로 복원하는 애니메이션
+    private IEnumerator RestoreWindow(System.Action onComplete)
     {
         RectTransform rectTransform = GetComponent<RectTransform>();
-        Vector2 startPosition = new Vector2(rectTransform.anchoredPosition.x, -rectTransform.rect.height);  // 시작 위치는 화면 아래
-        Vector2 targetPosition = preMaximizedPosition;  // 원래 창의 위치
-        Vector3 startScale = new Vector3(0.5f, 0.5f, 1f);  // 최소화된 상태에서 시작
-        Vector3 targetScale = Vector3.one;  // 원래 크기로 복원
+        Vector3 startScale = rectTransform.localScale;
+        Vector3 endScale = Vector3.one;  // 원래 크기로 복원
+
+        Vector2 startPosition = rectTransform.anchoredPosition;
+        Vector2 endPosition = isMaximized ? Vector2.zero : preMaximizedPosition;  // 최대화 상태면 중앙, 아니면 원래 위치
+
         float time = 0f;
 
         while (time < animationDuration)
         {
-            rectTransform.anchoredPosition = Vector2.Lerp(startPosition, targetPosition, time / animationDuration);
-            rectTransform.localScale = Vector3.Lerp(startScale, targetScale, time / animationDuration);  // 스케일 확대
+            rectTransform.localScale = Vector3.Lerp(startScale, endScale, time / animationDuration);
+            rectTransform.anchoredPosition = Vector2.Lerp(startPosition, endPosition, time / animationDuration);
+
             time += Time.deltaTime;
             yield return null;
         }
 
-        rectTransform.anchoredPosition = targetPosition;
-        rectTransform.localScale = targetScale;  // 스케일을 최종적으로 설정
+        rectTransform.localScale = endScale;
+        rectTransform.anchoredPosition = endPosition;
 
-        // 애니메이션 완료 후 실행할 콜백 함수 호출
+        // 크기도 복원
+        if (!isMaximized)
+        {
+            rectTransform.sizeDelta = preMaximizedSize;  // 원래 크기로 복원
+        }
+
         onComplete?.Invoke();
     }
-
-
     public void Focus()
     {
         // 창을 최상위로 올려 포커스
@@ -204,7 +213,6 @@ public class Window : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDr
         }
         transform.SetAsLastSibling();
     }
-    // 창 최대화 기능
     // 창 최대화 기능
     public void ToggleMaximize()
     {

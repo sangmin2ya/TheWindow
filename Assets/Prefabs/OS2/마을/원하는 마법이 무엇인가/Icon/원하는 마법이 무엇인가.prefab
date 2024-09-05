@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -47.2}
-  m_SizeDelta: {x: 100, y: 19.105698}
+  m_AnchoredPosition: {x: -1.2, y: -59.8}
+  m_SizeDelta: {x: 149.5262, y: 19.1057}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2135012421656690523
 CanvasRenderer:
@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: FOLDER
+  m_text: "\uC6D0\uD558\uB294 \uB9C8\uBC95\uC774 \uBB34\uC5C7\uC778\uAC00"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 178da3fb1aa1edd46ab3f828c085447b, type: 2}
   m_sharedMaterial: {fileID: 1558166430749476401, guid: 178da3fb1aa1edd46ab3f828c085447b, type: 2}
@@ -108,7 +108,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -146,9 +146,9 @@ GameObject:
   - component: {fileID: 3255493828185651048}
   - component: {fileID: 557997789042238413}
   - component: {fileID: 2453827696878902356}
-  - component: {fileID: 731031336361573581}
+  - component: {fileID: 1650135128374347012}
   m_Layer: 5
-  m_Name: "\uBBF8\uAD81\uC758 \uC232 \uC22B\uC790"
+  m_Name: "\uC6D0\uD558\uB294 \uB9C8\uBC95\uC774 \uBB34\uC5C7\uC778\uAC00"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -268,7 +268,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &731031336361573581
+--- !u!114 &1650135128374347012
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -281,4 +281,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nestedFilePrefabs:
-  - {fileID: 7252031198833296012, guid: e314c296d2122b048b5c304f9705c5fa, type: 3}
+  - {fileID: 7252031198833296012, guid: 8bb21706781b62e469e5ab5f496d6fa1, type: 3}
