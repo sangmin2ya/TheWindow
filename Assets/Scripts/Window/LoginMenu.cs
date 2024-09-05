@@ -27,11 +27,11 @@ public class LoginMenu : MonoBehaviour
     }
     public void UserLogin1()
     {
-        SceneManager.LoadScene("User1");
+        SceneManager.LoadScene("User2");
     }
     public void UserLogin2()
     {
-        SceneManager.LoadScene("User2");
+        SceneManager.LoadScene("User1");
     }
     public void TryLogin2()
     {
