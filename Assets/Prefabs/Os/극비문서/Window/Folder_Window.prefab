@@ -886,6 +886,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc6315e4ced25dd4cbd1ba935037e4f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animationDuration: 0.3
   _windowType: 2
   _windowState: 0
   _icon: {fileID: 7354364649582546957, guid: cef7a943c6e7e1e44820fd9c8734f9fd, type: 3}
@@ -1671,7 +1672,7 @@ MonoBehaviour:
   - "\uD30C\uC774\uC5B4"
   passwordPromptPrefab: {fileID: 5354495910418827007, guid: 7a5b4d7e284c98844b39ac9663c7ce86, type: 3}
   initialFilePrefabs:
-  - {fileID: 7252031198833296012, guid: 99684fa1f139cac448fb8bee6521ebab, type: 3}
+  - {fileID: 4673660687045713337, guid: 1f3e9e79e967acc4085ea324b14ef074, type: 3}
   pathText: {fileID: 6598963088181670848}
   fileGrid: {fileID: 2258478172402656229}
   fileButtonPrefab: {fileID: 7252031198833296012, guid: e21a78ce4b96ca24fbcb6988aeb7ec3c, type: 3}

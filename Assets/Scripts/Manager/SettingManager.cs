@@ -23,7 +23,7 @@ public class SettingManager : MonoBehaviour
     public bool Visibility { get { return visibility; } set { visibility = value; } }
     private float brightness = 0.5f;
     public float Brightness { get { return brightness; } set { brightness = value; } }
-    private float volume = 1.0f;
+    private float volume = 0.5f;
     public float Volume { get { return volume; } set { volume = value; } }
     private bool unrockLogin = false;
     public bool UnrockLogin { get { return unrockLogin; } set { unrockLogin = value; } }
@@ -46,5 +46,9 @@ public class SettingManager : MonoBehaviour
             colorAdjustments.postExposure.overrideState = true;
             colorAdjustments.postExposure.value = value * 2 - 1.5f;
         }
+    }
+    public void SetVolume(float value)
+    {
+        AudioListener.volume = value;
     }
 }

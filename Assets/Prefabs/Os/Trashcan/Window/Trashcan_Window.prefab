@@ -186,7 +186,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: My Computer
+  m_text: Trash Can
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 178da3fb1aa1edd46ab3f828c085447b, type: 2}
   m_sharedMaterial: {fileID: 1558166430749476401, guid: 178da3fb1aa1edd46ab3f828c085447b, type: 2}
@@ -886,6 +886,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc6315e4ced25dd4cbd1ba935037e4f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animationDuration: 0.3
   _windowType: 8
   _windowState: 0
   _icon: {fileID: 7354364649582546957, guid: 0cfcdfe82d019924ba43a116c08ef4e1, type: 3}
@@ -1659,6 +1660,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 520399fe4b2a99840bc5a82e8296932c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lockedFileNames: []
+  filePasswords: []
+  passwordPromptPrefab: {fileID: 0}
   initialFilePrefabs:
   - {fileID: 7252031198833296012, guid: 80ee5820c2d524c45ad06bbebae3f6e3, type: 3}
   - {fileID: 7252031198833296012, guid: 7a7520e0778afce40892af24830009d0, type: 3}

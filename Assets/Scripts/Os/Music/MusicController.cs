@@ -20,7 +20,7 @@ public class MusicController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        audioSource.volume = SettingManager.Instance.Volume;
     }
     public void OnOffMusic()
     {
