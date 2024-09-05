@@ -630,7 +630,7 @@ MonoBehaviour:
   animationDuration: 0.3
   _windowType: 1
   _windowState: 0
-  _icon: {fileID: 7354364649582546957, guid: e2372214f30b9e744a29184af577f3e6, type: 3}
+  _icon: {fileID: 7354364649582546957, guid: 60263f8bd83343e45bfeeede416e6007, type: 3}
   _maximizeIcon: {fileID: 5185075279563270518}
 --- !u!1 &4678761793942181486
 GameObject:
@@ -1040,8 +1040,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b>\uB9CC\uB4E0 \uC0AC\uB78C</b>\n\nzl\uC874 \uAC80\uC0AC \uBBFC\uAE30z\n\n\uC5BC\uC9F1
-    \uD050\uD2F0 \uC5D4\uC824 \uC9C0\uBBFC\n\n\uD0B9\uC655\uC9F1 \uCD5C\uAC15 \uC0C1\uBBFC"
+  m_text: "\uD574\uC57C \uD560 \uC77C\n\n1. \uBC29\uD559 \uC219\uC81C\uD558\uAE30\n
+    \n2. \uB180\uAE30!\n\n3. \uB180\uAE30!!\n\n4. \uB180\uAE30!!!!!!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 178da3fb1aa1edd46ab3f828c085447b, type: 2}
   m_sharedMaterial: {fileID: 1558166430749476401, guid: 178da3fb1aa1edd46ab3f828c085447b, type: 2}
@@ -1080,7 +1080,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 10
-  m_lineSpacing: 50
+  m_lineSpacing: 16.15
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
