@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Chat
   - Memo
+  - Lock
   layers:
   - Default
   - TransparentFX

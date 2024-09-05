@@ -52,7 +52,10 @@ public class FolderWindow : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
         // 파일 목록 초기화
         PopulateFiles();
     }
-
+    public GameObject GetGameObject()
+    {
+        return gameObject;
+    }
     // 파일 목록을 그리드에 추가하는 함수
     public void PopulateFiles()
     {

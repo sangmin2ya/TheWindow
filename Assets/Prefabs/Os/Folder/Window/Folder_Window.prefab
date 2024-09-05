@@ -1665,11 +1665,13 @@ MonoBehaviour:
   - "\uAC8C\uC784 \uC2DC\uC791"
   - "\uC785\uAD6C\uB97C \uB9C9\uB294 \uD0DC\uC0B0\uB9CC\uD07C \uD070 \uC5BC\uC74C"
   - "\uC6D0\uD558\uB294 \uB9C8\uBC95\uC774 \uBB34\uC5C7\uC778\uAC00"
+  - "\uC808\uB300 \uC5F4\uC9C0 \uB9C8\uC2DC\uC624!!"
   filePasswords:
   - 1129
   - "\uC624\uB8E8\uBC14\uC774\uC544\uB8E8\uC544\uBE44"
   - "\uD654\uB974\uB975\uD53C\uC29D"
   - "\uD30C\uC774\uC5B4"
+  - "\uD750\uB9BC"
   passwordPromptPrefab: {fileID: 5354495910418827007, guid: 7a5b4d7e284c98844b39ac9663c7ce86, type: 3}
   initialFilePrefabs:
   - {fileID: 0}

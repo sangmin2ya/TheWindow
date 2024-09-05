@@ -97,7 +97,10 @@ public class SettingWindow : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
             lastMousePosition = currentMousePosition;
         }
     }
-
+    public GameObject GetGameObject()
+    {
+        return gameObject;
+    }
     // 창 이동 종료 시 호출
     public void OnPointerUp(PointerEventData eventData)
     {

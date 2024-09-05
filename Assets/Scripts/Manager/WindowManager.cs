@@ -55,9 +55,28 @@ public class WindowManager : MonoBehaviour
             _windows.Insert(0, chat.GetComponent<IWindow>()); //add to the front of the list
             return;
         }
+
+        // 태그가 "Lock"인 경우 비밀번호 창을 띄우기
+        if (window.GetGameObject().CompareTag("Lock"))
+        {
+            Debug.Log("Lock");  // 로그 추가로 확인
+
+            FolderSystem folderSystem = FindObjectOfType<FolderSystem>();
+            if (folderSystem != null)
+            {
+                Debug.Log("비밀번호 창을 띄웁니다.");  // 로그 추가로 확인
+                folderSystem.ShowPasswordPrompt("흐림", () =>
+                {
+                    var newWindow = Instantiate(window as MonoBehaviour, GameObject.Find("Canvas/Desktop").transform);
+                    _windows.Insert(0, newWindow.GetComponent<IWindow>());
+                });
+            }
+            return;
+        }
         var newWindow = Instantiate(window as MonoBehaviour, GameObject.Find("Canvas/Desktop").transform);
         _windows.Insert(0, newWindow.GetComponent<IWindow>()); //add to the front of the list
     }
+
     public void CloseWindow(IWindow window)
     {
         if (_windows.Contains(window))
@@ -107,7 +126,7 @@ public class WindowManager : MonoBehaviour
         {
             Vector2 offmin = GetLastChildPosition(desktop).GetComponent<RectTransform>().offsetMin + new Vector2(50, -50);
             Vector2 offmax = GetLastChildPosition(desktop).GetComponent<RectTransform>().offsetMax + new Vector2(50, -50);
-            if(offmin.x < 0 || offmin.y < 0 || offmax.x > 0 || offmax.y > 0)
+            if (offmin.x < 0 || offmin.y < 0 || offmax.x > 0 || offmax.y > 0)
             {
                 offsetMin = startOffsetMin;
                 offsetMax = startOffsetMax;
@@ -134,7 +153,7 @@ public class WindowManager : MonoBehaviour
             Debug.LogWarning("마지막 자식이 Window나 SettingWindow가 아닙니다.");
             return null;
         }
-        if(lastChild.GetComponent<Window>()?.windowType == WindowType.Chat || lastChild.GetComponent<Window>()?.windowType == WindowType.Messanger)
+        if (lastChild.GetComponent<Window>()?.windowType == WindowType.Chat || lastChild.GetComponent<Window>()?.windowType == WindowType.Messanger)
         {
             Debug.LogWarning("마지막 자식이 Chat입니다.");
             return null;
