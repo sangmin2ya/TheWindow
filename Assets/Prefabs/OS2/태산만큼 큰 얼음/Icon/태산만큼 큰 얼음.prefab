@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -47.2}
+  m_AnchoredPosition: {x: 0, y: -59.5}
   m_SizeDelta: {x: 100, y: 19.105698}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2135012421656690523
@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: FOLDER
+  m_text: "\uD0DC\uC0B0\uB9CC\uD07C\n\uD070 \uC5BC\uC74C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 178da3fb1aa1edd46ab3f828c085447b, type: 2}
   m_sharedMaterial: {fileID: 1558166430749476401, guid: 178da3fb1aa1edd46ab3f828c085447b, type: 2}
@@ -146,9 +146,9 @@ GameObject:
   - component: {fileID: 3255493828185651048}
   - component: {fileID: 557997789042238413}
   - component: {fileID: 2453827696878902356}
-  - component: {fileID: 731031336361573581}
+  - component: {fileID: 8961637622755790441}
   m_Layer: 5
-  m_Name: "\uC5BC\uC74C \uB3D9\uAD74 \uC22B\uC790"
+  m_Name: "\uD0DC\uC0B0\uB9CC\uD07C \uD070 \uC5BC\uC74C"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -268,7 +268,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &731031336361573581
+--- !u!114 &8961637622755790441
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -281,4 +281,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nestedFilePrefabs:
-  - {fileID: 7252031198833296012, guid: 6ed7e7680f382db4680ffafc8f9b799e, type: 3}
+  - {fileID: 7252031198833296012, guid: 74542112e0a7b5c40b9f042e68e04ea0, type: 3}
