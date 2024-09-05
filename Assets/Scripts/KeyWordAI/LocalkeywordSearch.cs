@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class LocalKeywordSearch : MonoBehaviour
 {
-    public TMP_InputField inputField; // TextMeshPro InputField
+    public TextMeshProUGUI inputField; // TextMeshPro InputField
     public TMP_Text resultText; // TextMeshPro Text to display the result
 
     // 사전 정의된 키워드 리스트
