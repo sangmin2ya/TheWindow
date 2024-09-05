@@ -35,7 +35,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -58.5}
-  m_SizeDelta: {x: 0, y: -86.1396}
+  m_SizeDelta: {x: 20, y: -86.1396}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2135012421656690523
 CanvasRenderer:
@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC591\uD53C\uC9C0"
+  m_text: "2002\uB144 4\uC6D4 12\uC77C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 178da3fb1aa1edd46ab3f828c085447b, type: 2}
   m_sharedMaterial: {fileID: 1558166430749476401, guid: 178da3fb1aa1edd46ab3f828c085447b, type: 2}
@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 2453827696878902356}
   - component: {fileID: 1066217378369827966}
   m_Layer: 5
-  m_Name: "\uBBF8\uAD81\uC232 \uC591\uD53C\uC9C0"
+  m_Name: TextFile_DesktopIcon Btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -280,5 +280,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b035a7bcc949e14e9c4d65386d8b087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  window: {fileID: 4222780797678314821, guid: eb53930a5bb09a84b8dff5a8304527f8, type: 3}
+  window: {fileID: 4222780797678314821, guid: 7ebc9802d20b2574db8d3b0a7992efa8, type: 3}
   iconType: 0

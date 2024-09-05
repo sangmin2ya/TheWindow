@@ -6,6 +6,7 @@ public interface IWindow
     public WindowType windowType { get; set; }  // 창 타입
     public WindowState windowState { get; set; }  // 창 상태
     public IIcon icon { get; set; }  // 창과 연결된 아이콘
+    GameObject GetGameObject();
     void OnPointerDown(PointerEventData eventData);  // 창 이동 시작
     void OnDrag(PointerEventData eventData);  // 창 이동 중
     void OnPointerUp(PointerEventData eventData);  // 창 이동 종료
