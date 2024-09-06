@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class DrawingManager : MonoBehaviour
 {
+
     public RawImage drawingCanvas;  // 그림을 그릴 캔버스 (RawImage)
     public Slider brushSizeSlider;  // 브러시 크기 조절 슬라이더
     public Color selectedColor = Color.black;  // 기본 색상은 검정
@@ -26,6 +27,7 @@ public class DrawingManager : MonoBehaviour
 
     void Update()
     {
+
         if (Input.GetMouseButtonDown(0))  // 마우스를 누르면 그리기 시작
         {
             isDrawing = true;
@@ -148,5 +150,6 @@ public class DrawingManager : MonoBehaviour
             }
         }
         texture.Apply();
+
     }
 }
