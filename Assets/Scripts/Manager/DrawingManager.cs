@@ -3,80 +3,153 @@ using UnityEngine.UI;
 
 public class DrawingManager : MonoBehaviour
 {
-    public RawImage drawingCanvas;       // 그림을 그릴 캔버스 (RawImage)
-    public Color selectedColor = Color.black;  // 선택된 색상 (기본 검은색)
-    public int brushSize = 5;            // 브러시 크기
-    public Texture2D canvasTexture;      // 그림을 그릴 텍스처
-    private bool isDrawing = false;      // 그리기 상태 확인
+
+    public RawImage drawingCanvas;  // 그림을 그릴 캔버스 (RawImage)
+    public Slider brushSizeSlider;  // 브러시 크기 조절 슬라이더
+    public Color selectedColor = Color.black;  // 기본 색상은 검정
+    private Texture2D texture;
+    private bool isDrawing = false;
+    private Vector2 lastMousePosition;
+    private bool hasStartedDrawing = false; // 처음 클릭했을 때만 좌표를 저장하기 위한 플래그
 
     void Start()
     {
-        // 그림을 그릴 캔버스 텍스처 초기화
-        canvasTexture = new Texture2D((int)drawingCanvas.rectTransform.rect.width, (int)drawingCanvas.rectTransform.rect.height);
-        drawingCanvas.texture = canvasTexture;
+        // 캔버스의 크기에 맞는 Texture2D 생성
+        int width = (int)drawingCanvas.rectTransform.rect.width;
+        int height = (int)drawingCanvas.rectTransform.rect.height;
+
+        texture = new Texture2D(width, height, TextureFormat.RGBA32, false);
+        texture.filterMode = FilterMode.Point; // 필터 모드를 설정해 픽셀화 느낌을 유지
+        drawingCanvas.texture = texture;
 
         ClearCanvas();
     }
 
     void Update()
     {
-        // 마우스 클릭 중일 때 그리기
-        if (Input.GetMouseButton(0))
-        {
-            Vector2 localMousePos;
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(drawingCanvas.rectTransform, Input.mousePosition, null, out localMousePos);
 
-            // 마우스가 캔버스 위에 있을 때만 그리기
-            if (drawingCanvas.rectTransform.rect.Contains(localMousePos))
+        if (Input.GetMouseButtonDown(0))  // 마우스를 누르면 그리기 시작
+        {
+            isDrawing = true;
+            lastMousePosition = GetMouseTexturePosition();  // 첫 클릭 시 마우스 위치 저장
+            hasStartedDrawing = true; // 첫 클릭 플래그 설정
+        }
+
+        if (Input.GetMouseButtonUp(0))  // 마우스에서 손을 떼면 그리기 중지
+        {
+            isDrawing = false;
+            hasStartedDrawing = false;  // 마우스를 떼면 다음 클릭 시 새로 시작
+        }
+
+        if (isDrawing && hasStartedDrawing)
+        {
+            DrawOnCanvas();
+        }
+    }
+
+    // 마우스 위치를 텍스처 좌표로 변환하는 함수
+    Vector2 GetMouseTexturePosition()
+    {
+        Vector2 localMousePosition;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(drawingCanvas.rectTransform, Input.mousePosition, Camera.main, out localMousePosition);
+
+        // 로컬 좌표를 텍스처 좌표로 변환
+        float canvasWidth = drawingCanvas.rectTransform.rect.width;
+        float canvasHeight = drawingCanvas.rectTransform.rect.height;
+
+        int x = Mathf.FloorToInt((localMousePosition.x / canvasWidth + 0.5f) * texture.width);
+        int y = Mathf.FloorToInt((localMousePosition.y / canvasHeight + 0.5f) * texture.height);
+
+        // 텍스처 범위 내로 좌표를 클램프
+        x = Mathf.Clamp(x, 0, texture.width - 1);
+        y = Mathf.Clamp(y, 0, texture.height - 1);
+
+        return new Vector2(x, y);
+    }
+    // 색상 버튼에서 이미지 색상을 자동으로 받아오는 함수
+    public void SelectColorFromButton(Image buttonImage)
+    {
+        selectedColor = buttonImage.color;  // 버튼의 이미지 색상 받아옴
+    }
+
+    // 그림 그리기 함수
+    void DrawOnCanvas()
+    {
+        Vector2 currentMousePosition = GetMouseTexturePosition();  // 현재 마우스 위치
+
+        // 두 점 사이에 선을 그리기
+        DrawLine(lastMousePosition, currentMousePosition);
+
+        // 현재 마우스 위치를 다음 프레임을 위해 저장
+        lastMousePosition = currentMousePosition;
+
+        texture.Apply();  // 텍스처 변경 사항 적용
+    }
+
+    // 두 점 사이에 선을 그리는 함수 (Bresenham's Line Algorithm 사용)
+    void DrawLine(Vector2 start, Vector2 end)
+    {
+        int brushSize = Mathf.FloorToInt(brushSizeSlider.value);
+
+        int x0 = Mathf.RoundToInt(start.x);
+        int y0 = Mathf.RoundToInt(start.y);
+        int x1 = Mathf.RoundToInt(end.x);
+        int y1 = Mathf.RoundToInt(end.y);
+
+        int dx = Mathf.Abs(x1 - x0);
+        int dy = Mathf.Abs(y1 - y0);
+        int sx = x0 < x1 ? 1 : -1;
+        int sy = y0 < y1 ? 1 : -1;
+        int err = dx - dy;
+
+        while (true)
+        {
+            DrawBrush(x0, y0, brushSize);  // 현재 좌표에 브러시로 그리기
+
+            if (x0 == x1 && y0 == y1) break;
+
+            int e2 = 2 * err;
+            if (e2 > -dy)
             {
-                Draw(localMousePos);
+                err -= dy;
+                x0 += sx;
+            }
+            if (e2 < dx)
+            {
+                err += dx;
+                y0 += sy;
             }
         }
     }
 
-    // 그림을 그리는 함수
-    void Draw(Vector2 localMousePos)
+    // 브러시 크기에 맞게 픽셀을 칠하는 함수
+    void DrawBrush(int x, int y, int brushSize)
     {
-        int x = (int)(localMousePos.x + drawingCanvas.rectTransform.rect.width / 2);
-        int y = (int)(localMousePos.y + drawingCanvas.rectTransform.rect.height / 2);
-
-        // 브러시 크기만큼의 영역을 그리기
         for (int i = -brushSize; i <= brushSize; i++)
         {
             for (int j = -brushSize; j <= brushSize; j++)
             {
-                if (x + i >= 0 && x + i < canvasTexture.width && y + j >= 0 && y + j < canvasTexture.height)
+                if (Mathf.Sqrt(i * i + j * j) <= brushSize)  // 원형 브러시 효과
                 {
-                    canvasTexture.SetPixel(x + i, y + j, selectedColor);
+                    int px = Mathf.Clamp(x + i, 0, texture.width - 1);
+                    int py = Mathf.Clamp(y + j, 0, texture.height - 1);
+                    texture.SetPixel(px, py, selectedColor);
                 }
             }
         }
-
-        canvasTexture.Apply();  // 변경된 텍스처 적용
     }
 
-    // 캔버스를 초기화하는 함수 (모든 픽셀을 흰색으로 설정)
+    // 캔버스 초기화 함수
     public void ClearCanvas()
     {
-        for (int x = 0; x < canvasTexture.width; x++)
+        for (int x = 0; x < texture.width; x++)
         {
-            for (int y = 0; y < canvasTexture.height; y++)
+            for (int y = 0; y < texture.height; y++)
             {
-                canvasTexture.SetPixel(x, y, Color.white);
+                texture.SetPixel(x, y, Color.white);  // 기본 배경은 흰색
             }
         }
-        canvasTexture.Apply();
-    }
+        texture.Apply();
 
-    // 색상 버튼을 클릭했을 때 호출되는 함수
-    public void SelectColor(Color color)
-    {
-        selectedColor = color;
-    }
-
-    // 브러시 크기를 슬라이더로 조정하는 함수
-    public void SetBrushSize(float size)
-    {
-        brushSize = Mathf.RoundToInt(size);
     }
 }
