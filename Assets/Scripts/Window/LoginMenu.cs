@@ -35,7 +35,14 @@ public class LoginMenu : MonoBehaviour
     }
     public void TryLogin2()
     {
-        loginMenu.SetActive(true);
+        if(MemoManager.Instance.userUnlocked)
+        {
+            UserLogin2();
+        }
+        else
+        {
+            loginMenu.SetActive(true);
+        }
     }
     public void CancleLogin()
     {
@@ -45,6 +52,7 @@ public class LoginMenu : MonoBehaviour
     {
         if (inputPassword.text == password)
         {
+            MemoManager.Instance.userUnlocked = true;
             UserLogin2();
         }
         else

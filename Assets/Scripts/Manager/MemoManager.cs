@@ -25,6 +25,7 @@ public class MemoManager : MonoBehaviour
     private string copyText = "";
     private string memoText = "";
     public string MemoText { get { return memoText; } set { memoText = value; } }
+    public bool userUnlocked = false;
     public void ClearMemoText()
     {
         memoText = "";

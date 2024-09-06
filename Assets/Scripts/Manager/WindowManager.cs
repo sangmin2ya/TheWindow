@@ -76,7 +76,13 @@ public class WindowManager : MonoBehaviour
         var newWindow = Instantiate(window as MonoBehaviour, GameObject.Find("Canvas/Desktop").transform);
         _windows.Insert(0, newWindow.GetComponent<IWindow>()); //add to the front of the list
     }
-
+    public void Minimize(IWindow window)
+    {
+        if (_windows.Contains(window))
+        {
+            window.Minimize();
+        }
+    }
     public void CloseWindow(IWindow window)
     {
         if (_windows.Contains(window))

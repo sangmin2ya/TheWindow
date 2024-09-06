@@ -148,6 +148,10 @@ public class FolderSystem : MonoBehaviour
 
         // 경로 텍스트도 업데이트
         UpdatePathText();
+        if (lockedFileNames.Contains(fileIcon.gameObject.name))
+        {
+            lockedFileNames.Remove(fileIcon.gameObject.name);
+        }
     }
     public void OnFileClick(GameObject filePrefab)
     {
