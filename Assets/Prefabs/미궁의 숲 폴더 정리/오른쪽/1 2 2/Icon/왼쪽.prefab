@@ -283,3 +283,4 @@ MonoBehaviour:
   nestedFilePrefabs:
   - {fileID: 7252031198833296012, guid: f5292e520ba69c047991ff1a522d8b80, type: 3}
   - {fileID: 7252031198833296012, guid: f031cd54de4445c45b17aec41d8231af, type: 3}
+  - {fileID: 7252031198833296012, guid: 89180a55dd84456488e59fef1070aa9c, type: 3}
