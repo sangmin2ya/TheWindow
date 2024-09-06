@@ -54,9 +54,8 @@ public class LoginMenu : MonoBehaviour
     }
     IEnumerator WrongPassword()
     {
-        wrongPassword.text = "비밀번호가 틀렸습니다.";
+        wrongPassword.text = "로그인 실패!";
         yield return new WaitForSeconds(2.0f);
         wrongPassword.text = "";
     }
 }
- 
