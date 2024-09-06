@@ -37,7 +37,7 @@ public class Window : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDr
     private Vector2 lastMousePosition;
     private GameObject _taskbarIcon;
     private bool isDragging = false;
-    private float draggableHeight = 500f; // 드래그 가능한 상단 영역의 높이
+    private float draggableHeight = 450f; // 드래그 가능한 상단 영역의 높이
 
     void Start()
     {

@@ -38,7 +38,7 @@ public class MainMenu : MonoBehaviour
         if (isCreditsPanelActive)
         {
             // 크레딧 패널이 활성화된 상태에서 스페이스바를 누르면 패널을 닫고 게임을 재개
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetMouseButtonDown(1))
             {
                 HideCredits();
             }

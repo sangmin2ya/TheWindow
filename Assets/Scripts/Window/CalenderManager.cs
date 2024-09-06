@@ -40,7 +40,7 @@ public class CalendarDropdownManager : MonoBehaviour
     {
         yearDropdown.ClearOptions();
         List<string> years = new List<string>();
-        for (int i = 1900; i <= 2100; i++)
+        for (int i = 1999; i <= 2024; i++)
         {
             years.Add(i.ToString());
         }

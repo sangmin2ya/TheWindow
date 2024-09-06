@@ -27,7 +27,6 @@ public class KeywordWindowManager : MonoBehaviour
             Debug.LogError("LocalKeywordSearch component not found");  // LocalKeywordSearch가 없는 경우 오류 로그
         }
     }
-
     // 키워드에 맞는 창을 보여주는 함수
     public void ShowKeywordWindow(string keyword)
     {
@@ -46,6 +45,10 @@ public class KeywordWindowManager : MonoBehaviour
         {
             // 해당 키워드에 맞는 새 창을 인스턴스화하고 활성화된 창으로 설정
             activeWindow = Instantiate(keywordWindows[index], canvasTransform);
+
+            // 검색된 키워드를 포함한 결과 메시지를 표시
+            resultMessageText.text = $"\"{keyword}\" 를 검색하셨나요?";  // 메시지 설정 (검색한 키워드 포함)
+            resultMessageText.gameObject.SetActive(true); // 메시지 활성화
         }
         else
         {
