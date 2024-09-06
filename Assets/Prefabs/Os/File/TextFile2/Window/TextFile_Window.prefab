@@ -1044,7 +1044,9 @@ MonoBehaviour:
     \uBC30\uC6E0\uB2E4!\n[\uC88C\uD074\uB9AD] - \uBCF5\uC0AC\n[\uC6B0\uD074\uB9AD]
     - \uBD99\uC5EC\uB123\uAE30 \uB2E4!\n\n\uD0A4\uBCF4\uB4DC\uAC00 \uACE0\uC7A5\uB098\uBA74
     \uC720\uC6A9\uD558\uAC8C \uC4F0\uC77C \uAC83 \uAC19\uB2E4\n\uADF8\uB7F4 \uC77C\uC740
-    \uC5C6\uC744 \uAC83 \uAC19\uC9C0\uB9CC\u314B\u314B\u314B\u314B"
+    \uC5C6\uC744 \uAC83 \uAC19\uC9C0\uB9CC\u314B\u314B\u314B\u314B\n\uC774\uC81C
+    \uBA54\uBAA8\uC7A5 \uAE30\uB2A5\uB3C4 \uC798 \uC4F8 \uC218 \uC788\uC744\uAC70
+    \uAC19\uC544!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 178da3fb1aa1edd46ab3f828c085447b, type: 2}
   m_sharedMaterial: {fileID: 1558166430749476401, guid: 178da3fb1aa1edd46ab3f828c085447b, type: 2}
