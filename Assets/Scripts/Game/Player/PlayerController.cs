@@ -1,0 +1,369 @@
+using System.Collections;
+using TMPro;
+using Unity.Mathematics;
+using UnityEngine;
+
+public class PlayerController : Singleton<PlayerController>
+{
+    Rigidbody2D rigid;
+    TrailRenderer trail;
+    [SerializeField] SpriteRenderer sprite1;
+    [SerializeField] SpriteRenderer sprite2;
+    ChargeBar chargeBar;
+
+    [SerializeField] TextMeshProUGUI velocityTextPfb;
+    TextMeshProUGUI velocityText;
+
+    [SerializeField] ParticleSystem particle;
+
+    [SerializeField] float HorizontalSpeed;
+    [SerializeField] float dashSpeed;
+    [SerializeField] float bounceForce;
+    [SerializeField] float maxFallingSpeed;
+    [SerializeField] int colorStep;
+    Vector3 rotationSpeed; // 초당 90도 회전 (Z축 기준)
+    [SerializeField] float colorRange;
+    public bool isDash;
+    public int ACCStep;
+    Coroutine dashCoroutine;
+    Coroutine bounceCoroutine = null;
+    float saveAcc;
+    bool isBouncing = false;
+    WallMove wallmove;
+    Canvas canvas;
+    public AudioSource audioSource; // 오디오 소스 컴포넌트 참조
+    public AudioClip dashSound; // 대쉬 떄 재생할 오디오 클립
+    void Awake()
+    {
+        rigid = GetComponent<Rigidbody2D>();
+        trail = GetComponentInChildren<TrailRenderer>();
+        wallmove = GetComponent<WallMove>();
+        audioSource = GetComponent<AudioSource>();
+
+        colorRange = maxFallingSpeed / colorStep;
+        // slider = FindObjectOfType<Slider>();
+        chargeBar = FindObjectOfType<ChargeBar>();
+
+        canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+        if (velocityTextPfb != null)
+        {
+            velocityText = Instantiate(velocityTextPfb, new Vector3(0, 4, 0), Quaternion.identity, canvas.transform);
+            velocityText.transform.SetAsFirstSibling();
+        }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        dash();
+
+        if (!isDash)
+        {
+            if (!isBouncing)
+                changeColor();
+
+            // 회전
+            rotationSpeed = new Vector3(0, 0, (ACCStep + 1) * 180);
+            transform.Rotate(rotationSpeed * Time.deltaTime);
+        }
+        else
+        {
+            if (transform.rotation != Quaternion.Euler(0, 0, 180))
+                // 무조건 뾰족한거 아래로 향하게
+                transform.rotation = Quaternion.Euler(0, 0, 180);
+        }
+
+    }
+
+    void FixedUpdate()
+    {
+
+        float horizontalInput = Input.GetAxis("Horizontal");
+        // Debug.Log(horizontalInput);
+
+        if (wallmove == null)
+        {
+            Debug.Log("WallMove Refer is null");
+            return;
+        }
+
+        if (horizontalInput > 0 && !wallmove.CanMoveRight)
+        {
+
+            horizontalInput = 0;
+        }
+
+        else if (horizontalInput < 0 && !wallmove.CanMoveLeft)
+        {
+
+            horizontalInput = 0;
+        }
+
+        rigid.velocity = new Vector2(horizontalInput * HorizontalSpeed, rigid.velocity.y);
+
+        if (rigid.velocity.y < -maxFallingSpeed)
+        {
+            rigid.velocity = new Vector2(rigid.velocity.x, -maxFallingSpeed);
+        }
+    }
+
+    void LateUpdate()
+    {
+        // Vector3 textPosition = Camera.main.WorldToScreenPoint(transform.position);
+        // velocityText.transform.position = textPosition;
+        velocityText.transform.position = new Vector3(transform.position.x, velocityText.transform.position.y, velocityText.transform.position.z);
+    }
+
+    void changeColor()
+    {
+        ACCStep = (int)(Mathf.Abs(rigid.velocity.y) / colorRange);
+        if (ACCStep == colorStep)
+        {
+            ACCStep = colorStep - 1;
+        }
+
+        velocityText.SetText((ACCStep + 1).ToString());
+
+        Color targetColor;
+        switch (ACCStep)
+        {
+            case 0:
+                ColorUtility.TryParseHtmlString("#e0ffff", out targetColor);
+
+                StartCoroutine(LerpColorChnage(sprite1.color, targetColor));
+                StartCoroutine(LerpTrailChnage(trail.startColor, targetColor));
+                break;
+
+            case 1:
+                ColorUtility.TryParseHtmlString("#48d1cc", out targetColor);
+
+                StartCoroutine(LerpColorChnage(sprite1.color, targetColor));
+                StartCoroutine(LerpTrailChnage(trail.startColor, targetColor));
+                break;
+
+
+            case 2:
+                ColorUtility.TryParseHtmlString("#4169e1", out targetColor);
+
+                StartCoroutine(LerpColorChnage(sprite1.color, targetColor));
+                StartCoroutine(LerpTrailChnage(trail.startColor, targetColor));
+                break;
+
+
+            case 3:
+                ColorUtility.TryParseHtmlString("#570498", out targetColor);
+
+                StartCoroutine(LerpColorChnage(sprite1.color, targetColor));
+                StartCoroutine(LerpTrailChnage(trail.startColor, targetColor));
+                break;
+        }
+    }
+
+    IEnumerator LerpColorChnage(Color nowColor, Color targetColor)
+    {
+        float duration = 0.1f;
+        float timeElapsed = 0;
+
+        while (timeElapsed < duration)
+        {
+            sprite1.color = Color.Lerp(nowColor, targetColor, timeElapsed / duration);
+            sprite2.color = Color.Lerp(nowColor, targetColor, timeElapsed / duration);
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        sprite1.color = targetColor;
+        sprite2.color = targetColor;
+    }
+
+    IEnumerator LerpTrailChnage(Color nowColor, Color targetColor)
+    {
+        float duration = 0.1f;
+        float timeElapsed = 0;
+
+        while (timeElapsed < duration)
+        {
+            trail.startColor = Color.Lerp(nowColor, targetColor, timeElapsed / duration);
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        trail.startColor = targetColor;
+    }
+
+    void dash()
+    {
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.DownArrow)) && chargeBar.currentGauge == chargeBar.maxGauge && !PauseMenu.Instance.isPause)
+        {
+
+            chargeBar.UseSkill();
+
+            if (!isDash)
+            {
+                isDash = true;
+
+                // 잠깐 정지
+                rigid.velocity = Vector2.zero;
+
+                if (dashCoroutine != null)
+                {
+                    StopCoroutine(dashCoroutine);
+                    dashCoroutine = StartCoroutine(dashEffect());
+                }
+                else
+                {
+                    dashCoroutine = StartCoroutine(dashEffect());
+                }
+
+                velocityText.SetText("<#f98cde>Fever!");
+            }
+
+            StartCoroutine(dashing());
+
+        }
+    }
+
+    IEnumerator dashing()
+    {
+        float duration = 2f;
+        float currentTime = 0;
+        float blinkStart = 1f; // 깜빡거림이 시작되는 시간
+        float blinkFrequency = 1f; // 초기 깜빡거림 주기
+        // 대쉬 시작 시 사운드 재생
+        if (audioSource != null && dashSound != null)
+        {
+            audioSource.clip = dashSound;
+            audioSource.Play();
+        }
+
+        while (currentTime < duration)
+        {
+            currentTime += Time.deltaTime;
+
+            if (Mathf.Abs(rigid.velocity.y) < maxFallingSpeed)
+                rigid.velocity = new Vector2(rigid.velocity.x, -maxFallingSpeed);
+
+            // 깜빡거림 시작
+            if (currentTime >= blinkStart)
+            {
+                float blinkTimer = Mathf.PingPong((currentTime - blinkStart) * blinkFrequency, 1f);
+                Color newColor = new Color(1f, 1f, 1f, blinkTimer);
+                sprite1.color = newColor;
+                sprite2.color = newColor;
+                trail.startColor = newColor;
+
+                // 깜빡거림 속도 증가
+                if (currentTime >= duration - 1.75f)
+                {
+                    blinkFrequency = 27f; // 깜빡거림 속도 증가
+                }
+                else
+                {
+                    blinkFrequency = 2f; // 기본 깜빡거림 속도
+                }
+            }
+
+            yield return null;
+        }
+
+        if (isDash)
+        {
+            isDash = false;
+            StopCoroutine(dashCoroutine);
+        }
+    }
+
+    IEnumerator dashEffect()
+    {
+        float timer = 0f;
+        float duration = 0.5f;
+
+        while (true)
+        {
+            timer += Time.deltaTime / duration;
+            float hue = Mathf.Repeat(timer, 1f);  // hue 값이 0에서 1 사이를 반복
+            Color newColor = Color.HSVToRGB(hue, 0.3f, 1f);  // HSV 값을 RGB로 변환
+            sprite1.color = newColor;
+            sprite2.color = newColor;
+            trail.startColor = newColor;
+
+            yield return null;  // 다음 프레임까지 대기
+        }
+    }
+
+    float blockY;
+    public void SaveAcc()
+    {
+        saveAcc = ACCStep;
+
+        // Debug.Log("[Before]: " + saveAcc);
+    }
+
+    public void Bounce(float yPos)
+    {
+        SaveAcc();
+
+        chargeBar.ChargeSkill(10f);
+
+        if (rigid.position.y < yPos)
+        {
+            rigid.velocity = Vector2.zero;
+            float target_vel = ((saveAcc - 1) < 0 ? 0 : (saveAcc - 1)) * colorRange;
+
+            rigid.velocity = new Vector2(rigid.velocity.x, -target_vel);
+        }
+        else
+        {
+            rigid.velocity = Vector2.zero;
+            rigid.AddForce(Vector2.up * bounceForce, ForceMode2D.Impulse);
+
+            if (bounceCoroutine != null)
+            {
+                StopCoroutine(bounceCoroutine);
+                bounceCoroutine = StartCoroutine(checkBounceReverse());
+            }
+            else
+            {
+                bounceCoroutine = StartCoroutine(checkBounceReverse());
+            }
+        }
+
+    }
+
+    IEnumerator checkBounceReverse()
+    {
+        while (true)
+        {
+            if (!isBouncing)
+            {
+                isBouncing = true;
+                velocityText.SetText("");
+            }
+
+
+            if (rigid.velocity.y < 0)
+            {
+                if (isBouncing)
+                {
+                    isBouncing = false;
+                }
+                float target_vel = ((saveAcc - 1) < 0 ? 0 : (saveAcc - 1)) * colorRange;
+
+                rigid.velocity = new Vector2(rigid.velocity.x, -target_vel);
+                yield break;
+            }
+
+            yield return null;
+        }
+    }
+
+    void OnDestroy()
+    {
+        ParticleSystem p = Instantiate(particle, transform.position, quaternion.identity);
+        var module = p.main;
+        module.startColor = sprite1.color;
+        Destroy(velocityText.gameObject);
+    }
+
+
+}

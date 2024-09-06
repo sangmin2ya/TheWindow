@@ -829,6 +829,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc6315e4ced25dd4cbd1ba935037e4f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animationDuration: 0.3
   _windowType: 10
   _windowState: 0
   _icon: {fileID: 7354364649582546957, guid: 8971fc0383998da43988d530bd43b854, type: 3}
@@ -867,10 +868,10 @@ MonoBehaviour:
       \uBA54\uB274 \uC774\uB984\uC73C\uB85C \uD588\uB294\uB370\u2026 \uCE74\uD398
       \uC774\uB984\uC774 \uBB50\uC600\uB354\uB77C?"
   - name: "\uC8FC\uD604"
-    message: "\uBE14\uB8E8 \uBA38\uD540\uC774\uC5C8\uB358\uAC00? \uAE30\uC5B5\uC774
+    message: "\uBE14\uB8E8\uBA38\uD540 \uC774\uC5C8\uB358\uAC00? \uAE30\uC5B5\uC774
       \uC798 \uC548 \uB098\uB124."
   - name: "\uB098"
-    message: "\uC544\uB2C8, \uC544\uB2C8. \uBE14\uB8E8 \uD30C\uC774 \uC544\uB2C8\uC5C8\uC5B4?"
+    message: "\uC544\uB2C8, \uC544\uB2C8. \uBE14\uB8E8\uD30C\uC774 \uC544\uB2C8\uC5C8\uC5B4?"
   - name: "\uC9C0\uC6B0"
     message: "\u314B\u314B\u314B\u314B \uB458 \uB2E4 \uC544\uB2CC \uAC83 \uAC19\uC740\uB370\u2026
       \uBE14\uB8E8\uBCA0\uB9AC \uBB50\uC2DC\uAE30\uC600\uB358 \uAC83 \uAC19\uAE30\uB3C4

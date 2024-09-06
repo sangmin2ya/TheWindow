@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MemoManager : MonoBehaviour
@@ -12,9 +13,14 @@ public class MemoManager : MonoBehaviour
             {
                 GameObject memoManagerObject = new GameObject("MemoManager");
                 _instance = memoManagerObject.AddComponent<MemoManager>();
+                DontDestroyOnLoad(memoManagerObject);
             }
             return _instance;
         }
+    }
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Confined;
     }
     private string copyText = "";
     private string memoText = "";

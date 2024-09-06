@@ -627,6 +627,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc6315e4ced25dd4cbd1ba935037e4f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animationDuration: 0.3
   _windowType: 1
   _windowState: 0
   _icon: {fileID: 7354364649582546957, guid: e2372214f30b9e744a29184af577f3e6, type: 3}
@@ -1039,12 +1040,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'SEE YOU AGAIN - Wiz Khalifa
-
-    It''s been a long day without you, my
-    friend And I''ll tell you all about it when I see you again We''ve come a long
-    way from where we began Oh, I''ll tell you all about it when I see you again
-    When I see you again'
+  m_text: "<b>\uB9CC\uB4E0 \uC0AC\uB78C</b>\n\nzl\uC874 \uAC80\uC0AC \uBBFC\uAE30z\n\n\uC5BC\uC9F1
+    \uD050\uD2F0 \uC5D4\uC824 \uC9C0\uBBFC\n\n\uD0B9\uC655\uC9F1 \uCD5C\uAC15 \uC0C1\uBBFC"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 178da3fb1aa1edd46ab3f828c085447b, type: 2}
   m_sharedMaterial: {fileID: 1558166430749476401, guid: 178da3fb1aa1edd46ab3f828c085447b, type: 2}

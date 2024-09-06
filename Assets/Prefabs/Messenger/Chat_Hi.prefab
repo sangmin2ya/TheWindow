@@ -829,6 +829,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc6315e4ced25dd4cbd1ba935037e4f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animationDuration: 0.3
   _windowType: 10
   _windowState: 0
   _icon: {fileID: 7354364649582546957, guid: 8971fc0383998da43988d530bd43b854, type: 3}
@@ -851,11 +852,11 @@ MonoBehaviour:
   - name: "\uB098"
     message: "\uC548\uB155?"
   - name: "\uB098"
-    message: "\uBC18\uAC11\uB2E4 \uC57C"
+    message: "\uBC29\uAC00\uBC29\uAC00"
   - name: "\uC9C0\uC6B0"
-    message: "\uBC18\uAC11\uAD6C\uB9AC"
+    message: "\uD558\uC774\uB8E8~"
   - name: "\uC8FC\uD604"
-    message: "\uBB50\uD558\uB0D0?"
+    message: "\uB108\uD76C \uBB50\uD558\uB0D0?"
   myChatPrefab: {fileID: 8394771801955224272, guid: 4bc96eab018f0da478232f39ec1b1466, type: 3}
   otherChatPrefab: {fileID: 5282100820624062013, guid: 5154f2a3045f5c641b058104eb488d2c, type: 3}
   chatBox: {fileID: 6955904125004680579}
