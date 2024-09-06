@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7354364649582546957}
   - component: {fileID: 4211869572918882000}
   m_Layer: 5
-  m_Name: Email_TaskbarIcon Btn
+  m_Name: TaskbarIcon Btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8885553d6439f9448b88ac41b2f406d2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1780f3391d58f1046a2bfcb9a22f694c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

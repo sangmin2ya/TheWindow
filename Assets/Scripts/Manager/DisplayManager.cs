@@ -80,6 +80,6 @@ public class DisplayManager : MonoBehaviour
         }
 
         // 카메라 배경색을 검은색으로 설정 (레터박스용)
-        cam.backgroundColor = Color.black;
+         cam.backgroundColor = Color.black;
     }
 }

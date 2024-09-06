@@ -75,7 +75,8 @@ public class Window : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDr
         }
         if (ColorUtility.TryParseHtmlString("#000FB2", out newColor))
         {
-            transform.Find("TopBar").GetComponent<Image>().color = newColor;
+            if (windowType != WindowType.Feature)
+                transform.Find("TopBar").GetComponent<Image>().color = newColor;
         }
 
         // Shadow 컴포넌트가 없다면 추가
