@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: FOLDER
+  m_text: "\uD45C\uC9C0\uD310"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 178da3fb1aa1edd46ab3f828c085447b, type: 2}
   m_sharedMaterial: {fileID: 1558166430749476401, guid: 178da3fb1aa1edd46ab3f828c085447b, type: 2}
@@ -146,9 +146,9 @@ GameObject:
   - component: {fileID: 3255493828185651048}
   - component: {fileID: 557997789042238413}
   - component: {fileID: 2453827696878902356}
-  - component: {fileID: -3831812141137800978}
+  - component: {fileID: 4152777053773056621}
   m_Layer: 5
-  m_Name: "\uC67C\uCABD"
+  m_Name: "\uD45C\uC9C0\uD310"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -202,7 +202,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e44f2fc7d6aa3ea44bb45d33bd9563b6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 22530a980deb69f4fa9850dfa2fd95d6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -256,7 +256,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 4152777053773056621}
         m_TargetAssemblyTypeName: DesktopIcon, Assembly-CSharp
         m_MethodName: OnIconClick
         m_Mode: 1
@@ -268,7 +268,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &-3831812141137800978
+--- !u!114 &4152777053773056621
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -277,8 +277,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 7252031198833296012}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6a812c51de0c544eb70ea40d945b704, type: 3}
+  m_Script: {fileID: 11500000, guid: 2b035a7bcc949e14e9c4d65386d8b087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nestedFilePrefabs:
-  - {fileID: 7252031198833296012, guid: a1daf98f500770347956fb4972357d40, type: 3}
+  window: {fileID: 4222780797678314821, guid: 60d4e72d078e4b144ad37bc7d2dcbbb4, type: 3}
+  iconType: 0
