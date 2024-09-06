@@ -16,7 +16,14 @@ public class TaskBarIcon : MonoBehaviour, IIcon
     }
     public void OnIconClick()
     {
-        WindowManager.Instance.OpenWindow(window.GetComponent<IWindow>());
+        if(Window.windowState == WindowState.Minimize)
+        {
+            WindowManager.Instance.OpenWindow(window.GetComponent<IWindow>());
+        }
+        else
+        {
+            WindowManager.Instance.Minimize(window.GetComponent<IWindow>());
+        }
         Debug.Log(window.GetComponent<IWindow>().windowType + " Clicked");
     }
     public void Close()

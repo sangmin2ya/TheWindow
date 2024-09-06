@@ -27,6 +27,8 @@ public class SettingManager : MonoBehaviour
     public float Volume { get { return volume; } set { volume = value; } }
     private bool unrockLogin = false;
     public bool UnrockLogin { get { return unrockLogin; } set { unrockLogin = value; } }
+    private bool unrockEmail = false;
+    public bool UnrockEmail { get { return unrockEmail; } set { unrockEmail = value; } }
     public void SetVisibility(bool value)
     {
         visibility = value;
@@ -40,6 +42,7 @@ public class SettingManager : MonoBehaviour
     public void SetBrightness(float value)
     {
         Volume volume = GameObject.Find("Brightness").GetComponent<Volume>();
+        this.Brightness = value;
         if (volume.profile.TryGet<ColorAdjustments>(out var colorAdjustments))
         {
             // Post Exposure 수치 조정
@@ -49,6 +52,7 @@ public class SettingManager : MonoBehaviour
     }
     public void SetVolume(float value)
     {
+        this.Volume = value  ;
         AudioListener.volume = value;
     }
 }
