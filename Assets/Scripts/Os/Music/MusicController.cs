@@ -10,13 +10,13 @@ public class MusicController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();       
     }
-    void OnEnable()
-    {
-        audioSource.Pause();
-        transform.Find("Singer/Play").GetComponent<UnityEngine.UI.Image>().sprite = onSprite;
-    }
+    // void OnEnable()
+    // {
+    //     audioSource.Pause();
+    //     transform.Find("Singer/Play").GetComponent<UnityEngine.UI.Image>().sprite = onSprite;
+    // }
     // Update is called once per frame
     void Update()
     {
@@ -35,4 +35,5 @@ public class MusicController : MonoBehaviour
             transform.Find("Singer/Play").GetComponent<UnityEngine.UI.Image>().sprite = offSprite;
         }
     }
+    
 }
