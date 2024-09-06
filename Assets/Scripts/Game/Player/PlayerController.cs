@@ -75,11 +75,12 @@ public class PlayerController : Singleton<PlayerController>
 
     }
 
+    [SerializeField] private float mouseSensitivity = 10f;  // 마우스 감도 조절 변수
+
     void FixedUpdate()
     {
-
-        float horizontalInput = Input.GetAxis("Horizontal");
-        // Debug.Log(horizontalInput);
+        // 마우스의 좌우 이동 입력을 받음
+        float mouseInput = Input.GetAxis("Mouse X") * mouseSensitivity;
 
         if (wallmove == null)
         {
@@ -87,20 +88,20 @@ public class PlayerController : Singleton<PlayerController>
             return;
         }
 
-        if (horizontalInput > 0 && !wallmove.CanMoveRight)
+        // 마우스 입력에 따른 이동 처리 (벽에 부딪힐 때 처리)
+        if (mouseInput > 0 && !wallmove.CanMoveRight)
         {
-
-            horizontalInput = 0;
+            mouseInput = 0;
+        }
+        else if (mouseInput < 0 && !wallmove.CanMoveLeft)
+        {
+            mouseInput = 0;
         }
 
-        else if (horizontalInput < 0 && !wallmove.CanMoveLeft)
-        {
+        // 플레이어를 마우스 이동 방향에 맞춰 좌우로 이동시킴
+        rigid.velocity = new Vector2(mouseInput * HorizontalSpeed, rigid.velocity.y);
 
-            horizontalInput = 0;
-        }
-
-        rigid.velocity = new Vector2(horizontalInput * HorizontalSpeed, rigid.velocity.y);
-
+        // 최대 낙하 속도 제한
         if (rigid.velocity.y < -maxFallingSpeed)
         {
             rigid.velocity = new Vector2(rigid.velocity.x, -maxFallingSpeed);
@@ -193,7 +194,7 @@ public class PlayerController : Singleton<PlayerController>
 
     void dash()
     {
-        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.DownArrow)) && chargeBar.currentGauge == chargeBar.maxGauge && !PauseMenu.Instance.isPause)
+        if (Input.GetMouseButtonDown(0) && chargeBar.currentGauge == chargeBar.maxGauge && !PauseMenu.Instance.isPause)
         {
 
             chargeBar.UseSkill();

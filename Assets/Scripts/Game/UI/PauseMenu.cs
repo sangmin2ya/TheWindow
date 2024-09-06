@@ -43,14 +43,14 @@ public class PauseMenu : Singleton<PauseMenu>
     {
         if (isCreditsPanelActive)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetMouseButtonDown(1))
             {
                 HideCredits();
             }
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetMouseButtonDown(1))
             {
                 if (isPause)
                 {
@@ -155,6 +155,10 @@ public class PauseMenu : Singleton<PauseMenu>
         pauseMenuCanvas.SetActive(false);
         Time.timeScale = 1f;
         isPause = false;
+
+        // 퍼즈 해제 시 마우스 커서 숨기기
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void Pause()
@@ -163,6 +167,10 @@ public class PauseMenu : Singleton<PauseMenu>
         pauseMenuCanvas.SetActive(true);
         Time.timeScale = 0f;
         isPause = true;
+
+        // 퍼즈 시 마우스 커서 표시
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     // 버튼을 눌러 씬을 새로 로드하는 함수
