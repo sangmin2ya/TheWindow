@@ -13,7 +13,6 @@ public class TaskBarManager : MonoBehaviour
             {
                 GameObject TaskBarManagerObject = new GameObject("TaskBarManager");
                 _instance = TaskBarManagerObject.AddComponent<TaskBarManager>();
-                DontDestroyOnLoad(TaskBarManagerObject);
             }
             return _instance;
         }

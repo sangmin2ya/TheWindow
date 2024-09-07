@@ -1,7 +1,8 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.EventSystems;
 
-public class WritableText : MonoBehaviour
+public class WritableText : MonoBehaviour, IPointerClickHandler
 {
     private TextMeshProUGUI textField; // TextMeshPro InputField 참조
 
@@ -10,12 +11,50 @@ public class WritableText : MonoBehaviour
         if (textField == null)
         {
             textField = GetComponent<TextMeshProUGUI>();
-            textField.text = MemoManager.Instance.MemoText;
+            if (gameObject.tag == "Memo")
+                textField.text = MemoManager.Instance.MemoText;
         }
     }
     void Update()
     {
-        
+
+    }
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        // 마우스 오른쪽 클릭인지 확인
+        if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            // Raycast를 사용하여 올바른 UI 객체 감지
+            if (IsPointerOverUIObject(eventData))
+            {
+                if (gameObject.tag == "Memo")
+                {
+                    PasteFromClipboard();
+                }
+                else
+                {
+                    textField.text = MemoManager.Instance.PasteText();
+                }
+            }
+        }
+    }
+
+    private bool IsPointerOverUIObject(PointerEventData eventData)
+    {
+        // Raycast 결과를 저장할 리스트 생성
+        var results = new System.Collections.Generic.List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventData, results);
+
+        // Raycast 결과 중 현재 오브젝트가 포함되어 있는지 확인
+        foreach (var result in results)
+        {
+            if (result.gameObject == gameObject)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
     // 붙여넣기 버튼 또는 특정 조건에서 호출될 메서드
     public void PasteFromClipboard()

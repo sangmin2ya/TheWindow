@@ -61,6 +61,10 @@ public class ClickableText : MonoBehaviour, IPointerClickHandler, IPointerEnterH
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        if(eventData.button == PointerEventData.InputButton.Right)
+        {
+            return;
+        }
         // 클릭한 위치에서 텍스트의 단어 인덱스를 얻습니다.
         int wordIndex = TMP_TextUtilities.FindIntersectingWord(textMeshPro, eventData.position, Camera.main);
 
@@ -98,7 +102,7 @@ public class ClickableText : MonoBehaviour, IPointerClickHandler, IPointerEnterH
         // 텍스트를 수정하여 단어를 강조
         string word = wordInfo.GetWord();
         modifiedText = originalText.Substring(0, wordInfo.firstCharacterIndex)
-                      + $"<b><color=#{ColorUtility.ToHtmlStringRGBA(hoverColor)}>{word}</color></b>"
+                      + $"<color=#{ColorUtility.ToHtmlStringRGBA(hoverColor)}>{word}</color>"
                       + originalText.Substring(wordInfo.firstCharacterIndex + word.Length);
         textMeshPro.text = modifiedText;
     }

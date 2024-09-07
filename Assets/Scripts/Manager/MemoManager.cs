@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MemoManager : MonoBehaviour
@@ -17,9 +19,15 @@ public class MemoManager : MonoBehaviour
             return _instance;
         }
     }
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Confined;
+    }
     private string copyText = "";
     private string memoText = "";
     public string MemoText { get { return memoText; } set { memoText = value; } }
+    public bool userUnlocked = false;
+    public List<int> scoreList = new List<int>();
     public void ClearMemoText()
     {
         memoText = "";
@@ -37,5 +45,10 @@ public class MemoManager : MonoBehaviour
         go.SetActive(false);
         Debug.Log("Memo restarted");
         go.SetActive(true);
+    }
+    public void AddScore(int score)
+    {
+        scoreList.Add(score);
+        scoreList.Sort();
     }
 }

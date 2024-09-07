@@ -20,7 +20,7 @@ public class SettingWindow : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     private Vector2 originalPosition;
     private Vector2 preMaximizedSize;
     private Vector2 preMaximizedPosition;
-    private bool isMinimized = false;
+    public bool isMinimized = false;
     private bool isMaximized = false;
 
     // Inspector에 노출될 백업 필드
@@ -42,17 +42,39 @@ public class SettingWindow : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         _taskbarIcon = Instantiate(_icon as MonoBehaviour, GameObject.Find("TaskCanvas").transform).gameObject;
         _taskbarIcon.GetComponent<TaskBarIcon>().window = gameObject;
 
+        Vector2 offsetMin;
+        Vector2 offsetMax;
+        WindowManager.Instance.GetStartOffset(out offsetMin, out offsetMax);
+        GetComponent<RectTransform>().offsetMin = offsetMin;
+        GetComponent<RectTransform>().offsetMax = offsetMax;
+
+        transform.Find("Visibility/Toggle").GetComponent<Toggle>().isOn = SettingManager.Instance.Visibility;
         transform.Find("Visibility/Toggle").GetComponent<Toggle>().onValueChanged.AddListener((value) =>
         {
             SettingManager.Instance.SetVisibility(value);
         });
+
+        transform.Find("Brightness/Slider").GetComponent<Slider>().value = SettingManager.Instance.Brightness;
+        transform.Find("Brightness/Slider").GetComponent<Slider>().onValueChanged.AddListener((value) =>
+        {
+            SettingManager.Instance.SetBrightness(value);
+        });
+
+        transform.Find("Volume/Slider").GetComponent<Slider>().value = SettingManager.Instance.Volume;
+        transform.Find("Volume/Slider").GetComponent<Slider>().onValueChanged.AddListener((value) =>
+        {
+            SettingManager.Instance.SetVolume(value);
+        });
+
     }
+    
     // 창 이동 시작 시 호출
     public void OnPointerDown(PointerEventData eventData)
     {
         Focus();
         RectTransform rectTransform = GetComponent<RectTransform>();
-        Vector2 localMousePosition = rectTransform.InverseTransformPoint(eventData.position);
+        Vector2 localMousePosition;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(rectTransform, eventData.position, Camera.main, out localMousePosition);
 
         // 마우스 클릭 위치가 상단 특정 픽셀 이내인지 확인
         if (localMousePosition.y <= rectTransform.rect.height && localMousePosition.y >= rectTransform.rect.height - draggableHeight)
@@ -76,7 +98,10 @@ public class SettingWindow : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
             lastMousePosition = currentMousePosition;
         }
     }
-
+    public GameObject GetGameObject()
+    {
+        return gameObject;
+    }
     // 창 이동 종료 시 호출
     public void OnPointerUp(PointerEventData eventData)
     {
@@ -88,6 +113,7 @@ public class SettingWindow : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     {
         if (!isMinimized)
         {
+            windowState = WindowState.Minimize;
             // 현재 크기와 위치를 저장 (최대화 전 상태)
             if (!isMaximized)
             {
@@ -105,6 +131,8 @@ public class SettingWindow : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     {
         if (isMinimized)
         {
+            windowState = WindowState.Open;
+
             // 창을 최대화된 상태로 복원
             gameObject.SetActive(true);
 
@@ -145,14 +173,18 @@ public class SettingWindow : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
 
             // 캔버스의 크기를 가져와 창을 최대화
             RectTransform canvasRect = GetComponentInParent<Canvas>().GetComponent<RectTransform>();
-            GetComponent<RectTransform>().sizeDelta = canvasRect.sizeDelta;
+            GetComponent<RectTransform>().offsetMin = new Vector2(0, 0);
+            GetComponent<RectTransform>().offsetMax = new Vector2(0, 0);
             GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
             isMaximized = true;
         }
         else
         {
             // 창이 최대화된 상태라면 기본 크기와 위치로 복원
-            GetComponent<RectTransform>().sizeDelta = new Vector2(945, 774); // 기본 크기
+            // 기본 크기
+
+            GetComponent<RectTransform>().offsetMin = new Vector2(500, 250);
+            GetComponent<RectTransform>().offsetMax = new Vector2(-500, -250);
             GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0); // 기본 위치 (화면 중앙)
             isMaximized = false;
         }
@@ -195,5 +227,7 @@ public class SettingWindow : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0); // 기본 위치 (중앙으로 설정 가능)
         isMinimized = false;
         isMaximized = false;
+        windowState = WindowState.Open;
+
     }
 }

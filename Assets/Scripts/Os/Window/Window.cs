@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System.Collections;
+using TMPro;
 
 public class Window : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler, IWindow
 {
@@ -15,18 +17,21 @@ public class Window : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDr
         get { return _windowState; }
         set { _windowState = value; }
     }
+    private Shadow windowShadow;  // 그림자 컴포넌트
+
     public IIcon icon { get; set; } // 창과 연결된 아이콘
     private Vector2 originalSize;
     private Vector2 originalPosition;
     private Vector2 preMaximizedSize;
     private Vector2 preMaximizedPosition;
-    private bool isMinimized = false;
+    public bool isMinimized = false;
     private bool isMaximized = false;
+    private float animationDuration = 0.3f;  // 애니메이션 지속 시간
 
     // Inspector에 노출될 백업 필드
     [SerializeField] private WindowType _windowType;  // 창 타입
     [SerializeField] private WindowState _windowState;  // 창 상태
-    public Button _icon; // 닫기 버튼
+    public Button _icon; // 최소화 아이콘
     public Button _maximizeIcon; // 최대화 아이콘
 
     private Vector2 lastMousePosition;
@@ -37,10 +42,55 @@ public class Window : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDr
     void Start()
     {
         windowType = _windowType;
-        icon = _icon.GetComponent<IIcon>();
+
         windowState = WindowState.Open;
+
+        icon = _icon.GetComponent<IIcon>();
         _taskbarIcon = Instantiate(_icon as MonoBehaviour, GameObject.Find("TaskCanvas").transform).gameObject;
         _taskbarIcon.GetComponent<TaskBarIcon>().window = gameObject;
+        if (windowType != WindowType.Chat && windowType != WindowType.Messanger)
+        {
+            Vector2 offsetMin;
+            Vector2 offsetMax;
+            WindowManager.Instance.GetStartOffset(out offsetMin, out offsetMax);
+            GetComponent<RectTransform>().offsetMin = offsetMin;
+            GetComponent<RectTransform>().offsetMax = offsetMax;
+            // 그림자 추가
+            AddShadowEffect();
+        }
+    }
+
+    // 그림자 효과 추가 함수
+    private void AddShadowEffect()
+    {
+        Color newColor;
+        if (ColorUtility.TryParseHtmlString("#E0E0E0", out newColor))
+        {
+            gameObject.GetComponent<Image>().color = newColor;
+            if (windowType == WindowType.Folder || windowType == WindowType.NormalFolder)
+            {
+                transform.Find("Back Btn").GetComponent<Image>().color = newColor;
+                transform.Find("Folder Name").GetComponent<TextMeshProUGUI>().color = Color.white;
+            }
+        }
+        if (ColorUtility.TryParseHtmlString("#000FB2", out newColor))
+        {
+            if (windowType != WindowType.Feature)
+                transform.Find("TopBar").GetComponent<Image>().color = newColor;
+        }
+
+        // Shadow 컴포넌트가 없다면 추가
+        windowShadow = gameObject.GetComponent<Shadow>();
+
+        if (windowShadow == null)
+        {
+            // 창의 UI 요소에 Shadow 컴포넌트 추가
+            windowShadow = gameObject.AddComponent<Shadow>();
+        }
+
+        // 그림자의 위치를 오른쪽 아래로 살짝 설정
+        windowShadow.effectDistance = new Vector2(5, -5);  // X = 5, Y = -5로 설정 (오른쪽 아래로 살짝 그림자)
+        windowShadow.effectColor = new Color(0, 0, 0, 0.5f);  // 검은색 그림자, 투명도 50%
     }
     // 창 이동 시작 시 호출
     public void OnPointerDown(PointerEventData eventData)
@@ -72,7 +122,10 @@ public class Window : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDr
             lastMousePosition = currentMousePosition;
         }
     }
-
+    public GameObject GetGameObject()
+    {
+        return gameObject;
+    }
     // 창 이동 종료 시 호출
     public void OnPointerUp(PointerEventData eventData)
     {
@@ -84,42 +137,94 @@ public class Window : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDr
     {
         if (!isMinimized)
         {
-            // 현재 크기와 위치를 저장 (최대화 전 상태)
+            windowState = WindowState.Minimize;
+            // 최대화된 상태가 아닌 경우만 크기와 위치를 저장
             if (!isMaximized)
             {
                 preMaximizedSize = GetComponent<RectTransform>().sizeDelta;
                 preMaximizedPosition = GetComponent<RectTransform>().anchoredPosition;
             }
 
-            // 창을 비활성화하고 작업 표시줄 아이콘만 남김
-            gameObject.SetActive(false);
-            isMinimized = true;
+            // 애니메이션으로 창을 화면 밖으로 보내고 크기를 줄임
+            StartCoroutine(MinimizeWindow(() =>
+            {
+                isMinimized = true;
+            }));
         }
     }
 
+    // 창 복원 기능
     public void Restore()
     {
         if (isMinimized)
         {
-            // 창을 최대화된 상태로 복원
-            gameObject.SetActive(true);
-
-            if (isMaximized)
+            windowState = WindowState.Open;
+            // 창을 원래 위치와 크기로 복원
+            StartCoroutine(RestoreWindow(() =>
             {
-                // 최대화된 상태로 복원
-                RectTransform canvasRect = GetComponentInParent<Canvas>().GetComponent<RectTransform>();
-                GetComponent<RectTransform>().sizeDelta = canvasRect.sizeDelta;
-                GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
-            }
-            else
-            {
-                // 기본 크기와 위치로 복원
-                GetComponent<RectTransform>().sizeDelta = preMaximizedSize;
-                GetComponent<RectTransform>().anchoredPosition = preMaximizedPosition;
-            }
-
-            isMinimized = false;
+                isMinimized = false;  // 복원이 완료되면 최소화 상태 해제
+            }));
         }
+    }
+
+    // 창을 화면 밖으로 보내고 크기를 줄이는 애니메이션
+    private IEnumerator MinimizeWindow(System.Action onComplete)
+    {
+        RectTransform rectTransform = GetComponent<RectTransform>();
+        Vector3 startScale = rectTransform.localScale;
+        Vector3 endScale = Vector3.zero;  // 크기를 0으로 줄임
+
+        Vector2 startPosition = rectTransform.anchoredPosition;
+        Vector2 endPosition = new Vector2(-Screen.width, -Screen.height);  // 화면 밖으로 이동
+
+        float time = 0f;
+
+        while (time < animationDuration)
+        {
+            rectTransform.localScale = Vector3.Lerp(startScale, endScale, time / animationDuration);
+            rectTransform.anchoredPosition = Vector2.Lerp(startPosition, endPosition, time / animationDuration);
+
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        rectTransform.localScale = endScale;
+        rectTransform.anchoredPosition = endPosition;
+
+        onComplete?.Invoke();
+    }
+
+    // 창을 원래 위치로 복원하는 애니메이션
+    private IEnumerator RestoreWindow(System.Action onComplete)
+    {
+        RectTransform rectTransform = GetComponent<RectTransform>();
+        Vector3 startScale = rectTransform.localScale;
+        Vector3 endScale = Vector3.one;  // 원래 크기로 복원
+
+        Vector2 startPosition = rectTransform.anchoredPosition;
+        Vector2 endPosition = isMaximized ? Vector2.zero : preMaximizedPosition;  // 최대화 상태면 중앙, 아니면 원래 위치
+
+        float time = 0f;
+
+        while (time < animationDuration)
+        {
+            rectTransform.localScale = Vector3.Lerp(startScale, endScale, time / animationDuration);
+            rectTransform.anchoredPosition = Vector2.Lerp(startPosition, endPosition, time / animationDuration);
+
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        rectTransform.localScale = endScale;
+        rectTransform.anchoredPosition = endPosition;
+
+        // 크기도 복원
+        if (!isMaximized)
+        {
+            rectTransform.sizeDelta = preMaximizedSize;  // 원래 크기로 복원
+        }
+
+        onComplete?.Invoke();
     }
     public void Focus()
     {
@@ -141,19 +246,16 @@ public class Window : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDr
 
             // 캔버스의 크기를 가져와 창을 최대화
             RectTransform canvasRect = GetComponentInParent<Canvas>().GetComponent<RectTransform>();
-            GetComponent<RectTransform>().offsetMin = new Vector2(0, 0);
-            GetComponent<RectTransform>().offsetMax = new Vector2(0, 0);
+            GetComponent<RectTransform>().offsetMin = Vector2.zero;  // 좌상단(0,0)
+            GetComponent<RectTransform>().offsetMax = Vector2.zero;  // 우하단(0,0)
             GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
             isMaximized = true;
         }
         else
         {
             // 창이 최대화된 상태라면 기본 크기와 위치로 복원
-            // 기본 크기
-
-            GetComponent<RectTransform>().offsetMin = new Vector2(500, 250);
-            GetComponent<RectTransform>().offsetMax = new Vector2(-500, -250);
-            GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0); // 기본 위치 (화면 중앙)
+            GetComponent<RectTransform>().sizeDelta = preMaximizedSize;
+            GetComponent<RectTransform>().anchoredPosition = preMaximizedPosition;
             isMaximized = false;
         }
     }
@@ -161,7 +263,15 @@ public class Window : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDr
     // 창 닫기 및 열기 기능
     public void Close()
     {
-        _taskbarIcon.GetComponent<IIcon>().Close();
+        _taskbarIcon?.GetComponent<IIcon>()?.Close();
+        if (windowType == WindowType.Messanger)
+        {
+            GameObject go = GameObject.FindWithTag("Chat");
+            if (go != null)
+            {
+                WindowManager.Instance.CloseWindow(go.GetComponent<IWindow>());
+            }
+        }
         Destroy(gameObject);
     }
     public void OnCloseButtonClick()
@@ -195,5 +305,6 @@ public class Window : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDr
         GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0); // 기본 위치 (중앙으로 설정 가능)
         isMinimized = false;
         isMaximized = false;
+        windowState = WindowState.Open;
     }
 }
