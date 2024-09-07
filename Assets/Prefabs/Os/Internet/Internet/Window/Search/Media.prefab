@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 8.503418, y: 367}
+  m_AnchoredPosition: {x: 8.503418, y: 356}
   m_SizeDelta: {x: 16.968, y: 483.8736}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1350774366159292576
@@ -66,14 +66,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: " \uBA54\uB9AC \uD3EC\uC800 (Marry Forger)\uB294 \uBBF8\uAD6D\uC758 \uAC00\uC218\uC600\uB2E4.
-    2001 \uB144 \uADF8\uB140\uC758 \uC194\uB85C \uC74C\uBC18\uC778 \u2018Here I am\u2019\uC73C\uB85C
-    \uD070 \uC778\uAE30\uB97C \uB04C\uC5C8\uB2E4.\n\n\uCD9C\uC0DD\uC740 1978\uB144
-    11\uC6D4 29\uC77C\uC774\uB2E4. \uC790\uC2E0\uC758 \uC0DD\uC77C\uC5D0 \uD2B9\uBCC4\uD788
-    \uC560\uCC29\uC744 \uAC16\uACE0 \uC788\uB294 \uAC83\uC778\uC9C0, \uC774\uB97C
-    \uB73B\uD558\uB294 '1129'\uB77C\uB294 \uB178\uB798\uB97C \uB9CC\uB4E4\uAE30\uB3C4
-    \uD588\uB2E4. \uBA54\uB9AC \uD3EC\uC800\uC758 \uD32C\uB4E4 \uC0AC\uC774\uC5D0\uC120
-    \uB9E4\uC6B0 \uC758\uBBF8 \uC788\uB294 \uC22B\uC790\uB85C \uC5EC\uACA8\uC9C4\uB2E4."
+  m_text: " \uC815\uBCF4\uB97C \uC8FC\uACE0\uBC1B\uB294 \uAC83, \uD55C\uB9C8\uB514\uB85C
+    \uB9E4\uCCB4 \uB77C\uB294 \uC758\uBBF8\uB2E4."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 178da3fb1aa1edd46ab3f828c085447b, type: 2}
   m_sharedMaterial: {fileID: 1558166430749476401, guid: 178da3fb1aa1edd46ab3f828c085447b, type: 2}
@@ -445,81 +439,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!1 &6086835537563973437
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3181426807287352236}
-  - component: {fileID: 6155037782426682191}
-  - component: {fileID: 76291413388945604}
-  m_Layer: 5
-  m_Name: Image (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &3181426807287352236
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6086835537563973437}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4282937767012052423}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 175, y: 7}
-  m_SizeDelta: {x: 273.61072, y: 265.80786}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &6155037782426682191
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6086835537563973437}
-  m_CullTransparentMesh: 1
---- !u!114 &76291413388945604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6086835537563973437}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4bc060a5696a09b45bbca436dea903a4, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &7861784460219753570
 GameObject:
   m_ObjectHideFlags: 0
@@ -676,7 +595,7 @@ GameObject:
   - component: {fileID: 763025668569416232}
   - component: {fileID: 1857296830253709133}
   m_Layer: 5
-  m_Name: Mary
+  m_Name: Media
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -695,7 +614,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4527769636853022651}
-  - {fileID: 3181426807287352236}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
