@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using TMPro;
 
 public class ScreenProtectorController : MonoBehaviour
 {
@@ -85,6 +86,7 @@ public class ScreenProtectorController : MonoBehaviour
             {
                 direction.y = -direction.y; // y축 반사
                 position.y = Mathf.Clamp(position.y, minY, maxY); // 위치 보정
+                bouncingObject.GetComponent<TextMeshProUGUI>().color = new Color(Random.value, Random.value, Random.value); // 텍스트 색상 랜덤 변경
             }
 
             // 좌/우 경계에 닿으면 x 방향 반사
@@ -92,6 +94,7 @@ public class ScreenProtectorController : MonoBehaviour
             {
                 direction.x = -direction.x; // x축 반사
                 position.x = Mathf.Clamp(position.x, minX, maxX); // 위치 보정
+                bouncingObject.GetComponent<TextMeshProUGUI>().color = new Color(Random.value, Random.value, Random.value); // 텍스트 색상 랜덤 변경
             }
 
             // 오브젝트의 위치를 업데이트
