@@ -1660,20 +1660,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 520399fe4b2a99840bc5a82e8296932c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lockedFileNames:
-  - "\uC6B0\uB9AC\uB4E4\uC758 \uBAA8\uD5D8"
-  - "\uD0DC\uC0B0\uB9CC\uD07C \uD070 \uC5BC\uC74C"
-  - "\uC6D0\uD558\uB294 \uB9C8\uBC95\uC774 \uBB34\uC5C7\uC778\uAC00"
-  - "\uBBF8\uAD81\uC758 \uC232\uC22B\uC790"
-  - "\uC5BC\uC74C \uB3D9\uAD74\uC22B\uC790"
-  - "\uC7A5\uB85C\uAC00 \uC54C\uB824\uC900 \uC22B\uC790"
-  filePasswords:
-  - "\uC624\uB8E8\uBC14\uC774\uC544\uB8E8\uC544\uBE44"
-  - "\uD654\uB974\uB975\uD53C\uC29D"
-  - "\uD30C\uC774\uC5B4"
-  - 9
-  - 3
-  - 7
+  lockedFileNames: []
+  filePasswords: []
   passwordPromptPrefab: {fileID: 5354495910418827007, guid: 7a5b4d7e284c98844b39ac9663c7ce86, type: 3}
   initialFilePrefabs:
   - {fileID: 7252031198833296012, guid: 60d17ace1de1eb346aa377d2047307e7, type: 3}
