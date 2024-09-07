@@ -657,6 +657,7 @@ GameObject:
   - component: {fileID: 4282937767012052423}
   - component: {fileID: 763025668569416232}
   - component: {fileID: 1857296830253709133}
+  - component: {fileID: 1102142391349181032}
   m_Layer: 5
   m_Name: BlueMuffin
   m_TagString: Untagged
@@ -723,6 +724,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1102142391349181032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8969794416490021241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8a347d88a058144a8743851a6b7367b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9219020119327131600
 GameObject:
   m_ObjectHideFlags: 0

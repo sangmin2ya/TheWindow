@@ -47,18 +47,18 @@ public class KeywordWindowManager : MonoBehaviour
             activeWindow = Instantiate(keywordWindows[index], canvasTransform);
 
             // 검색된 키워드를 포함한 결과 메시지를 표시
-            switch (keyword)
-            {
-                case "블루베리":
-                    keyword = "블루카페";
-                    break;
-                case "블루머핀":
-                    keyword = "블루베리머핀";
-                    break;
-                case "블루파이":
-                    keyword = "라즈베리파이";
-                    break;
-            }
+            // switch (keyword)
+            // {
+            //     case "블루베리":
+            //         keyword = "블루카페";
+            //         break;
+            //     case "블루머핀":
+            //         keyword = "블루베리머핀";
+            //         break;
+            //     case "블루파이":
+            //         keyword = "라즈베리파이";
+            //         break;
+            // }
             resultMessageText.text = $"\"{keyword}\" 을(를) 검색하셨나요?";  // 메시지 설정 (검색한 키워드 포함)
             resultMessageText.gameObject.SetActive(true); // 메시지 활성화
         }
