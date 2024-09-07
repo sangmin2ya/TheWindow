@@ -886,7 +886,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc6315e4ced25dd4cbd1ba935037e4f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationDuration: 0.3
+  isMinimized: 0
   _windowType: 11
   _windowState: 0
   _icon: {fileID: 7354364649582546957, guid: 25690f80f2a1c894f8b13750aff8d48d, type: 3}
