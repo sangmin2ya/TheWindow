@@ -20,9 +20,9 @@ public class BombGameManager : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating("SpawnBomb", spawnRate, spawnRate); // 폭탄 스폰 반복 호출
-        UpdateLivesText();
-        gameOverText.SetActive(false);
+        // InvokeRepeating("SpawnBomb", spawnRate, spawnRate); // 폭탄 스폰 반복 호출
+        // UpdateLivesText();
+        // gameOverText.SetActive(false);
     }
 
     private void Update()
