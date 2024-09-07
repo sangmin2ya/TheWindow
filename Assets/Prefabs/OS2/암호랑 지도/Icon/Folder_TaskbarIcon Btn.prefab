@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 5963585157290602284}
   - component: {fileID: 4277761722036536564}
   - component: {fileID: 7354364649582546957}
-  - component: {fileID: 4211869572918882000}
+  - component: {fileID: 3416447157758309923}
   m_Layer: 5
-  m_Name: ImageFile_TaskbarIcon Btn
+  m_Name: Folder_TaskbarIcon Btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,8 +36,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -769.3684, y: -543.2069}
-  m_SizeDelta: {x: 78.5424, y: 74.9662}
+  m_AnchoredPosition: {x: 190.63159, y: 56.79309}
+  m_SizeDelta: {x: 78.54242, y: 74.96619}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5963585157290602284
 CanvasRenderer:
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4d6dab8e572eb2640b1878e3155b60c4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0a19a6057290e3b429dc10ad9922ebdc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4211869572918882000}
+      - m_Target: {fileID: 3416447157758309923}
         m_TargetAssemblyTypeName: TaskBarIcon, Assembly-CSharp
         m_MethodName: OnIconClick
         m_Mode: 1
@@ -133,7 +133,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4211869572918882000
+--- !u!114 &3416447157758309923
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

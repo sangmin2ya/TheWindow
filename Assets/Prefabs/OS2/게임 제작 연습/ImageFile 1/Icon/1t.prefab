@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7354364649582546957}
   - component: {fileID: 4211869572918882000}
   m_Layer: 5
-  m_Name: ImageFile_TaskbarIcon Btn
+  m_Name: 1t
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -145,5 +145,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a84113c7fd2a39a4493952c821bae2d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  window: {fileID: 0}
+  window: {fileID: 4222780797678314821, guid: 12f85dee22f13ee4a9527e2f745f1ff3, type: 3}
   iconType: 0

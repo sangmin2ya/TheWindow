@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7354364649582546957}
   - component: {fileID: 4211869572918882000}
   m_Layer: 5
-  m_Name: ImageFile_TaskbarIcon Btn
+  m_Name: 2t
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

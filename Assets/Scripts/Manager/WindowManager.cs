@@ -32,7 +32,7 @@ public class WindowManager : MonoBehaviour
                 Debug.Log("Window already opened");
                 return;
             }
-            if (window.windowType == WindowType.Folder || window.windowType == WindowType.Setting || window.windowType == WindowType.Trashcan || window.windowType == WindowType.Messanger)
+            if (window.windowType == WindowType.Setting || window.windowType == WindowType.Trashcan || window.windowType == WindowType.Messanger)
             {
                 if (w.windowType == window.windowType)
                 {
