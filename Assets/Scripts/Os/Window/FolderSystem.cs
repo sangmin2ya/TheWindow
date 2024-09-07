@@ -150,7 +150,7 @@ public class FolderSystem : MonoBehaviour
         UpdatePathText();
         if (lockedFileNames.Contains(fileIcon.gameObject.name))
         {
-            lockedFileNames.Remove(fileIcon.gameObject.name);
+            lockedFileNames[lockedFileNames.IndexOf(fileIcon.gameObject.name)] = "열림";
         }
     }
     public void OnFileClick(GameObject filePrefab)
