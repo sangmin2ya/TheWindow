@@ -29,7 +29,7 @@ public class ChatInitializer : MonoBehaviour
             }
 
             // 생성된 오브젝트에서 텍스트 컴포넌트를 찾아 텍스트 설정
-            go.transform.localPosition = new Vector3(go.transform.localPosition.x, go.transform.localPosition.y - chatIndex * 110, 0);
+            go.transform.localPosition = new Vector3(go.transform.localPosition.x, go.transform.localPosition.y - chatIndex * 180, 0);
             go.transform.Find("name").GetComponent<TextMeshProUGUI>().text = chat.name;
             go.transform.Find("msg").GetComponent<TextMeshProUGUI>().text = chat.message;
 
