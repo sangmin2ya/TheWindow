@@ -41,7 +41,7 @@ public class EmailLogin : MonoBehaviour
     IEnumerator WrongPassword()
     {
         transform.Find("WrongPassword").gameObject.SetActive(true);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5f);
         transform.Find("WrongPassword").gameObject.SetActive(false);
     }
 }
