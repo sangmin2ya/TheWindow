@@ -12,7 +12,7 @@ public class BombGameManager : MonoBehaviour
     public TextMeshProUGUI currentScoreText;
     public GameObject gameOverText;           // 게임 오버 UI
     public GameObject scoreText;              // 점수 UI
-    
+
 
     private int lives = 5;              // 초기 목숨 5개
     private float spawnRate = 2f;       // 초기 스폰 간격 2초

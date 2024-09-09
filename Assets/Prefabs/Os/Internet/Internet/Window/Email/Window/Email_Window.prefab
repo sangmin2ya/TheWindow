@@ -5497,7 +5497,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 4486213609641279120}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.52111113
+  m_Size: 0.65444446
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6131,7 +6131,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4468168827189605000, guid: 1e480c4b33571664b8873321961b9bcf, type: 3}
       propertyPath: title
-      value: "[\uD558\uCE20\uCE74 \uC628\uB77C\uC778] \uAC00\uC785\uC548\uB0B4\uC758
+      value: "[\uD558\uCE20\uCE74 \uC628\uB77C\uC778] \uAC00\uC785 \uC548\uB0B4\uC758
         \uAC74"
       objectReference: {fileID: 0}
     - target: {fileID: 4468168827189605000, guid: 1e480c4b33571664b8873321961b9bcf, type: 3}
@@ -7074,7 +7074,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4468168827189605000, guid: 1e480c4b33571664b8873321961b9bcf, type: 3}
       propertyPath: title
-      value: "\uD06C\uB798\uD504\uD230 \uC9D5\uAE00 \uAC8C\uC784\uB7A9 \uBB38\uC758
+      value: "\uD06C\uB798\uD504\uD230 \uC9D5\uAE00\uAC8C\uC784\uB7A9 \uBB38\uC758
         \uB2F5\uBCC0"
       objectReference: {fileID: 0}
     - target: {fileID: 4468168827189605000, guid: 1e480c4b33571664b8873321961b9bcf, type: 3}
@@ -7083,11 +7083,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4468168827189605000, guid: 1e480c4b33571664b8873321961b9bcf, type: 3}
       propertyPath: content
-      value: "\uC548\uB155\uD558\uC138\uC694. \uD06C\uB798\uD504\uD230 \uC9D5\uAE00
-        \uAC8C\uC784\uB7A9\uC5D0 \uAD00\uC2EC \uAC16\uACE0 \uBB38\uC758 \uC8FC\uC154\uC11C
-        \uAC10\uC0AC\uD569\uB2C8\uB2E4.\r\n\uD604\uC7AC \uBBF8\uC131\uB144\uC790
-        \uAD50\uC721\uC0DD\uC740 \uBAA8\uC9D1\uD558\uACE0 \uC788\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4.
-        \uC8C4\uC1A1\uD569\uB2C8\uB2E4. \r\n"
+      value: "\uC548\uB155\uD558\uC138\uC694. \uD06C\uB798\uD504\uD230 \uC9D5\uAE00\uAC8C\uC784\uB7A9\uC5D0
+        \uAD00\uC2EC \uAC16\uACE0 \uBB38\uC758 \uC8FC\uC154\uC11C \uAC10\uC0AC\uD569\uB2C8\uB2E4.\r\n\uD604\uC7AC
+        \uBBF8\uC131\uB144\uC790 \uAD50\uC721\uC0DD\uC740 \uBAA8\uC9D1\uD558\uACE0
+        \uC788\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4. \uC8C4\uC1A1\uD569\uB2C8\uB2E4. \r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 4468168827189605000, guid: 1e480c4b33571664b8873321961b9bcf, type: 3}
       propertyPath: receiver
@@ -7205,15 +7204,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4468168827189605000, guid: 1e480c4b33571664b8873321961b9bcf, type: 3}
       propertyPath: title
-      value: "\uBC14\uD22C\uCE74\uD398 \uAC00\uC785\uC778\uC99D \uC548\uB0B4\uBA54\uC77C"
+      value: "\uBE44\uD22C \uCE74\uD398 \uAC00\uC785 \uC548\uB0B4 \uBA54\uC77C"
       objectReference: {fileID: 0}
     - target: {fileID: 4468168827189605000, guid: 1e480c4b33571664b8873321961b9bcf, type: 3}
       propertyPath: sender
-      value: "\uBCF4\uB0B8 \uC0AC\uB78C: batu@nanum.com"
+      value: "\uBCF4\uB0B8 \uC0AC\uB78C: bitu@nanum.com"
       objectReference: {fileID: 0}
     - target: {fileID: 4468168827189605000, guid: 1e480c4b33571664b8873321961b9bcf, type: 3}
       propertyPath: content
-      value: "\uC548\uB155\uD558\uC138\uC694,\r\n\uBC14\uD22C \uAC8C\uC784 \uCE74\uD398\uC5D0
+      value: "\uC548\uB155\uD558\uC138\uC694,\r\n\uBE44\uD22C \uAC8C\uC784 \uCE74\uD398\uC5D0
         \uAC00\uC785\uD574 \uC8FC\uC154\uC11C \uAC10\uC0AC\uD569\uB2C8\uB2E4!\n\r\n\uC55E\uC73C\uB85C
         \uC5F4\uC2EC\uD788 \uD65C\uB3D9\uD574\uC8FC\uC138\uC694.\r\n"
       objectReference: {fileID: 0}
@@ -7546,7 +7545,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4468168827189605000, guid: 1e480c4b33571664b8873321961b9bcf, type: 3}
       propertyPath: title
-      value: "\uD06C\uB798\uD504\uD230 \uC9D5\uAE00 \uAC8C\uC784\uB7A9 \uC548\uB0B4
+      value: "\uD06C\uB798\uD504\uD230 \uC9D5\uAE00\uAC8C\uC784\uB7A9 \uC548\uB0B4
         \uBA54\uC77C "
       objectReference: {fileID: 0}
     - target: {fileID: 4468168827189605000, guid: 1e480c4b33571664b8873321961b9bcf, type: 3}
@@ -7555,11 +7554,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4468168827189605000, guid: 1e480c4b33571664b8873321961b9bcf, type: 3}
       propertyPath: content
-      value: "\uC548\uB155\uD558\uC138\uC694. \uD574\uB2F9 \uBA54\uC77C\uC740 \uBC14\uD22C
+      value: "\uC548\uB155\uD558\uC138\uC694. \uD574\uB2F9 \uBA54\uC77C\uC740 \uBE44\uD22C
         \uAC8C\uC784 \uCE74\uD398 \uD68C\uC6D0\uBD84\uB4E4\uC744 \uB300\uC0C1\uC73C\uB85C
         \uBC1C\uC1A1\uB418\uC5C8\uC2B5\uB2C8\uB2E4.\n\r\n5\uAC1C\uC6D4 \uB3D9\uC548
         \uC790\uAE30 \uC8FC\uB3C4\uC801 \uD559\uC2B5\uACFC \uD568\uAED8 \uAC8C\uC784\uC744
-        \uB9CC\uB4E4\uC5B4\uB0B4\uB294 \uD06C\uB798\uD504\uD230 \uC9D5\uAE00 \uAC8C\uC784\uB7A9
+        \uB9CC\uB4E4\uC5B4\uB0B4\uB294 \uD06C\uB798\uD504\uD230 \uC9D5\uAE00\uAC8C\uC784\uB7A9
         2\uAE30 \uAD50\uC721\uC0DD\uB4E4\uC744 \uBAA8\uC9D1 \uC911\uC5D0 \uC788\uC2B5\uB2C8\uB2E4.
         \uAC8C\uC784 \uC81C\uC791\uC5D0 \uC5F4\uC815\uC774 \uC788\uC73C\uC2E0 \uBD84\uB4E4\uC740
         \uD574\uB2F9 \uBA54\uC77C\uB85C \uD68C\uC2E0\uD574\uC8FC\uC2DC\uAE30 \uBC14\uB78D\uB2C8\uB2E4!\r\n"
