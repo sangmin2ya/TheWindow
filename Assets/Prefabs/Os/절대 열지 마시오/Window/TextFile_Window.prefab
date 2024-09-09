@@ -632,6 +632,7 @@ MonoBehaviour:
   _windowState: 0
   _icon: {fileID: 7354364649582546957, guid: f0c62f5209691c34484058c055c1ebec, type: 3}
   _maximizeIcon: {fileID: 5185075279563270518}
+  storedButtonText: 
 --- !u!1 &4678761793942181486
 GameObject:
   m_ObjectHideFlags: 0
@@ -1040,8 +1041,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uB0B4\uAC00 \uC88B\uC544\uD558\uB294 \uC560\uC758 \uCD08\uC131\uC740
-    \u314A\u3148\u3147 "
+  m_text: "\uC624\uB298\uC740 \uBE44\uBC00 \uD3F4\uB354\uB77C\uB294 \uAE30\uB2A5\uC5D0
+    \uB300\uD574 \uBC30\uC6E0\uB2E4. \uB4E4\uD0A4\uACE0 \uC2F6\uC9C0 \uC54A\uC740
+    \uC598\uAE30\uB4E4\uC744 \uC801\uC5B4\uC11C \uC774\uB807\uAC8C \uBE44\uBC00 \uD3F4\uB354\uB85C
+    \uB9CC\uB4E4\uC5C8\uB2E4. \uBE44\uBC00\uBC88\uD638\uB294 \uB0B4\uAC00 \uC88B\uC544\uD558\uB294
+    \uADF8 \uC560\uC758 \uC774\uB984\uC73C\uB85C \uD588\uB2E4.\n\n\uC624\uB298 \uADF8
+    \uCE5C\uAD6C\uAC00 \uC219\uC81C\uB97C \uBCF4\uC5EC\uC92C\uB2E4. \uAC19\uC774
+    \uC606\uC5D0 \uC549\uC744 \uC218 \uC788\uC5B4\uC11C \uC88B\uC558\uB2E4. \uB2E4\uC74C\uC5D4
+    \uB0B4\uAC00 \uBCF4\uC5EC\uC918\uC57C\uC9C0."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 178da3fb1aa1edd46ab3f828c085447b, type: 2}
   m_sharedMaterial: {fileID: 1558166430749476401, guid: 178da3fb1aa1edd46ab3f828c085447b, type: 2}

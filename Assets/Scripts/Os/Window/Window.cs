@@ -38,7 +38,11 @@ public class Window : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDr
     private GameObject _taskbarIcon;
     private bool isDragging = false;
     private float draggableHeight = 450f; // 드래그 가능한 상단 영역의 높이
+    private GameObject topBar;  // TopBar 오브젝트를 저장할 변수
+    public string storedButtonText; // DesktopIcon에서 전달받은 버튼 텍스트를 저장할 변수
 
+    private TextMeshProUGUI topBarText;  // TopBar에 들어갈 텍스트 컴포넌트
+    private TMP_FontAsset roundFont;  // 둥근모 폰트
     void Start()
     {
         windowType = _windowType;
@@ -48,6 +52,9 @@ public class Window : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDr
         icon = _icon.GetComponent<IIcon>();
         _taskbarIcon = Instantiate(_icon as MonoBehaviour, GameObject.Find("TaskCanvas").transform).gameObject;
         _taskbarIcon.GetComponent<TaskBarIcon>().window = gameObject;
+
+        // TopBar 찾기 및 텍스트 컴포넌트 추가
+        AddTopBarText();
         if (windowType != WindowType.Chat && windowType != WindowType.Messanger && windowType != WindowType.Alert)
         {
             WindowManager.Instance.OpenWindow(this);
@@ -61,6 +68,89 @@ public class Window : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDr
             AddShadowEffect();
         }
         AddMultipleShadows();
+
+
+    }
+    private void AddTopBarText()
+    {
+        // "TopBar"라는 이름의 자식 오브젝트를 찾기
+        GameObject topBar = transform.Find("TopBar")?.gameObject;
+
+        if (topBar == null)
+        {
+            Debug.LogError("TopBar 오브젝트를 찾을 수 없습니다.");
+            return; // 더 이상 진행하지 않도록 합니다.
+        }
+
+        topBarText = topBar.GetComponentInChildren<TextMeshProUGUI>();
+        transform.Find("Folder Name")?.gameObject.SetActive(false);
+        if (topBarText == null)
+        {
+            Debug.Log("TopBarText가 없습니다. 새로 생성합니다.");
+
+            GameObject textObject = new GameObject("TopBarText");
+            textObject.transform.SetParent(topBar.transform);
+
+            // RectTransform 설정
+            RectTransform rectTransform = textObject.AddComponent<RectTransform>();
+            rectTransform.anchorMin = new Vector2(0, 1);
+            rectTransform.anchorMax = new Vector2(0, 1);
+            rectTransform.pivot = new Vector2(0, 1);
+            rectTransform.anchoredPosition = new Vector2(10, 0);
+            rectTransform.localScale = Vector3.one;
+
+            // TextMeshProUGUI 컴포넌트 추가
+            topBarText = textObject.AddComponent<TextMeshProUGUI>();
+
+            if (topBarText == null)
+            {
+                Debug.LogError("TextMeshProUGUI 컴포넌트를 추가하지 못했습니다.");
+                return; // 더 이상 진행하지 않도록 합니다.
+            }
+
+            Debug.Log("TextMeshProUGUI 컴포넌트가 성공적으로 추가되었습니다.");
+        }
+
+        // 이후 폰트 크기 및 색상 설정
+        topBarText.fontSize = 36;
+        topBarText.color = Color.white;
+
+        // 폰트 설정
+        roundFont = Resources.Load<TMP_FontAsset>("Fonts/d");  // 폰트가 Resources 폴더에 있어야 함
+        topBarText.font = roundFont;
+
+        // 만약 roundFont가 null이라면 오류 메시지 출력
+        if (roundFont == null)
+        {
+            Debug.LogError("둥근모 폰트를 찾을 수 없습니다. Resources 폴더에 해당 폰트를 추가하세요.");
+        }
+
+        // TextMeshPro의 alignment를 Left로 설정
+        topBarText.alignment = TextAlignmentOptions.Left;
+
+        // Wrapping 비활성화 (한 줄로 표시)
+        topBarText.enableWordWrapping = false;
+
+        // 만약 storedButtonText가 존재한다면 이를 topBarText에 설정
+        if (!string.IsNullOrEmpty(storedButtonText))
+        {
+            topBarText.text = storedButtonText;  // 저장된 버튼 텍스트를 TopBar에 표시
+            Debug.Log("TopBar에 버튼 텍스트가 적용되었습니다: " + storedButtonText);
+        }
+        else if (string.IsNullOrEmpty(storedButtonText))
+        {
+            Debug.Log("TopBar에 버튼 텍스트가 없습니다.");
+        }
+    }
+
+
+    // 창의 TopBar에 텍스트 설정
+    public void SetTopBarText(string buttonText)
+    {
+        if (topBarText != null)
+        {
+            topBarText.text = buttonText;  // TopBar의 텍스트 설정
+        }
     }
 
     // 그림자 효과 추가 함수
@@ -73,7 +163,6 @@ public class Window : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDr
             if (windowType == WindowType.Folder || windowType == WindowType.NormalFolder)
             {
                 transform.Find("Back Btn").GetComponent<Image>().color = newColor;
-                transform.Find("Folder Name").GetComponent<TextMeshProUGUI>().color = Color.white;
             }
         }
         if (ColorUtility.TryParseHtmlString("#000FB2", out newColor))
