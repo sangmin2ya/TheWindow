@@ -1269,7 +1269,7 @@ MonoBehaviour:
     1.70GHz\r\nRAM : 64MB \uBA54\uC778\uBA54\uBAA8\uB9AC MK RAM PC\r\nHDD : 20GB
     (5,400rpm) \uC6B8\uD2B8\uB77C SM\r\nODD : 40\uBC30\uC18D CD\uB86C \uB4DC\uB77C\uC774\uBE0C\r\nFDD
     : 3.5\uC778\uCE58 \uD50C\uB85C\uD53C \uB4DC\uB77C\uC774\uBE0C\r\nVGA : KJGL 8MB
-    \uB0B4\uC7A5 \uADF8\uB798\uD53D"
+    \uB0B4\uC7A5 \uADF8\uB798\uD53D\nINPUT : MOUSE - \uC778\uC2DD / KEYBOARD - \uC778\uC2DD\uBD88\uAC00"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 178da3fb1aa1edd46ab3f828c085447b, type: 2}
   m_sharedMaterial: {fileID: 1558166430749476401, guid: 178da3fb1aa1edd46ab3f828c085447b, type: 2}
@@ -1296,8 +1296,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

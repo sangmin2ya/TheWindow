@@ -9,8 +9,10 @@ public class BombGameManager : MonoBehaviour
     public static BombGameManager instance; // 싱글톤 인스턴스
     public GameObject bombPrefab;       // 폭탄 프리팹
     public TextMeshProUGUI livesText;              // 목숨 UI
+    public TextMeshProUGUI currentScoreText;
     public GameObject gameOverText;           // 게임 오버 UI
     public GameObject scoreText;              // 점수 UI
+
 
     private int lives = 5;              // 초기 목숨 5개
     private float spawnRate = 2f;       // 초기 스폰 간격 2초
@@ -41,11 +43,12 @@ public class BombGameManager : MonoBehaviour
     {
         if (whileGame)
         {
+            currentScoreText.text = "점수: " + score;
             // 시간이 지남에 따라 스폰 간격이 짧아짐
             timeElapsed += Time.deltaTime;
 
             // 스폰 속도 계산 (시간에 비례하여 점점 빠르게, 최소값 0.2초)
-            spawnRate = Mathf.Max(0.4f, 2f - (timeElapsed / 10f)); // 처음 2초, 10초 후엔 0.2초까지 줄어듦
+            spawnRate = Mathf.Max(0.5f, 2f - (timeElapsed / 10f)); // 처음 2초, 10초 후엔 0.2초까지 줄어듦
 
             // 스폰 타이머 업데이트
             spawnTimer += Time.deltaTime;

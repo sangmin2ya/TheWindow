@@ -34,7 +34,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 200}
+  m_SizeDelta: {x: 0, y: 700}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1233025536729096851
 GameObject:
@@ -847,16 +847,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chatList:
-  - name: "\uC9C0\uC6B0"
-    message: "\uC548\uB155"
   - name: "\uB098"
-    message: "\uC548\uB155?"
-  - name: "\uB098"
-    message: "\uBC29\uAC00\uBC29\uAC00"
-  - name: "\uC9C0\uC6B0"
-    message: "\uD558\uC774\uB8E8~"
+    message: "\uC57C\uC57C \uC8FC\uD604\uC544 \uC6B0\uB9AC \uC800\uBC88\uC5D0 \uBE44\uBC00\uBC88\uD638
+      \uBB50\uC600\uC9C0 \u3160"
   - name: "\uC8FC\uD604"
-    message: "\uB108\uD76C \uBB50\uD558\uB0D0?"
+    message: "\uC5B4\uB5A4 \uBE44\uBC88?"
+  - name: "\uB098"
+    message: "\uC6B0\uB9AC \uB9CC\uB4E0 \uAC8C\uC784 \uB9CC\uB4E4\uC5B4\uC11C \uB123\uC5B4\uB193\uC740
+      \uC0AC\uC6A9\uC790 \uC788\uC796\uC544\u2026 \uC6B0\uB9AC\uB4E4\uC758 \uBAA8\uD5D8"
+  - name: "\uC8FC\uD604"
+    message: "\uC544\uC544 \uC6B0\uB9AC\uAC00 \uAC14\uB358 ' \uCE74\uD398 \uC2DC\uADF8\uB2C8\uCCD0
+      \uBA54\uB274 '\uC600\uB358\uAC70\uAC19\uC740\uB370?"
+  - name: "\uB098"
+    message: "\uC544 \uB9DE\uB294\uAC70\uAC19\uC544 \uCE74\uD398 \uC774\uB984\uC774
+      \uBB50\uC600\uC9C0? \uBE14\uB8E8\uBA38\uD540 ?"
+  - name: "\uC8FC\uD604"
+    message: "\uC74C\u2026 \uBE14\uB8E8\uD30C\uC774 \uC774\uB7F0\uAC70 \uC544\uB2CC\uAC00?"
+  - name: "\uB098"
+    message: "\uBE14\uB8E8\uBCA0\uB9AC \uBB50\uC2DC\uAE30\uC600\uB358 \uAC83 \uAC19\uAE30\uB3C4
+      \uD558\uACE0\u2026 \uC77C\uB2E8 \uC778\uD130\uB137\uC5D0 \uB2E4 \uAC80\uC0C9\uD574\uBCFC\uAC8C
+      \uACE0\uB9C8\uC6CC!"
+  - name: "\uC8FC\uD604"
+    message: "\u314B\u314B\u314B\u314B \uADF8\uAC70 \uC78A\uC5B4\uBC84\uB9AC\uBA74
+      \uC548\uB3FC \uC5F4\uC2EC\uD788 \uCC3E\uC544\uBD10"
   myChatPrefab: {fileID: 8394771801955224272, guid: 4bc96eab018f0da478232f39ec1b1466, type: 3}
   otherChatPrefab: {fileID: 5282100820624062013, guid: 5154f2a3045f5c641b058104eb488d2c, type: 3}
   chatBox: {fileID: 6955904125004680579}
@@ -1298,7 +1311,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 4742376167767484407}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.7894737
+  m_Size: 0.51724136
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

@@ -1661,15 +1661,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockedFileNames:
-  - "\uCC44\uD305 \uC571"
-  - "\uAC8C\uC784 \uC2DC\uC791"
-  - "\uC785\uAD6C\uB97C \uB9C9\uB294 \uD0DC\uC0B0\uB9CC\uD07C \uD070 \uC5BC\uC74C"
-  - "\uC6D0\uD558\uB294 \uB9C8\uBC95\uC774 \uBB34\uC5C7\uC778\uAC00"
+  - "\uB3CC\uC544\uAC00\uC2ED\uC2DC\uC624"
   filePasswords:
-  - 1129
-  - "\uC624\uB8E8\uBC14\uC774\uC544\uB8E8\uC544\uBE44"
-  - "\uD654\uB974\uB975\uD53C\uC29D"
-  - "\uD30C\uC774\uC5B4"
+  - "\u314A\u3148\u3147"
   passwordPromptPrefab: {fileID: 5354495910418827007, guid: 7a5b4d7e284c98844b39ac9663c7ce86, type: 3}
   initialFilePrefabs:
   - {fileID: 4673660687045713337, guid: 1f3e9e79e967acc4085ea324b14ef074, type: 3}

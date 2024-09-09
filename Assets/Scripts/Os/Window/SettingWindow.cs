@@ -65,9 +65,25 @@ public class SettingWindow : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         {
             SettingManager.Instance.SetVolume(value);
         });
-
+        AddMultipleShadows();
     }
-    
+    // 그림자를 상하좌우에 추가하는 함수
+    private void AddMultipleShadows()
+    {
+        // 각 방향으로 그림자를 추가
+        AddShadowComponent(new Vector2(5, 5));  // 오른쪽 아래로 그림자
+        AddShadowComponent(new Vector2(-5, 5)); // 왼쪽 아래로 그림자
+        AddShadowComponent(new Vector2(5, -5)); // 오른쪽 위로 그림자
+        AddShadowComponent(new Vector2(-5, -5)); // 왼쪽 위로 그림자
+    }
+
+    // 그림자 컴포넌트를 추가하는 함수
+    private void AddShadowComponent(Vector2 effectDistance)
+    {
+        Shadow shadow = gameObject.AddComponent<Shadow>();
+        shadow.effectDistance = effectDistance;
+        shadow.effectColor = new Color(0, 0, 0, 0.5f); // 검은색 그림자, 투명도 50%
+    }
     // 창 이동 시작 시 호출
     public void OnPointerDown(PointerEventData eventData)
     {

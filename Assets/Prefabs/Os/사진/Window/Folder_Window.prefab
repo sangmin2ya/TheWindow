@@ -1673,7 +1673,6 @@ MonoBehaviour:
   passwordPromptPrefab: {fileID: 5354495910418827007, guid: 7a5b4d7e284c98844b39ac9663c7ce86, type: 3}
   initialFilePrefabs:
   - {fileID: 7252031198833296012, guid: f5c1f00878ad1b942a23cb8f6a26b9bb, type: 3}
-  - {fileID: 7252031198833296012, guid: 6bda55e8ffb9cf949834c326a8d6271c, type: 3}
   - {fileID: 7252031198833296012, guid: fb3dec6d31637b64fb04d384075c89db, type: 3}
   pathText: {fileID: 6598963088181670848}
   fileGrid: {fileID: 2258478172402656229}
