@@ -9,7 +9,9 @@ public class LocalKeywordSearch : MonoBehaviour
     public TMP_Text resultText; // TextMeshPro Text to display the result
 
     // 사전 정의된 키워드 리스트
-    private List<string> keywords = new List<string> { "날씨", "메리포저", "존에리드", "강수희", "블루베리", "블루머핀", "블루파이", "비투", "하츠카온라인", "하츠카", "크래프툰", "MKstudio", "배터그라운딩", "게임", "게임회사", "친목", "MMORPG", "JRPG", "스핀오프", "미디어", "마니아", "유명", "징글게임랩" };
+    private List<string> keywords = new List<string> { "날씨", "메리포저", "존에리드", "강수희", "블루베리", "블루머핀", "블루파이", "비투", "하츠카온라인", "하츠카", "크래프툰",
+    "MKstudio", "배터그라운딩", "게임", "게임회사", "친목", "MMORPG", "JRPG", "스핀오프", "미디어", "마니아", "유명", "징글게임랩", "복사","붙여넣기","동굴","맵",
+    "모험","카페","메뉴","방가방가","하이루","학교","판타지","미성년자","19금","키보드","메모장","아이템","CraftoonJingle","Craftoon", "폭탄게임"};
 
     // 유사한 키워드를 찾았을 때 이벤트로 전달
     public UnityEvent<string> onKeywordFound = new UnityEvent<string>();
