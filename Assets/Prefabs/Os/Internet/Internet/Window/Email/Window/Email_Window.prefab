@@ -3722,7 +3722,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '****'
+  m_text: Congratulation
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 178da3fb1aa1edd46ab3f828c085447b, type: 2}
   m_sharedMaterial: {fileID: 1558166430749476401, guid: 178da3fb1aa1edd46ab3f828c085447b, type: 2}
@@ -5497,7 +5497,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 4486213609641279120}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.65444446
+  m_Size: 0.52111113
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

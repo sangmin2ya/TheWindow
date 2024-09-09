@@ -58,6 +58,7 @@ public class Window : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDr
             // 그림자 추가
             AddShadowEffect();
         }
+        AddMultipleShadows();
     }
 
     // 그림자 효과 추가 함수
@@ -78,19 +79,23 @@ public class Window : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDr
             if (windowType != WindowType.Feature)
                 transform.Find("TopBar").GetComponent<Image>().color = newColor;
         }
+    }
+    // 그림자를 상하좌우에 추가하는 함수
+    private void AddMultipleShadows()
+    {
+        // 각 방향으로 그림자를 추가
+        AddShadowComponent(new Vector2(5, 5));  // 오른쪽 아래로 그림자
+        AddShadowComponent(new Vector2(-5, 5)); // 왼쪽 아래로 그림자
+        AddShadowComponent(new Vector2(5, -5)); // 오른쪽 위로 그림자
+        AddShadowComponent(new Vector2(-5, -5)); // 왼쪽 위로 그림자
+    }
 
-        // Shadow 컴포넌트가 없다면 추가
-        windowShadow = gameObject.GetComponent<Shadow>();
-
-        if (windowShadow == null)
-        {
-            // 창의 UI 요소에 Shadow 컴포넌트 추가
-            windowShadow = gameObject.AddComponent<Shadow>();
-        }
-
-        // 그림자의 위치를 오른쪽 아래로 살짝 설정
-        windowShadow.effectDistance = new Vector2(5, -5);  // X = 5, Y = -5로 설정 (오른쪽 아래로 살짝 그림자)
-        windowShadow.effectColor = new Color(0, 0, 0, 0.5f);  // 검은색 그림자, 투명도 50%
+    // 그림자 컴포넌트를 추가하는 함수
+    private void AddShadowComponent(Vector2 effectDistance)
+    {
+        Shadow shadow = gameObject.AddComponent<Shadow>();
+        shadow.effectDistance = effectDistance;
+        shadow.effectColor = new Color(0, 0, 0, 0.5f); // 검은색 그림자, 투명도 50%
     }
     // 창 이동 시작 시 호출
     public void OnPointerDown(PointerEventData eventData)
