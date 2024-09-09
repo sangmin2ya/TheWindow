@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5778524311435385849}
   - component: {fileID: 1350774366159292576}
   - component: {fileID: 4738897639146616537}
+  - component: {fileID: 8421906154344513110}
   m_Layer: 5
   m_Name: Text (TMP) (1)
   m_TagString: Untagged
@@ -139,6 +140,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8421906154344513110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115205382468351712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8a347d88a058144a8743851a6b7367b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1306192389591646301
 GameObject:
   m_ObjectHideFlags: 0
@@ -737,7 +750,6 @@ GameObject:
   - component: {fileID: 4282937767012052423}
   - component: {fileID: 763025668569416232}
   - component: {fileID: 1857296830253709133}
-  - component: {fileID: 3713559101269020881}
   m_Layer: 5
   m_Name: BluePie
   m_TagString: Untagged
@@ -803,18 +815,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3713559101269020881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8969794416490021241}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8a347d88a058144a8743851a6b7367b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &9219020119327131600
 GameObject:
   m_ObjectHideFlags: 0

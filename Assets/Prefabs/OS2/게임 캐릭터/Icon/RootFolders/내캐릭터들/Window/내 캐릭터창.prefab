@@ -34,7 +34,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -0.0001}
-  m_SizeDelta: {x: 0, y: 3251.939}
+  m_SizeDelta: {x: 0, y: 2800}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1233025536729096851
 GameObject:
@@ -223,7 +223,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6464746272450645222
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1119,7 +1119,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2679968203540512806}
   m_Father: {fileID: 3039798131907711615}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -1440,7 +1441,7 @@ RectTransform:
   m_Father: {fileID: 3029523273705429091}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1517,8 +1518,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 8.5, y: 343.58167}
-  m_SizeDelta: {x: -83, y: -791.1632}
+  m_AnchoredPosition: {x: 8.5, y: -16}
+  m_SizeDelta: {x: -83, y: -71.99997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6944606068408823298
 CanvasRenderer:
@@ -1552,11 +1553,9 @@ MonoBehaviour:
     : \uC655 \uD070 \uCE7C\uC744 \uC4F0\uB294 \uC0AC\uB78C\r\n\uB2A5\uB825 : 30000\uB144\uC774
     \uB118\uB294 \uC2DC\uAC04\uC744 \uC0B4\uBA70 \uC138\uC0C1\uC758 \uBAA8\uB4E0
     \uBB34\uC220\uC744 \uB9C8\uC2A4\uD130\uD588\uACE0, \uD2B9\uD788\uB098 \uAC80\uC220\uC774
-    \uC384\uB2E4. \uBA3C \uC61B\uB0A0 \uC77C\uBCF8\uC758 \uC131, \uCF5C\uB85C\uC138\uC6C0,
-    \uD658\uC0C1\uC758 \uC138\uACC4 \uB4F1 \uB9CE\uC740 \uC2DC\uAC04\uACFC \uC7A5\uC18C\uC5D0
-    \uB4F1\uC7A5\uD55C\uB2E4! \uADF8\uAC00 \uCE7C\uC744 \uC9C4\uC2EC\uC73C\uB85C
-    \uD718\uB450\uB974\uBA74 \uC9C0\uAD6C\uB97C \uD30C\uAD34\uD560 \uC218\uB3C4 \uC788\uB2E4.
-    \uB77C\uC774\uBC8C\uC740 \uB2EC\uBE5B \uB2CC\uC790\uB2E4.\r\n\uD2B9\uC9D5 : \uC2DC\uAC04\uC5EC\uD589\uC744
+    \uC384\uB2E4. \uADF8\uAC00 \uCE7C\uC744 \uC9C4\uC2EC\uC73C\uB85C \uD718\uB450\uB974\uBA74
+    \uC9C0\uAD6C\uB97C \uD30C\uAD34\uD560 \uC218\uB3C4 \uC788\uB2E4. \uB77C\uC774\uBC8C\uC740
+    \uB2EC\uBE5B \uB2CC\uC790\uB2E4.\r\n\uD2B9\uC9D5 : \uC2DC\uAC04\uC5EC\uD589\uC744
     \uD560 \uC218 \uC788\uB2E4. \uADF8\uB9AC\uACE0 \uD56D\uC0C1 \uC790\uC2E0\uC774
     \uAC00\uB294 \uB098\uB77C\uC758 \uC804\uD1B5\uC801\uC778 \uBCF5\uC7A5\uC744 \uC785\uC73C\uBA70
     \uC5B8\uC81C\uB098 \uC608\uC758\uB97C \uC9C0\uD0A8\uB2E4.\r\n\r\n\uC774\uB984
@@ -1567,30 +1566,28 @@ MonoBehaviour:
     \uCC3D\uC220 \uD558\uB098\uB9CC \uC5F0\uB9C8\uD588\uB2E4. \uADF8\uB798\uC11C
     \uCC3D\uC220\uC774 \uB9E4\uC6B0 \uAC15\uB825\uD558\uBA70 \uADF8\uAC00 \uC9C4\uC2EC\uC73C\uB85C
     \uCC3D\uC744 \uCC0C\uB974\uBA74 \uC9C0\uAD6C\uB97C \uAF2C\uCE58\uB85C \uB9CC\uB4E4\uC218\uB3C4
-    \uC788\uB2E4.\r\n\uD2B9\uC9D5 : \uC774\uACF3 \uC800\uACF3\uC744 \uB3CC\uC544\uB2E4\uB2C8\uB294
-    \uC655\uCE7C\uB9E8\uACFC\uB294 \uBC18\uB300\uB85C \uC790\uC2E0\uC758 \uC9D1\uC5D0\uC11C
-    \uD640\uB85C \uC9C0\uB0B4\uB294 \uAC83\uC744 \uC88B\uC544\uD55C\uB2E4. \r\n\r\n\uC774\uB984
-    : \uC2A4\uD30C\uC774 \uC624\uD06C\r\n\uB098\uC774 : 32\uC0B4\r\n\uC9C1\uC5C5
-    : \uC2A4\uD30C\uC774\r\n\uB2A5\uB825 : \uC778\uAC04\uC73C\uB85C \uC644\uBCBD\uD558\uAC8C
-    \uC704\uC7A5\uD560 \uC218 \uC788\uB2E4. \uC778\uAC04\uC778 \uCC99 \uC0AC\uD68C\uC5D0
-    \uC2A4\uBA70\uB4E4\uC5B4 \uBAB0\uB798\uBAB0\uB798 \uC0AC\uB78C\uB4E4\uC744 \uACF5\uACA9\uD558\uBA70
-    \uC9C0\uB0B8\uB2E4. \uC544\uC9C1\uB3C4 \uADF8\uAC00 \uC624\uD06C\uB77C\uB294
-    \uAC83\uC744 \uC54C\uC544\uCC28\uB9B0 \uC778\uAC04\uC740 \uC5C6\uB2E4. \uD639\uC2DC
-    \uB2F9\uC2E0 \uC606\uC5D0 \uC788\uB294 \uADF8\uAC00 \uC2A4\uD30C\uC774 \uC624\uD06C\uC77C\uC9C0\uB3C4\u2026?\r\n\uD2B9\uC9D5
-    : \uC0AC\uB78C\uC774 \uC8FD\uC744 \uC815\uB3C4\uB85C\uB294 \uACF5\uACA9\uD558\uC9C0
-    \uC54A\uACE0, \uD55C\uB3D9\uC548 \uBCD1\uC6D0\uC5D0 \uC785\uC6D0\uD560 \uC815\uB3C4\uB85C\uB9CC
-    \uACF5\uACA9\uD55C\uB2E4. \uB098\uC058\uC9C4 \uC54A\uC740 \uB140\uC11D\uC77C\uC9C0\uB3C4\u2026?\r\n\r\n\r\n\r\n\r\n\uC774\uB984
-    : \uC9D0\uC21C\uC774\r\n\uB098\uC774 : 22\uC0B4\r\n\uC9C1\uC5C5 : \uC9D0 \uC62E\uAE30\uB294
-    \uC0AC\uB78C\r\n\uB2A5\uB825 : \uC9D0\uC744 \uC544\uC8FC \uBE60\uB974\uAC8C \uC798
-    \uC62E\uAE38 \uC218 \uC788\uB2E4.\r\n\uD2B9\uC9D5 : \uC9C0\uAD6C \uC885\uB9D0\uC758
-    \uB0A0, \uC9C0\uAD6C\uB97C \uB5A0\uB098\uB294 \uB85C\uCF13\uC5D0 \uC0AC\uB78C\uB4E4\uC758
-    \uC9D0\uC744 \uC62E\uAE30\uB294 \uC77C\uC740 \uD558\uB294 \uC0AC\uB78C\uC774\uB2E4.
-    \uC5B4\uB518\uAC00 \uC2AC\uD37C\uBCF4\uC778\uB2E4\r\n\r\n\r\n\uC774\uB984 : \uB2EC\uBE5B
-    \uB2CC\uC790\r\n\uB098\uC774 : 30\uC0B4\r\n\uC9C1\uC5C5 : \uB2CC\uC790\r\n\uB2A5\uB825
+    \uC788\uB2E4.\r\n\uD2B9\uC9D5 : \uC655\uCE7C\uB9E8\uACFC\uB294 \uBC18\uB300\uB85C
+    \uC790\uC2E0\uC758 \uC9D1\uC5D0\uC11C \uD640\uB85C \uC9C0\uB0B4\uB294 \uAC83\uC744
+    \uC88B\uC544\uD55C\uB2E4. \r\n\r\n\uC774\uB984 : \uC2A4\uD30C\uC774\uC624\uD06C\r\n\uB098\uC774
+    : 32\uC0B4\r\n\uC9C1\uC5C5 : \uC2A4\uD30C\uC774\r\n\uB2A5\uB825 : \uC778\uAC04\uC73C\uB85C
+    \uC644\uBCBD\uD558\uAC8C \uC704\uC7A5\uD560 \uC218 \uC788\uB2E4. \uC778\uAC04\uC778
+    \uCC99 \uC0AC\uD68C\uC5D0 \uC2A4\uBA70\uB4E4\uC5B4 \uBAB0\uB798\uBAB0\uB798 \uC0AC\uB78C\uB4E4\uC744
+    \uACF5\uACA9\uD558\uBA70 \uC9C0\uB0B8\uB2E4. \uC544\uC9C1\uB3C4 \uADF8\uAC00
+    \uC624\uD06C\uB77C\uB294 \uAC83\uC744 \uC54C\uC544\uCC28\uB9B0 \uC778\uAC04\uC740
+    \uC5C6\uB2E4.\n\uD2B9\uC9D5 : \uC0AC\uB78C\uC774 \uC8FD\uC744 \uC815\uB3C4\uB85C\uB294
+    \uACF5\uACA9\uD558\uC9C0 \uC54A\uACE0, \uD55C\uB3D9\uC548 \uBCD1\uC6D0\uC5D0
+    \uC785\uC6D0\uD560 \uC815\uB3C4\uB85C\uB9CC \uACF5\uACA9\uD55C\uB2E4. \uB098\uC058\uC9C4
+    \uC54A\uC740 \uB140\uC11D\uC77C\uC9C0\uB3C4\u2026?\r\n\r\n\uC774\uB984 : \uC9D0\uC21C\uC774\r\n\uB098\uC774
+    : 22\uC0B4\r\n\uC9C1\uC5C5 : \uC9D0 \uC62E\uAE30\uB294 \uC0AC\uB78C\r\n\uB2A5\uB825
+    : \uC9D0\uC744 \uC544\uC8FC \uBE60\uB974\uAC8C \uC798 \uC62E\uAE38 \uC218 \uC788\uB2E4.\r\n\uD2B9\uC9D5
+    : \uC9C0\uAD6C \uC885\uB9D0\uC758 \uB0A0, \uC9C0\uAD6C\uB97C \uB5A0\uB098\uB294
+    \uB85C\uCF13\uC5D0 \uC0AC\uB78C\uB4E4\uC758 \uC9D0\uC744 \uC62E\uAE30\uB294 \uC77C\uC740
+    \uD558\uB294 \uC0AC\uB78C\uC774\uB2E4. \uC5B4\uB518\uAC00 \uC2AC\uD37C\uBCF4\uC778\uB2E4\r\n\r\n\uC774\uB984
+    : \uB2EC\uBE5B\uB2CC\uC790\r\n\uB098\uC774 : 30\uC0B4\r\n\uC9C1\uC5C5 : \uB2CC\uC790\r\n\uB2A5\uB825
     : \uC5C4\uCCAD\uB098\uAC8C \uB2CC\uC790\uC2A4\uB7FD\uB2E4.\r\n\uD2B9\uC9D5 :
     \uC655\uCE7C\uB9E8\uC758 \uC219\uBA85\uC758 \uB77C\uC774\uBC8C\uC774\uB2E4. \uB2EC\uBE5B\uC774
-    \uB728\uB294 \uB0A0\uC774\uBA74 \uC655\uCE7C\uB9E8\uACFC \uB2EC\uBE5B \uB2CC\uC790\uB294
-    \uD608\uD22C\uB97C \uBC8C\uC778\uB2E4.\r\n"
+    \uB728\uB294 \uB0A0\uC774\uBA74 \uC655\uCE7C\uB9E8\uACFC \uB2EC\uBE5B\uB2CC\uC790\uB294
+    \uD608\uD22C\uB97C \uBC8C\uC778\uB2E4.\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 178da3fb1aa1edd46ab3f828c085447b, type: 2}
   m_sharedMaterial: {fileID: 1558166430749476401, guid: 178da3fb1aa1edd46ab3f828c085447b, type: 2}
@@ -1671,6 +1668,140 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8a347d88a058144a8743851a6b7367b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &7542001826476636850
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2679968203540512806}
+  - component: {fileID: 8204692329884443031}
+  - component: {fileID: 790438439875349531}
+  m_Layer: 5
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2679968203540512806
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7542001826476636850}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2794974121525877327}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 120, y: 0}
+  m_SizeDelta: {x: 200, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &8204692329884443031
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7542001826476636850}
+  m_CullTransparentMesh: 1
+--- !u!114 &790438439875349531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7542001826476636850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: "\uB0B4 \uCE90\uB9AD\uD130\uB4E4"
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 178da3fb1aa1edd46ab3f828c085447b, type: 2}
+  m_sharedMaterial: {fileID: 1558166430749476401, guid: 178da3fb1aa1edd46ab3f828c085447b, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 30
+  m_fontSizeBase: 30
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &8483787651789489607
 GameObject:
   m_ObjectHideFlags: 0
@@ -1867,7 +1998,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 5411996308641680642}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.19526812
+  m_Size: 0.23285714
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

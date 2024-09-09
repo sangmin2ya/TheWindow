@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 2453827696878902356}
   - component: {fileID: 5841470109581931871}
   m_Layer: 5
-  m_Name: "\uAC8C\uC784 \uCE90\uB9AD\uD130"
+  m_Name: "\uB204\uAD6C\uAC8C3"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -281,6 +281,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nestedFilePrefabs:
-  - {fileID: 7252031198833296012, guid: 042286bf5685e9048aed6e8906440144, type: 3}
-  - {fileID: 7252031198833296012, guid: 171df865283d5f04aafa50e1721edcbd, type: 3}
-  - {fileID: 7252031198833296012, guid: 479a00a8cc2dbd541a6b81fae95d68dd, type: 3}
+  - {fileID: 7252031198833296012, guid: f141c603739582e43a5e120b5b08f38f, type: 3}
