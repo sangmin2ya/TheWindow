@@ -32,10 +32,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 5459538619869006641}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -58.6}
-  m_SizeDelta: {x: 100, y: 19.105698}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0.9000015, y: -63.4}
+  m_SizeDelta: {x: 28.923, y: -86.1396}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2135012421656690523
 CanvasRenderer:
@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uAC8C\uC784 \uCE90\uB9AD\uD130"
+  m_text: "\uCE90\uB9AD\uD1303"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 178da3fb1aa1edd46ab3f828c085447b, type: 2}
   m_sharedMaterial: {fileID: 1558166430749476401, guid: 178da3fb1aa1edd46ab3f828c085447b, type: 2}
@@ -74,8 +74,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4281479730
+  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -146,9 +146,9 @@ GameObject:
   - component: {fileID: 3255493828185651048}
   - component: {fileID: 557997789042238413}
   - component: {fileID: 2453827696878902356}
-  - component: {fileID: 5841470109581931871}
+  - component: {fileID: 1066217378369827966}
   m_Layer: 5
-  m_Name: "\uAC8C\uC784 \uCE90\uB9AD\uD130"
+  m_Name: "\uCE90\uB9AD\uD1303"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -172,7 +172,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -876, y: 496}
-  m_SizeDelta: {x: 70, y: 70}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3255493828185651048
 CanvasRenderer:
@@ -202,7 +202,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0a19a6057290e3b429dc10ad9922ebdc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 29edd6b9a60c738419486d3489543990, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -256,19 +256,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1066217378369827966}
+        m_TargetAssemblyTypeName: DesktopIcon, Assembly-CSharp
+        m_MethodName: OnIconClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5841470109581931871
+--- !u!114 &1066217378369827966
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -277,10 +277,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 7252031198833296012}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6a812c51de0c544eb70ea40d945b704, type: 3}
+  m_Script: {fileID: 11500000, guid: 2b035a7bcc949e14e9c4d65386d8b087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nestedFilePrefabs:
-  - {fileID: 7252031198833296012, guid: 042286bf5685e9048aed6e8906440144, type: 3}
-  - {fileID: 7252031198833296012, guid: 171df865283d5f04aafa50e1721edcbd, type: 3}
-  - {fileID: 7252031198833296012, guid: 479a00a8cc2dbd541a6b81fae95d68dd, type: 3}
+  window: {fileID: 4222780797678314821, guid: e680f5386a6fbba478ebe9e6ee72a2fb, type: 3}
+  iconType: 0
