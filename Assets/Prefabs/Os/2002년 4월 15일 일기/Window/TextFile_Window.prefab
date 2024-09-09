@@ -632,6 +632,7 @@ MonoBehaviour:
   _windowState: 0
   _icon: {fileID: 7354364649582546957, guid: f0c62f5209691c34484058c055c1ebec, type: 3}
   _maximizeIcon: {fileID: 5185075279563270518}
+  storedButtonText: 
 --- !u!1 &4678761793942181486
 GameObject:
   m_ObjectHideFlags: 0
@@ -1047,7 +1048,8 @@ MonoBehaviour:
     \uC7AC\uBBF8\uC788\uAC8C \uB180\uC544\uC57C\uACA0\uB2E4. \uADF8\uB9AC\uACE0 4\uC790\uB9AC
     \uBE44\uBC00\uBC88\uD638\uB3C4 \uAC78\uC5B4\uB480\uB2E4. \uB2E4\uB978\uC0AC\uB78C\uC774
     \uBCF4\uBA74 \uBD80\uB044\uB7EC\uC6B0\uB2C8\uAE4C! \uAC00\uC7A5 \uC88B\uC544\uD558\uB294
-    \uAC00\uC218\uC5D0 \uAD00\uD55C\uAC78 \uBE44\uBC00\uBC88\uD638\uB85C \uD588\uB2E4."
+    \uAC00\uC218\uC5D0 \uAD00\uD55C \uC22B\uC790\uB97C \uBE44\uBC00\uBC88\uD638\uB85C
+    \uD588\uB2E4."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 178da3fb1aa1edd46ab3f828c085447b, type: 2}
   m_sharedMaterial: {fileID: 1558166430749476401, guid: 178da3fb1aa1edd46ab3f828c085447b, type: 2}
