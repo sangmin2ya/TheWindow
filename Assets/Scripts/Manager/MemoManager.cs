@@ -34,6 +34,8 @@ public class MemoManager : MonoBehaviour
     private string memoText = "";
     public string MemoText { get { return memoText; } set { memoText = value; } }
     public bool userUnlocked = false;
+    public bool alertOnce = false;
+    
     public List<Tuple<int, string>> scoreList = new List<Tuple<int, string>>();
     public void ClearMemoText()
     {

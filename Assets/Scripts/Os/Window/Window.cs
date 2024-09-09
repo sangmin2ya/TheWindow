@@ -48,8 +48,10 @@ public class Window : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDr
         icon = _icon.GetComponent<IIcon>();
         _taskbarIcon = Instantiate(_icon as MonoBehaviour, GameObject.Find("TaskCanvas").transform).gameObject;
         _taskbarIcon.GetComponent<TaskBarIcon>().window = gameObject;
-        if (windowType != WindowType.Chat && windowType != WindowType.Messanger)
+        if (windowType != WindowType.Chat && windowType != WindowType.Messanger && windowType != WindowType.Alert)
         {
+            WindowManager.Instance.OpenWindow(this);
+
             Vector2 offsetMin;
             Vector2 offsetMax;
             WindowManager.Instance.GetStartOffset(out offsetMin, out offsetMax);
