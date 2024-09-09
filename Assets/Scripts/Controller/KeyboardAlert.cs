@@ -8,10 +8,10 @@ public class KeyboardAlert : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (MemoManager.Instance.userUnlocked == false)
+        if (MemoManager.Instance.alertOnce == false)
         {
             WindowManager.Instance.OpenWindow(AlertWindow);
-            MemoManager.Instance.userUnlocked = true;
+            MemoManager.Instance.alertOnce = true;
         }
     }
 
