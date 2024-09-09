@@ -12,12 +12,15 @@ public class LoadingManager : MonoBehaviour
     private int currentDots = 0;      // 현재 점의 개수
     private string loadingMessage = "부팅 중"; // 기본 로딩 메시지
 
-    void Start()
+    public void ShowBootingScree()
     {
-        // 코루틴 시작
+        Invoke("ShowBooting", 1.0f);
+    }
+    private void ShowBooting()
+    {
+        GameObject.Find("Start").SetActive(false);
         StartCoroutine(LoadSceneWithProgress());
     }
-
     IEnumerator LoadSceneWithProgress()
     {
         // 슬라이더를 80%까지 5초 동안 채우기
@@ -75,7 +78,7 @@ public class LoadingManager : MonoBehaviour
         {
             // 점 개수 증가시키기
             currentDots = (currentDots % 5) + 1;
-            
+
             // 로딩 메시지 업데이트
             loadingText.text = loadingMessage + new string('.', currentDots);
 

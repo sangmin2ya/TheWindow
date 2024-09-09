@@ -2710,7 +2710,7 @@ PrefabInstance:
       objectReference: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 1690120408863666366, guid: 933a02df1383eac439e4116c4b951d5b, type: 3}
       propertyPath: m_text
-      value: "\uBCA0\uD504\uBCA0\uD504\uC9F1\uBCA0\uD504"
+      value: "\uAC8C\uC784 \uAC1C\uBC1C \uD338"
       objectReference: {fileID: 0}
     - target: {fileID: 4461968985313122289, guid: 933a02df1383eac439e4116c4b951d5b, type: 3}
       propertyPath: m_Name
@@ -2824,7 +2824,7 @@ PrefabInstance:
       objectReference: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 1690120408863666366, guid: 933a02df1383eac439e4116c4b951d5b, type: 3}
       propertyPath: m_text
-      value: "\uAC8C\uC784 \uAC1C\uBC1C \uD338"
+      value: "\uC8FC\uD604\uACFC\uC758 \uB300\uD654\uBC29"
       objectReference: {fileID: 0}
     - target: {fileID: 4413347234477311857, guid: 933a02df1383eac439e4116c4b951d5b, type: 3}
       propertyPath: window
@@ -2942,7 +2942,7 @@ PrefabInstance:
       objectReference: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 1690120408863666366, guid: 933a02df1383eac439e4116c4b951d5b, type: 3}
       propertyPath: m_text
-      value: "\uC0C8 \uADF8\uB8F9 \uCC44\uD305\uBC29"
+      value: "\uC9C0\uC6B0\uC640\uC758 \uB300\uD654\uBC29"
       objectReference: {fileID: 0}
     - target: {fileID: 4413347234477311857, guid: 933a02df1383eac439e4116c4b951d5b, type: 3}
       propertyPath: window

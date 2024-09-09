@@ -22,12 +22,11 @@ public class MemoManager : MonoBehaviour
     }
     private void Awake()
     {
-        Cursor.lockState = CursorLockMode.Confined;
-        scoreList.Add(new Tuple<int, string>(20, "KJH"));
-        scoreList.Add(new Tuple<int, string>(18, "KJH"));
-        scoreList.Add(new Tuple<int, string>(25, "CJW"));
+        scoreList.Add(new Tuple<int, string>(8, "KJH"));
+        scoreList.Add(new Tuple<int, string>(11, "KJH"));
         scoreList.Add(new Tuple<int, string>(15, "CJW"));
-        scoreList.Add(new Tuple<int, string>(21, "ME"));
+        scoreList.Add(new Tuple<int, string>(10, "CJW"));
+        scoreList.Add(new Tuple<int, string>(13, "ME"));
         scoreList.Sort();
         scoreList.Reverse();
     }
