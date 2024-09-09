@@ -5,6 +5,7 @@ public class DisplayManager : MonoBehaviour
     public static DisplayManager Instance; // 싱글턴 인스턴스
     public float targetAspect = 4.0f / 3.0f; // 4:3 비율 고정
     private Camera cam; // 카메라 참조
+    private Rect viewportRect; // 카메라의 뷰포트 직사각형 영역
 
     void Awake()
     {
@@ -24,6 +25,8 @@ public class DisplayManager : MonoBehaviour
     {
         // 초기 카메라 세팅
         UpdateCameraViewport();
+        Cursor.visible = true; // 커서 보이기
+        Cursor.lockState = CursorLockMode.Confined; // 커서 고정 해제
     }
 
     void OnLevelWasLoaded(int level)
@@ -39,6 +42,9 @@ public class DisplayManager : MonoBehaviour
         {
             UpdateCameraViewport();
         }
+
+        // 마우스가 뷰포트 안에 있는지 확인하고, 커서 가시성 제어
+        CheckMouseInViewport();
     }
 
     // 카메라의 뷰포트를 4:3 비율로 고정시키는 메서드
@@ -64,6 +70,8 @@ public class DisplayManager : MonoBehaviour
             rect.y = (1.0f - scaleHeight) / 2.0f;
 
             cam.rect = rect;
+            // 카메라 뷰포트 영역 저장 (스크린 좌표계로 변환)
+            viewportRect = new Rect(0, rect.y * Screen.height, Screen.width, Screen.height * scaleHeight);
         }
         else // 화면 비율이 4:3보다 작으면 수평으로 레터박스를 추가
         {
@@ -77,9 +85,28 @@ public class DisplayManager : MonoBehaviour
             rect.y = 0;
 
             cam.rect = rect;
+            // 카메라 뷰포트 영역 저장 (스크린 좌표계로 변환)
+            viewportRect = new Rect(rect.x * Screen.width, 0, Screen.width * scaleWidth, Screen.height);
         }
 
         // 카메라 배경색을 검은색으로 설정 (레터박스용)
-         cam.backgroundColor = Color.black;
+        cam.backgroundColor = Color.black;
+    }
+
+    // 마우스가 카메라 뷰포트 안에 있는지 확인하는 메서드
+    void CheckMouseInViewport()
+    {
+        Vector3 mousePosition = Input.mousePosition;
+
+        // 마우스가 뷰포트 내에 있는지 확인
+        if (viewportRect.Contains(mousePosition))
+        {
+            Cursor.visible = true; // 뷰포트 안에 있으면 커서 보이게
+        }
+        else
+        {
+            Cursor.visible = false; // 뷰포트 밖에 있으면 커서 숨김
+            
+        }
     }
 }

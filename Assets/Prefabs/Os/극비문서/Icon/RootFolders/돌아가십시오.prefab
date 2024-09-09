@@ -148,6 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nestedFilePrefabs:
   - {fileID: 7252031198833296012, guid: 99684fa1f139cac448fb8bee6521ebab, type: 3}
+  - {fileID: 7252031198833296012, guid: 6733fb016bc762542803af6c0760c115, type: 3}
 --- !u!1 &9203078719909993107
 GameObject:
   m_ObjectHideFlags: 0

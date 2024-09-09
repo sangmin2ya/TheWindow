@@ -34,7 +34,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 1500}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1233025536729096851
 GameObject:
@@ -425,7 +425,7 @@ RectTransform:
   m_Father: {fileID: 4873222559913714521}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -848,9 +848,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chatList:
   - name: "\uB098"
-    message: "\uAE68\uC788\uB294 \uC0AC\uB78C?"
+    message: "\uC9C0\uC6B0\uC57C \uBB50\uD574"
+  - name: "\uC9C0\uC6B0"
+    message: "\uD558\uC774\uB8E8! \uB098 \uC624\uB298 \uC219\uC81C \uB2E4\uD574\uC11C
+      \uAC8C\uC784 \uD558\uB824\uACE0 \u314B\u314B"
   - name: "\uB098"
-    message: "\uC5C6\uC74C \uB9D0\uACE0."
+    message: "\uC6B0\uB9AC \uC219\uC81C \uC788\uC5B4?"
+  - name: "\uC9C0\uC6B0"
+    message: "\u3147\u3147 \uB0B4\uC77C\uAE4C\uC9C4\uB370 \uC548\uD588\uC5B4? \uC218\uD559\uC775\uD798\uCC45
+      \uD478\uB294\uAC70"
+  - name: "\uB098"
+    message: "\uC544\uC608 \uC548\uD588\uB294\uB370\u2026 \uBA87\uD398\uC774\uC9C0?"
+  - name: "\uC9C0\uC6B0"
+    message: "\uC774\uAC70 \uC219\uC81C \uB0B4\uC8FC\uC2E0\uC9C0 \uC880 \uC9C0\uB098\uC11C
+      32\uD398\uC774\uC9C0\uBD80\uD130 40\uD398\uC774\uC9C0\uAE4C\uC9C0 \uB2E4 \uD574\uC57C\uD558\uB354\uB77C"
+  - name: "\uB098"
+    message: "\uD5D0"
+  - name: "\uC9C0\uC6B0"
+    message: "\uB0B4\uC77C \uBCF4\uC5EC\uC904\uAE4C?"
+  - name: "\uB098"
+    message: "\u3160\u3160\u3160\u3160\u3160\u3160\u3160 \uC81C\uBC1C \uBCF4\uC5EC\uC8FC\uB77C
+      \uB108\uBB34 \uACE0\uB9C8\uC6CC"
+  - name: "\uC9C0\uC6B0"
+    message: "\u314B\u314B\u314B\u314B\u314B\u314B\u314B \uC2A4\uC2B9\uB2D8\uC774
+      \uBCF4\uC5EC\uC904\uAC8C \uACE0\uB9C8\uC6B4\uC904 \uC54C\uC544"
+  - name: "\uB098"
+    message: "\uC2A4\uC2B9\uB2D8\uC73C\uB85C \uBAA8\uC2E4\uAC8C \uC9C4\uC9DC \uACE0\uB9C8\uC6CC
+      \uB0B4\uC77C\uBD10"
+  - name: "\uC9C0\uC6B0"
+    message: "\u314B\u314B\u314B \uC544\uB0D0 \uB108\uB3C4 \uB2F4\uC5D0 \uBCF4\uC5EC\uC918
+      \uB0B4\uC77C \uBD10!"
   myChatPrefab: {fileID: 8394771801955224272, guid: 4bc96eab018f0da478232f39ec1b1466, type: 3}
   otherChatPrefab: {fileID: 5282100820624062013, guid: 5154f2a3045f5c641b058104eb488d2c, type: 3}
   chatBox: {fileID: 6955904125004680579}
@@ -1189,7 +1216,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5864676170295050762
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1291,8 +1318,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3358509809875122267}
   m_HandleRect: {fileID: 4742376167767484407}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 1
+  m_Value: 1
+  m_Size: 0.33333334
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
