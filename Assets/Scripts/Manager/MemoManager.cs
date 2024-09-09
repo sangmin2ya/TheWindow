@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -18,13 +20,22 @@ public class MemoManager : MonoBehaviour
             return _instance;
         }
     }
-    private void Start()
+    private void Awake()
     {
         Cursor.lockState = CursorLockMode.Confined;
+        scoreList.Add(new Tuple<int, string>(20, "KJH"));
+        scoreList.Add(new Tuple<int, string>(18, "KJH"));
+        scoreList.Add(new Tuple<int, string>(25, "CJW"));
+        scoreList.Add(new Tuple<int, string>(15, "CJW"));
+        scoreList.Add(new Tuple<int, string>(21, "ME"));
+        scoreList.Sort();
+        scoreList.Reverse();
     }
     private string copyText = "";
     private string memoText = "";
     public string MemoText { get { return memoText; } set { memoText = value; } }
+    public bool userUnlocked = false;
+    public List<Tuple<int, string>> scoreList = new List<Tuple<int, string>>();
     public void ClearMemoText()
     {
         memoText = "";
@@ -42,5 +53,11 @@ public class MemoManager : MonoBehaviour
         go.SetActive(false);
         Debug.Log("Memo restarted");
         go.SetActive(true);
+    }
+    public void AddScore(int score)
+    {
+        scoreList.Add(new Tuple<int, string>(score, "ME"));
+        scoreList.Sort();
+        scoreList.Reverse();
     }
 }

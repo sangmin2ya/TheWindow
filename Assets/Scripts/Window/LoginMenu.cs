@@ -35,7 +35,14 @@ public class LoginMenu : MonoBehaviour
     }
     public void TryLogin2()
     {
-        loginMenu.SetActive(true);
+        if(MemoManager.Instance.userUnlocked)
+        {
+            UserLogin2();
+        }
+        else
+        {
+            loginMenu.SetActive(true);
+        }
     }
     public void CancleLogin()
     {
@@ -45,6 +52,7 @@ public class LoginMenu : MonoBehaviour
     {
         if (inputPassword.text == password)
         {
+            MemoManager.Instance.userUnlocked = true;
             UserLogin2();
         }
         else
@@ -54,9 +62,8 @@ public class LoginMenu : MonoBehaviour
     }
     IEnumerator WrongPassword()
     {
-        wrongPassword.text = "비밀번호가 틀렸습니다.";
+        wrongPassword.text = "로그인 실패!";
         yield return new WaitForSeconds(2.0f);
         wrongPassword.text = "";
     }
 }
- 

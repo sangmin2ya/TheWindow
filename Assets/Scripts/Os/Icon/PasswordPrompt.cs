@@ -16,7 +16,7 @@ public class PasswordPrompt : MonoBehaviour
 
     private int failedAttempts = 0;  // 틀린 시도 횟수
     private bool isLocked = false;  // 확인 버튼이 잠긴 상태인지 확인
-    private float lockDuration = 30f;  // 잠금 시간 (초)
+    private float lockDuration = 10f;  // 잠금 시간 (초)
     private float remainingLockTime;  // 남은 잠금 시간
 
     // 비밀번호 프롬프트 초기화

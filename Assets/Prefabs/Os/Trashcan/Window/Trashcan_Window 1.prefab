@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8784314, g: 0.8784314, b: 0.8784314, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -857,7 +857,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8784314, g: 0.8784314, b: 0.8784314, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -886,7 +886,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc6315e4ced25dd4cbd1ba935037e4f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationDuration: 0.3
+  isMinimized: 0
   _windowType: 8
   _windowState: 0
   _icon: {fileID: 7354364649582546957, guid: 0cfcdfe82d019924ba43a116c08ef4e1, type: 3}
@@ -1487,8 +1487,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1666,9 +1666,6 @@ MonoBehaviour:
   initialFilePrefabs:
   - {fileID: 7252031198833296012, guid: 14ada24539efece468d1dd61e1333feb, type: 3}
   - {fileID: 7252031198833296012, guid: 95684d84b96b6514cb8c0338433618c6, type: 3}
-  - {fileID: 7252031198833296012, guid: d5850cd0250e9a745869eaab91cd7c56, type: 3}
-  - {fileID: 7252031198833296012, guid: f8f8d939478ecd742b8c2a97fdfb027e, type: 3}
-  - {fileID: 7252031198833296012, guid: 78c86f8b459c074459f772098fb6c06d, type: 3}
   pathText: {fileID: 6598963088181670848}
   fileGrid: {fileID: 2258478172402656229}
   fileButtonPrefab: {fileID: 7252031198833296012, guid: e21a78ce4b96ca24fbcb6988aeb7ec3c, type: 3}

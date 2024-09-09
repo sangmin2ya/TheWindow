@@ -25,6 +25,9 @@ public class GameManager : Singleton<GameManager>
         LoadBestScore();           // 최고 기록 불러오기
         UpdateScoreUI();           // UI에 점수 표시 업데이트
         UpdateBestScoreUI();       // UI에 최고 기록 표시 업데이트
+                                   // 마우스 커서를 숨기고, 중앙에 고정
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // 점수를 추가하고 UI 업데이트

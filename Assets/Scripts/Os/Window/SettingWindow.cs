@@ -20,7 +20,7 @@ public class SettingWindow : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     private Vector2 originalPosition;
     private Vector2 preMaximizedSize;
     private Vector2 preMaximizedPosition;
-    private bool isMinimized = false;
+    public bool isMinimized = false;
     private bool isMaximized = false;
 
     // Inspector에 노출될 백업 필드
@@ -67,6 +67,7 @@ public class SettingWindow : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         });
 
     }
+    
     // 창 이동 시작 시 호출
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -112,6 +113,7 @@ public class SettingWindow : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     {
         if (!isMinimized)
         {
+            windowState = WindowState.Minimize;
             // 현재 크기와 위치를 저장 (최대화 전 상태)
             if (!isMaximized)
             {
@@ -129,6 +131,8 @@ public class SettingWindow : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
     {
         if (isMinimized)
         {
+            windowState = WindowState.Open;
+
             // 창을 최대화된 상태로 복원
             gameObject.SetActive(true);
 
@@ -223,5 +227,7 @@ public class SettingWindow : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0); // 기본 위치 (중앙으로 설정 가능)
         isMinimized = false;
         isMaximized = false;
+        windowState = WindowState.Open;
+
     }
 }

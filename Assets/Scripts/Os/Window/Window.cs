@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Collections;
+using TMPro;
 
 public class Window : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler, IWindow
 {
@@ -23,9 +24,9 @@ public class Window : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDr
     private Vector2 originalPosition;
     private Vector2 preMaximizedSize;
     private Vector2 preMaximizedPosition;
-    private bool isMinimized = false;
+    public bool isMinimized = false;
     private bool isMaximized = false;
-    public float animationDuration = 0.3f;  // 애니메이션 지속 시간
+    private float animationDuration = 0.3f;  // 애니메이션 지속 시간
 
     // Inspector에 노출될 백업 필드
     [SerializeField] private WindowType _windowType;  // 창 타입
@@ -36,7 +37,7 @@ public class Window : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDr
     private Vector2 lastMousePosition;
     private GameObject _taskbarIcon;
     private bool isDragging = false;
-    private float draggableHeight = 500f; // 드래그 가능한 상단 영역의 높이
+    private float draggableHeight = 450f; // 드래그 가능한 상단 영역의 높이
 
     void Start()
     {
@@ -62,6 +63,22 @@ public class Window : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDr
     // 그림자 효과 추가 함수
     private void AddShadowEffect()
     {
+        Color newColor;
+        if (ColorUtility.TryParseHtmlString("#E0E0E0", out newColor))
+        {
+            gameObject.GetComponent<Image>().color = newColor;
+            if (windowType == WindowType.Folder || windowType == WindowType.NormalFolder)
+            {
+                transform.Find("Back Btn").GetComponent<Image>().color = newColor;
+                transform.Find("Folder Name").GetComponent<TextMeshProUGUI>().color = Color.white;
+            }
+        }
+        if (ColorUtility.TryParseHtmlString("#000FB2", out newColor))
+        {
+            if (windowType != WindowType.Feature)
+                transform.Find("TopBar").GetComponent<Image>().color = newColor;
+        }
+
         // Shadow 컴포넌트가 없다면 추가
         windowShadow = gameObject.GetComponent<Shadow>();
 
@@ -120,6 +137,7 @@ public class Window : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDr
     {
         if (!isMinimized)
         {
+            windowState = WindowState.Minimize;
             // 최대화된 상태가 아닌 경우만 크기와 위치를 저장
             if (!isMaximized)
             {
@@ -140,6 +158,7 @@ public class Window : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDr
     {
         if (isMinimized)
         {
+            windowState = WindowState.Open;
             // 창을 원래 위치와 크기로 복원
             StartCoroutine(RestoreWindow(() =>
             {
@@ -286,5 +305,6 @@ public class Window : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDr
         GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0); // 기본 위치 (중앙으로 설정 가능)
         isMinimized = false;
         isMaximized = false;
+        windowState = WindowState.Open;
     }
 }

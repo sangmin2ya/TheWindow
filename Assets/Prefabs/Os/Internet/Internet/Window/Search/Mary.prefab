@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 8.503418, y: -1}
+  m_AnchoredPosition: {x: 8.503418, y: 367}
   m_SizeDelta: {x: 16.968, y: 483.8736}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1350774366159292576
@@ -66,22 +66,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uBA54\uB9AC \uD3EC\uC800(Marry Forger): \uBBF8\uAD6D\uC758 \uC2F1\uC5B4\uC1A1\uB77C\uC774\uD130\r\n\uCD9C\uC0DD:
-    1978\uB144 11\uC6D4 29\uC77C\r\n\r\n\uBA54\uB9AC \uD3EC\uC800\uB294  2001\uB144
-    \r\n\uADF8\uB140\uC758 \uC194\uB85C \uC74C\uBC18\uC778 \u2018Here I am\u2019\uC73C\uB85C
-    \uD070 \uC778\uAE30\uB97C \uB04C\uAC8C \uB418\uC5C8\uB2E4. \r\n\uC790\uC2E0\uC758
-    \uC0DD\uC77C\uC5D0 \uD2B9\uBCC4\uD788 \uC560\uCC29\uC744 \uAC16\uACE0 \uC788\uB294
-    \uAC83\uC778\uC9C0, \r\n\uC774\uB97C \uB73B\uD558\uB294 \u2018 1129 \u2019\uB77C\uB294
-    \uB178\uB798\uB97C \uB9CC\uB4E4\uAE30\uB3C4 \uD588\uB2E4. \r\n\uBA54\uB9AC \uD3EC\uC800\uC758
-    \uD32C\uB4E4 \uC0AC\uC774\uC5D0\uC120 \uB9E4\uC6B0 \uC758\uBBF8 \uC788\uB294
-    \uC22B\uC790\uB85C \uC5EC\uACA8\uC9C4\uB2E4.\n\n\uD558\uC9C0\uB9CC \uBA54\uB9AC\uC758
-    \uC131\uACF5\uC740 \uC624\uB798\uAC00\uC9C0 \uBABB\uD588\uB2E4. \n2009\uB144,
-    \uAC74\uAC15\uC774 \uC545\uD654\uB418\uBA70 \uB3CC\uC5F0 \uD65C\uB3D9\uC744 \uC911\uB2E8\uD55C
-    \uADF8\uB140\uB294 \uAC19\uC740 \uD574 9\uC6D4, \uAC04\uC554\uC73C\uB85C \uC138\uC0C1\uC744
-    \uB5A0\uB0AC\uB2E4.\n\uD5A5\uB144 35\uC138. \uAC11\uC791\uC2A4\uB7EC\uC6B4 \uC8FD\uC74C\uC740
-    \uD32C\uB4E4\uC5D0\uAC8C \uD070 \uCDA9\uACA9\uC744 \uC548\uACBC\uACE0,\n\uBA54\uB9AC
-    \uD3EC\uC800\uC758 \uC774\uB984\uC740 \uB9CE\uC740 \uC774\uB4E4\uC758 \uAE30\uC5B5
-    \uC18D\uC5D0 \uC601\uC6D0\uD788 \uB0A8\uAC8C \uB418\uC5C8\uB2E4"
+  m_text: " \uBA54\uB9AC \uD3EC\uC800 (Marry Forger)\uB294 \uBBF8\uAD6D\uC758 \uAC00\uC218\uC600\uB2E4.
+    2001 \uB144 \uADF8\uB140\uC758 \uC194\uB85C \uC74C\uBC18\uC778 \u2018Here I am\u2019\uC73C\uB85C
+    \uD070 \uC778\uAE30\uB97C \uB04C\uC5C8\uB2E4.\n\n\uCD9C\uC0DD\uC740 1978\uB144
+    11\uC6D4 29\uC77C\uC774\uB2E4. \uC790\uC2E0\uC758 \uC0DD\uC77C\uC5D0 \uD2B9\uBCC4\uD788
+    \uC560\uCC29\uC744 \uAC16\uACE0 \uC788\uB294 \uAC83\uC778\uC9C0, \uC774\uB97C
+    \uB73B\uD558\uB294 1129 \uB77C\uB294 \uB178\uB798\uB97C \uB9CC\uB4E4\uAE30\uB3C4
+    \uD588\uB2E4. \uBA54\uB9AC \uD3EC\uC800\uC758 \uD32C\uB4E4 \uC0AC\uC774\uC5D0\uC120
+    \uB9E4\uC6B0 \uC758\uBBF8 \uC788\uB294 \uC22B\uC790\uB85C \uC5EC\uACA8\uC9C4\uB2E4."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 178da3fb1aa1edd46ab3f828c085447b, type: 2}
   m_sharedMaterial: {fileID: 1558166430749476401, guid: 178da3fb1aa1edd46ab3f828c085447b, type: 2}
@@ -447,8 +439,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8851347219019167809}
   m_HandleRect: {fileID: 6336795558635252889}
   m_Direction: 2
-  m_Value: 0.7714863
-  m_Size: 0.49427584
+  m_Value: 0.9923437
+  m_Size: 0.55886054
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -669,8 +661,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 217.43994}
-  m_SizeDelta: {x: -24.9115, y: 951.54}
+  m_AnchoredPosition: {x: 0, y: 5.6204834}
+  m_SizeDelta: {x: -24.9115, y: 734.1}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &8969794416490021241
 GameObject:
