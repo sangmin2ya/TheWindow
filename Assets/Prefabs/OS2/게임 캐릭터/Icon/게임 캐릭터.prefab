@@ -281,4 +281,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nestedFilePrefabs:
+  - {fileID: 7252031198833296012, guid: 042286bf5685e9048aed6e8906440144, type: 3}
+  - {fileID: 7252031198833296012, guid: 171df865283d5f04aafa50e1721edcbd, type: 3}
   - {fileID: 7252031198833296012, guid: 479a00a8cc2dbd541a6b81fae95d68dd, type: 3}

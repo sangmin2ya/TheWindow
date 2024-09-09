@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,7 +16,7 @@ public class FolderSystem : MonoBehaviour
     public Transform fileGrid;  // 파일 버튼들이 배치될 그리드의 Transform
     public GameObject fileButtonPrefab;  // 파일 버튼의 프리팹
     public Button backButton;  // 뒤로가기 버튼
-    public TextMeshProUGUI fileNameText;  // 열려 있는 파일 이름을 표시할 TextMeshPro 텍스트
+    private TextMeshProUGUI fileNameText;  // 열려 있는 파일 이름을 표시할 TextMeshPro 텍스트
 
     private List<GameObject> currentFilePrefabs = new List<GameObject>(); // 현재 파일 프리팹 리스트
     private Stack<FolderState> backStack = new Stack<FolderState>(); // 뒤로가기 스택
@@ -29,9 +30,10 @@ public class FolderSystem : MonoBehaviour
     {
         // 버튼 이벤트 설정
         backButton.onClick.AddListener(OnBackButtonClick);
+        fileNameText = transform.parent.Find("TopBar/TopBarText").GetComponent<TextMeshProUGUI>();
 
         // 초기 경로 설정 (가장 처음 상태의 경로를 설정)
-        currentPath = new List<string> { transform.parent.GetComponent<Window>().windowType == WindowType.Folder ? "게임" : fileNameText.text };  // 첫 경로 "My Computer"로 설정
+        currentPath = new List<string> { transform.parent.GetComponent<Window>().windowType == WindowType.Folder ? "내 파일" : fileNameText.text };  // 첫 경로 "My Computer"로 설정
 
         // 초기 상태를 외부에서 주어진 파일 프리팹 리스트로 설정
         initialState = new FolderState(new List<string>(currentPath), new List<GameObject>(initialFilePrefabs));
