@@ -51,7 +51,8 @@ public class LocalKeywordSearch : MonoBehaviour
 
         foreach (var keyword in keywords)
         {
-            float similarity = CalculateSimilarity(input, keyword);
+            // input과 keyword를 모두 소문자로 변환하여 비교
+            float similarity = CalculateSimilarity(input.ToLower(), keyword.ToLower());
 
             if (similarity > bestSimilarity && similarity >= similarityThreshold)
             {
@@ -66,6 +67,10 @@ public class LocalKeywordSearch : MonoBehaviour
     // 두 문자열 간의 유사도를 계산하는 함수 (Levenshtein 거리 기반)
     private float CalculateSimilarity(string source, string target)
     {
+        // 소문자로 변환하여 비교
+        source = source.ToLower();
+        target = target.ToLower();
+
         int stepsToSame = LevenshteinDistance(source, target);
         return 1.0f - ((float)stepsToSame / Mathf.Max(source.Length, target.Length));
     }
