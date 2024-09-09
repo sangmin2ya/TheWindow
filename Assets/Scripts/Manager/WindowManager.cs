@@ -32,7 +32,16 @@ public class WindowManager : MonoBehaviour
                 Debug.Log("Window already opened");
                 return;
             }
-            if (window.windowType == WindowType.Setting || window.windowType == WindowType.Trashcan || window.windowType == WindowType.Messanger || window.windowType == WindowType.Game || window.windowType == WindowType.Alert)
+            if (window.windowType == WindowType.Setting || window.windowType == WindowType.Trashcan || window.windowType == WindowType.Messanger || window.windowType == WindowType.Game || window.windowType == WindowType.Alert || window.windowType == WindowType.Email)
+            {
+                if (w.windowType == window.windowType)
+                {
+                    FocusWindow(w);
+                    //하단 아이콘 포커스 효과
+                    Debug.Log("Window already opened");
+                    return;
+                }
+            }
             {
                 if (w.windowType == window.windowType)
                 {
