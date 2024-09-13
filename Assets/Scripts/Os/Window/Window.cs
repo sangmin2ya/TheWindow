@@ -48,7 +48,6 @@ public class Window : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDr
         windowType = _windowType;
 
         windowState = WindowState.Open;
-
         icon = _icon.GetComponent<IIcon>();
         _taskbarIcon = Instantiate(_icon as MonoBehaviour, GameObject.Find("TaskCanvas").transform).gameObject;
         _taskbarIcon.GetComponent<TaskBarIcon>().window = gameObject;

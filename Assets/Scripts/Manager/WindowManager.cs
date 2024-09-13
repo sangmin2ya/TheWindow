@@ -42,13 +42,11 @@ public class WindowManager : MonoBehaviour
                     return;
                 }
             }
+            if (window.windowType == WindowType.Error)
             {
-                if (w.windowType == window.windowType)
+                if (w.windowType == WindowType.Error)
                 {
-                    FocusWindow(w);
-                    //하단 아이콘 포커스 효과
-                    Debug.Log("Window already opened");
-                    return;
+                    CloseWindow(w);
                 }
             }
         }
