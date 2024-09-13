@@ -31,8 +31,8 @@ public class WindowManager : MonoBehaviour
                 //하단 아이콘 포커스 효과
                 Debug.Log("Window already opened");
                 return;
-            }
-            if (window.windowType == WindowType.Setting || window.windowType == WindowType.Trashcan || window.windowType == WindowType.Messanger || window.windowType == WindowType.Game || window.windowType == WindowType.Alert || window.windowType == WindowType.Email)
+
+            if (window.windowType == WindowType.Email || window.windowType == WindowType.Setting || window.windowType == WindowType.Trashcan || window.windowType == WindowType.Messanger || window.windowType == WindowType.Game || window.windowType == WindowType.Alert)
             {
                 if (w.windowType == window.windowType)
                 {
