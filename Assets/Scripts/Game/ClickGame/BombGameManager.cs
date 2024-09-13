@@ -29,6 +29,15 @@ public class BombGameManager : MonoBehaviour
 
     private void Start()
     {
+        if (MemoManager.Instance.scoreList[0].Item2 == "ME")
+        {
+            scoreText.transform.Find("Record/Cong").GetComponent<TextMeshProUGUI>().enabled = true;
+        }
+        else
+        {
+            scoreText.transform.Find("Record/Cong").GetComponent<TextMeshProUGUI>().enabled = false;
+        }
+
         for (int i = 0; i < 5; i++)
         {
             scoreText.transform.GetChild(i).GetComponent<TextMeshProUGUI>().text = (i + 1) + ". " + MemoManager.Instance.scoreList[i].Item2 + " - " + MemoManager.Instance.scoreList[i].Item1.ToString() + " 점";
@@ -130,6 +139,14 @@ public class BombGameManager : MonoBehaviour
         for (int i = 0; i < 5; i++)
         {
             scoreText.transform.GetChild(i).GetComponent<TextMeshProUGUI>().text = (i + 1) + ". " + MemoManager.Instance.scoreList[i].Item2 + " - " + MemoManager.Instance.scoreList[i].Item1.ToString() + " 점";
+        }
+        if (MemoManager.Instance.scoreList[0].Item2 == "ME")
+        {
+            scoreText.transform.Find("Record/Cong").GetComponent<TextMeshProUGUI>().enabled = true;
+        }
+        else
+        {
+            scoreText.transform.Find("Record/Cong").GetComponent<TextMeshProUGUI>().enabled = false;
         }
     }
     private IEnumerator ChangeTextColorCoroutine(TextMeshProUGUI textMeshPro)
