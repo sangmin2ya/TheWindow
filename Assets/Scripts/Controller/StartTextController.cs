@@ -79,7 +79,7 @@ public class StartTextController : MonoBehaviour
                     StartCoroutine(TypeText(fullText3, text3));
                     text2.gameObject.SetActive(false);
                 }
-                else if (isText1Done  && isText2Done && isText3Done)
+                else if (isText1Done && isText2Done && isText3Done)
                 {
                     StartCoroutine(FadeOutAndDisable());
                     text3.gameObject.SetActive(false);
@@ -110,6 +110,10 @@ public class StartTextController : MonoBehaviour
         else if (targetText == text2)
         {
             isText2Done = true;
+        }
+        else if (targetText == text3)
+        {
+            isText3Done = true;
         }
     }
 
