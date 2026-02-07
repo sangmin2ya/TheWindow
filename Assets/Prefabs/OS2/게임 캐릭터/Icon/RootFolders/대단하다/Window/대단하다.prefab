@@ -411,6 +411,7 @@ GameObject:
   - component: {fileID: 4652416195907535515}
   - component: {fileID: 3579986020880806566}
   - component: {fileID: 8087898472170675786}
+  - component: {fileID: 925461529425625778}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -537,6 +538,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &925461529425625778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2615657479342232678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8a347d88a058144a8743851a6b7367b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3817324630758186431
 GameObject:
   m_ObjectHideFlags: 0
@@ -769,6 +782,7 @@ MonoBehaviour:
   _windowState: 0
   _icon: {fileID: 7354364649582546957, guid: 5c7d9d18b36db6c48a72a7de9ec50f4f, type: 3}
   _maximizeIcon: {fileID: 5185075279563270518}
+  storedButtonText: 
 --- !u!1 &4678761793942181486
 GameObject:
   m_ObjectHideFlags: 0
